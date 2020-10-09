@@ -10,130 +10,141 @@ import org.json.JSONObject;
 public class MembersContract {
 
     private static final String TAG = MembersContract.class.getName();
-    private String _ID;
-    private String LUID;
-    private String subVillageCode; // hh02
-    private String structure;  // Structure
-    private String extension; // Extension
-    private String hhhead;
-    private String randomDT;
-    private String contact;
-    private String selStructure;
+    private String id;
+    private String hhid;
+    private String head;
+    private String memberid;
+    private String membername;
+    private String address;
+    private String blood;
+    private String nasal;
+    private String personal_colid;
+    private String cluster;
 
     public MembersContract() {
     }
 
     public MembersContract sync(JSONObject jsonObject) throws JSONException {
-        this._ID = jsonObject.getString(singleRandomHH.COLUMN_ID);
-        this.LUID = jsonObject.getString(singleRandomHH.COLUMN_LUID);
-        this.subVillageCode = jsonObject.getString(singleRandomHH.COLUMN_CLUSTER_BLOCK_CODE);
-        this.structure = jsonObject.getString(singleRandomHH.COLUMN_STRUCTURE_NO);
-        this.extension = jsonObject.getString(singleRandomHH.COLUMN_FAMILY_EXT_CODE);
-        this.randomDT = jsonObject.getString(singleRandomHH.COLUMN_RANDOMDT);
-        this.hhhead = jsonObject.getString(singleRandomHH.COLUMN_HH_HEAD);
-        this.contact = jsonObject.getString(singleRandomHH.COLUMN_CONTACT);
-        this.selStructure = jsonObject.getString(singleRandomHH.COLUMN_HH_SELECTED_STRUCT);
+        this.id = jsonObject.getString(MembersTable.COLUMN_ID);
+        this.hhid = jsonObject.getString(MembersTable.COLUMN_HHID);
+        this.head = jsonObject.getString(MembersTable.COLUMN_HEAD);
+        this.memberid = jsonObject.getString(MembersTable.COLUMN_MEMBERID);
+        this.membername = jsonObject.getString(MembersTable.COLUMN_MEMBERNAME);
+        this.blood = jsonObject.getString(MembersTable.COLUMN_BLOOD);
+        this.address = jsonObject.getString(MembersTable.COLUMN_ADDRESS);
+        this.nasal = jsonObject.getString(MembersTable.COLUMN_NASAL);
+        this.personal_colid = jsonObject.getString(MembersTable.COLUMN_HH_PERSONAL_COLID);
+        this.cluster = jsonObject.getString(MembersTable.COLUMN_CLUSTER);
 
         return this;
     }
 
     public MembersContract hydrate(Cursor cursor) {
-        this._ID = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_ID));
-        this.LUID = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_LUID));
-        this.subVillageCode = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_CLUSTER_BLOCK_CODE));
-        this.structure = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_STRUCTURE_NO));
-        this.extension = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_FAMILY_EXT_CODE));
-        this.randomDT = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_RANDOMDT));
-        this.hhhead = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_HH_HEAD));
-        this.contact = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_CONTACT));
-        this.selStructure = cursor.getString(cursor.getColumnIndex(singleRandomHH.COLUMN_HH_SELECTED_STRUCT));
+        this.id = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_ID));
+        this.hhid = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_HHID));
+        this.head = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_HEAD));
+        this.memberid = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_MEMBERID));
+        this.membername = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_MEMBERNAME));
+        this.blood = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_BLOOD));
+        this.address = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_ADDRESS));
+        this.nasal = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_NASAL));
+        this.personal_colid = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_HH_PERSONAL_COLID));
+        this.cluster = cursor.getString(cursor.getColumnIndex(MembersTable.COLUMN_CLUSTER));
         return this;
     }
 
-    public String get_ID() {
-        return _ID;
+    public String getId() {
+        return id;
     }
 
-    public void set_ID(String _ID) {
-        this._ID = _ID;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getLUID() {
-        return LUID;
+    public String getHhid() {
+        return hhid;
     }
 
-    public void setLUID(String LUID) {
-        this.LUID = LUID;
+    public void setHhid(String hhid) {
+        this.hhid = hhid;
     }
 
-    public String getSubVillageCode() {
-        return subVillageCode;
+    public String getHead() {
+        return head;
     }
 
-    public void setSubVillageCode(String subVillageCode) {
-        this.subVillageCode = subVillageCode;
+    public void setHead(String head) {
+        this.head = head;
     }
 
-    public String getStructure() {
-        return structure;
+    public String getMemberid() {
+        return memberid;
     }
 
-    public void setStructure(String structure) {
-        this.structure = structure;
+    public void setMemberid(String memberid) {
+        this.memberid = memberid;
     }
 
-    public String getExtension() {
-        return extension;
+    public String getMembername() {
+        return membername;
     }
 
-    public void setExtension(String extension) {
-        this.extension = extension;
+    public void setMembername(String membername) {
+        this.membername = membername;
     }
 
-    public String getRandomDT() {
-        return randomDT;
+    public String getBlood() {
+        return blood;
     }
 
-    public void setRandomDT(String randomDT) {
-        this.randomDT = randomDT;
+    public void setBlood(String blood) {
+        this.blood = blood;
     }
 
-    public String getHhhead() {
-        return hhhead;
+    public String getAddress() {
+        return address;
     }
 
-    public void setHhhead(String hhhead) {
-        this.hhhead = hhhead;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getContact() {
-        return contact;
+    public String getNasal() {
+        return nasal;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setNasal(String nasal) {
+        this.nasal = nasal;
     }
 
-    public String getSelStructure() {
-        return selStructure;
+    public String getPersonal_colid() {
+        return personal_colid;
     }
 
-    public void setSelStructure(String selStructure) {
-        this.selStructure = selStructure;
+    public void setPersonal_colid(String personal_colid) {
+        this.personal_colid = personal_colid;
     }
 
-    public static abstract class singleRandomHH implements BaseColumns {
+    public String getCluster() {
+        return cluster;
+    }
+
+    public void setCluster(String cluster) {
+        this.cluster = cluster;
+    }
+
+    public static abstract class MembersTable implements BaseColumns {
 
         public static final String TABLE_NAME = "members";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_RANDOMDT = "randDT";
-        public static final String COLUMN_LUID = "UID";
-        public static final String COLUMN_CLUSTER_BLOCK_CODE = "hh02";
-        public static final String COLUMN_STRUCTURE_NO = "hh03";
-        public static final String COLUMN_FAMILY_EXT_CODE = "hh07";
-        public static final String COLUMN_HH_HEAD = "hh08";
-        public static final String COLUMN_CONTACT = "hh09";
-        public static final String COLUMN_HH_SELECTED_STRUCT = "hhss";
+        public static final String COLUMN_ID = "id";
+        public static final String COLUMN_BLOOD = "blood";
+        public static final String COLUMN_HHID = "hhid";
+        public static final String COLUMN_HEAD = "head";
+        public static final String COLUMN_MEMBERID = "memberid";
+        public static final String COLUMN_MEMBERNAME = "membername";
+        public static final String COLUMN_ADDRESS = "address";
+        public static final String COLUMN_NASAL = "nasal";
+        public static final String COLUMN_HH_PERSONAL_COLID = "personal_colid";
+        public static final String COLUMN_CLUSTER = "cluster";
     }
-
 }

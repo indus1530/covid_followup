@@ -3,7 +3,7 @@ package edu.aku.smk_hhlisting_app.utils
 import edu.aku.smk_hhlisting_app.contracts.ClustersContract.ClusterTable
 import edu.aku.smk_hhlisting_app.contracts.EnumBlockContract.EnumBlockTable
 import edu.aku.smk_hhlisting_app.contracts.FormsContract.FormsTable
-import edu.aku.smk_hhlisting_app.contracts.MembersContract.singleRandomHH
+import edu.aku.smk_hhlisting_app.contracts.MembersContract.MembersTable
 import edu.aku.smk_hhlisting_app.contracts.PersonalContract.PersonalTable
 import edu.aku.smk_hhlisting_app.contracts.UsersContract.UsersTable
 import edu.aku.smk_hhlisting_app.contracts.VersionAppContract.VersionAppTable
@@ -12,16 +12,16 @@ const val DATABASE_NAME = "SMK-hhl.db"
 const val PROJECT_NAME = "DMU-SMK/LISTING"
 val DB_NAME = DATABASE_NAME.replace(".db", "-copy.db")
 const val DATABASE_VERSION = 1
-const val SQL_CREATE_BL_RANDOM = ("CREATE TABLE " + singleRandomHH.TABLE_NAME + "("
-        + singleRandomHH.COLUMN_ID + "  INTEGER PRIMARY KEY AUTOINCREMENT,"
-        + singleRandomHH.COLUMN_CLUSTER_BLOCK_CODE + " TEXT,"
-        + singleRandomHH.COLUMN_LUID + " TEXT,"
-        + singleRandomHH.COLUMN_STRUCTURE_NO + " TEXT,"
-        + singleRandomHH.COLUMN_FAMILY_EXT_CODE + " TEXT,"
-        + singleRandomHH.COLUMN_HH_HEAD + " TEXT,"
-        + singleRandomHH.COLUMN_CONTACT + " TEXT,"
-        + singleRandomHH.COLUMN_HH_SELECTED_STRUCT + " TEXT,"
-        + singleRandomHH.COLUMN_RANDOMDT + " TEXT );")
+const val SQL_CREATE_BL_RANDOM = ("CREATE TABLE " + MembersTable.TABLE_NAME + "("
+        + MembersTable.COLUMN_ID + "  INTEGER PRIMARY KEY AUTOINCREMENT,"
+        + MembersTable.COLUMN_HEAD + " TEXT,"
+        + MembersTable.COLUMN_HHID + " TEXT,"
+        + MembersTable.COLUMN_MEMBERID + " TEXT,"
+        + MembersTable.COLUMN_MEMBERNAME + " TEXT,"
+        + MembersTable.COLUMN_ADDRESS + " TEXT,"
+        + MembersTable.COLUMN_NASAL + " TEXT,"
+        + MembersTable.COLUMN_HH_PERSONAL_COLID + " TEXT,"
+        + MembersTable.COLUMN_BLOOD + " TEXT );")
 const val SQL_CREATE_FORM_TABLE = (("CREATE TABLE "
         + FormsTable.TABLE_NAME) + "("
         + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"

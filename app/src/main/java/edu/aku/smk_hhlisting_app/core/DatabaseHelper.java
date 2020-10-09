@@ -25,6 +25,7 @@ import edu.aku.smk_hhlisting_app.contracts.EnumBlockContract;
 import edu.aku.smk_hhlisting_app.contracts.EnumBlockContract.EnumBlockTable;
 import edu.aku.smk_hhlisting_app.contracts.FormsContract;
 import edu.aku.smk_hhlisting_app.contracts.FormsContract.FormsTable;
+import edu.aku.smk_hhlisting_app.contracts.MembersContract;
 import edu.aku.smk_hhlisting_app.contracts.PersonalContract;
 import edu.aku.smk_hhlisting_app.contracts.PersonalContract.PersonalTable;
 import edu.aku.smk_hhlisting_app.contracts.UsersContract;
@@ -180,6 +181,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addMember(MembersContract members) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(MembersContract.MembersTable.COLUMN_ID, members.getId());
+        values.put(MembersContract.MembersTable.COLUMN_BLOOD, members.getBlood());
+        values.put(MembersContract.MembersTable.COLUMN_HHID, members.getHhid());
+        values.put(MembersContract.MembersTable.COLUMN_HEAD, members.getHead());
+        values.put(MembersContract.MembersTable.COLUMN_MEMBERID, members.getMemberid());
+        values.put(MembersContract.MembersTable.COLUMN_MEMBERNAME, members.getMembername());
+        values.put(MembersContract.MembersTable.COLUMN_ADDRESS, members.getAddress());
+        values.put(MembersContract.MembersTable.COLUMN_NASAL, members.getNasal());
+        values.put(MembersContract.MembersTable.COLUMN_HH_PERSONAL_COLID, members.getPersonal_colid());
+        values.put(MembersContract.MembersTable.COLUMN_CLUSTER, members.getCluster());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                MembersContract.MembersTable.TABLE_NAME,
+                MembersContract.MembersTable.COLUMN_ID,
+                values);
+        return newRowId;
+    }
+
 
     //Update forms in DB
 
@@ -305,7 +333,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (int) count;
     }
 
-
     //Update from server response
     public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -325,7 +352,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 where,
                 whereArgs);
     }
-
 
     //Get Functions
     public int getListingCount() {
@@ -531,6 +557,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allPersonal;
+    }
+
+    public Collection<MembersContract> getUnsyncedMembers() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                MembersContract.MembersTable.COLUMN_ID,
+                MembersContract.MembersTable.COLUMN_BLOOD,
+                MembersContract.MembersTable.COLUMN_HHID,
+                MembersContract.MembersTable.COLUMN_HEAD,
+                MembersContract.MembersTable.COLUMN_MEMBERID,
+                MembersContract.MembersTable.COLUMN_MEMBERNAME,
+                MembersContract.MembersTable.COLUMN_ADDRESS,
+                MembersContract.MembersTable.COLUMN_NASAL,
+                MembersContract.MembersTable.COLUMN_HH_PERSONAL_COLID,
+                MembersContract.MembersTable.COLUMN_CLUSTER,
+        };
+
+
+        String whereClause = MembersContract.MembersTable.COLUMN_ID + " is null OR " + PersonalTable.COLUMN_SYNCED + " == '' ";
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+        String orderBy = MembersContract.MembersTable.COLUMN_ID + " ASC";
+
+        Collection<MembersContract> allMember = new ArrayList<>();
+        try {
+            c = db.query(
+                    MembersContract.MembersTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                MembersContract members = new MembersContract();
+                allMember.add(members.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMember;
     }
 
     public ArrayList<Cursor> getData(String Query) {
