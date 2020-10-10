@@ -22,10 +22,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.other.EndingActivity"></activity>
+        <activity
+            android:name=".activities.other.EndingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".activities.ui.SectionPCActivity" />
         <activity android:name=".activities.ui.SectionPAActivity" />
-        <activity android:name=".activities.list.InfoActivity" />
+        <activity
+            android:name=".activities.list.InfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activities.other.SplashscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

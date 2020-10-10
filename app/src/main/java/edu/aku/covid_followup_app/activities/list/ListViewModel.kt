@@ -31,16 +31,18 @@ class ListViewModel : ViewModel() {
 
     }
 
-    suspend fun hhLoadFromDB(context: Context, cluster: String) = withContext(Dispatchers.IO) {
+    suspend fun hhLoadFromDB(context: Context, cluster: String) = withContext(Dispatchers.Main) {
         val db = DatabaseHelper(context)
         val data = db.getHHAccordingToCluster(cluster)
+        val getHHLst = mutableListOf<MembersContract>()
         data.forEach { hh ->
             val flag = hhLst.value?.filter { item -> item.hhid == hh.hhid }
-            val getHHLst = mutableListOf<MembersContract>()
-            if (flag == null) {
+            if (flag?.isEmpty() == true) {
                 getHHLst.add(hh)
             }
         }
+
+        hhLst.value = getHHLst
     }
 
 }

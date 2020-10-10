@@ -37,7 +37,7 @@ class InfoActivity : AppCompatActivity() {
         }
 
         mainVModel.hhLst.observe(this, { item ->
-            adapter.setMList(item)
+            adapter.setMList(item) p
         })
 
         mainVModel.getHouseHoldLst(this, selectedCluster.cluster_id)

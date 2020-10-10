@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.covid_sero.ui.other
+package edu.aku.covid_followup_app.activities.other
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.validatorcrawler.aliazaz.Validator
 import edu.aku.covid_followup_app.R
-import edu.aku.covid_followup_app.activities.other.MainActivity
 import edu.aku.covid_followup_app.core.MainApp
 import edu.aku.covid_followup_app.databinding.ActivityEndingBinding
 import java.text.SimpleDateFormat

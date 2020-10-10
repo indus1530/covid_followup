@@ -78,7 +78,7 @@
     <string name="pc012">نہیں</string>
     <string name="pc02">حاصل کئے گئے خون کے نمونے کی مقدار</string>
     <string name="pc02text">ملی لیٹر</string>
-    <string name="pc03"> خون کے نمونے کی سیمپل آئی ڈی                                    </string>
+    <string name="pc03"> خون کے نمونے کی سیمپل آئی ڈی</string>
     <string name="pc04t">اگر پچھلے دورے کے دوران ناک کا سیمپل لیا گیا تھا تو اس صورت میں ناک کا سیمپل لیں</string>
     <string name="pc04">کیا کرونا کے ٹیسٹ کے لئے ناک سے سیمپل لیا گیا</string>
     <string name="pc041">ہاں</string>
@@ -204,14 +204,11 @@
     <string name="copy_data_to_sdcard">COPY DATA TO SDCARD</string>
 
     <string name="pc02a">ہیموگلوبن کے نتائج درج کریں۔</string>
-    <string name="pc03">سیمپل آئی ڈی</string>
     <string name="pc03a">کیا کرونا کے ٹیسٹ کے لئے ناک سے سیمپل لیا گیا</string>
     <string name="pc03b">ناک کے سیمپل کی آئی ڈی</string>
     <string name="pc03a1">ہاں</string>
     <string name="pc03a2">نہیں</string>
-    <string name="pc04">پیمائش کرنے والے کا نام</string>
     <string name="pc04a">پیمائش کرنے والے کا کوڈ</string>
-    <string name="pc05"> قد سینٹی میٹر میں</string>
     <string name="pc06">وزن کلو گرام میں</string>
 
 
