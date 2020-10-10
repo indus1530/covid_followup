@@ -1384,8 +1384,8 @@
                         android:text="@string/pa0698" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <!-- pa06a98  Radio   -->
+<!--
+            &lt;!&ndash; pa06a98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06a98"
                 style="@style/cardView">
@@ -1419,7 +1419,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pa06b98  Radio   -->
+            &lt;!&ndash; pa06b98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06b98"
                 style="@style/cardView">
@@ -1453,7 +1453,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pa06c98  Radio   -->
+            &lt;!&ndash; pa06c98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06c98"
                 style="@style/cardView">
@@ -1487,7 +1487,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pa06d98  Radio   -->
+            &lt;!&ndash; pa06d98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06d98"
                 style="@style/cardView">
@@ -1521,7 +1521,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pa06e98  Radio   -->
+            &lt;!&ndash; pa06e98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06e98"
                 style="@style/cardView">
@@ -1555,7 +1555,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pa06f98  Radio   -->
+            &lt;!&ndash; pa06f98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06f98"
                 style="@style/cardView">
@@ -1589,7 +1589,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pa06g98  Radio   -->
+            &lt;!&ndash; pa06g98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06g98"
                 style="@style/cardView">
@@ -1623,7 +1623,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- pa06h98  Radio   -->
+            &lt;!&ndash; pa06h98  Radio   &ndash;&gt;
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa06h98"
                 style="@style/cardView">
@@ -1655,7 +1655,7 @@
                             android:text="@string/Q_pa06h98" />
                     </RelativeLayout>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>-->
 
             <!-- pa07  Radio   -->
             <androidx.cardview.widget.CardView
