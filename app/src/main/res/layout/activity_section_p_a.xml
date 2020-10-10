@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- pa01     -->
+            <!-- pa01 -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa01"
                 style="@style/cardView">
@@ -1198,12 +1198,6 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
-                        android:id="@+id/pa06a98"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pa06a98" />
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1214,12 +1208,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/pa06a"
+                        android:enabled='@{pa06a98.checked ? false : true}'
                         android:inputType="number"
                         android:maxLength="2"
                         app:defaultValue="97"
                         app:maxValue="30"
                         app:minValue="1"
                         app:type="range" />
+
+                    <RadioButton
+                        android:id="@+id/pa06a98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1238,6 +1239,12 @@
                         app:minValue="1"
                         app:type="range" />
 
+                    <RadioButton
+                        android:id="@+id/pa06b98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1254,6 +1261,12 @@
                         app:maxValue="30"
                         app:minValue="1"
                         app:type="range" />
+
+                    <RadioButton
+                        android:id="@+id/pa06c98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1272,6 +1285,12 @@
                         app:minValue="1"
                         app:type="range" />
 
+                    <RadioButton
+                        android:id="@+id/pa06d98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1288,6 +1307,12 @@
                         app:maxValue="30"
                         app:minValue="1"
                         app:type="range" />
+
+                    <RadioButton
+                        android:id="@+id/pa06e98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1306,6 +1331,12 @@
                         app:minValue="1"
                         app:type="range" />
 
+                    <RadioButton
+                        android:id="@+id/pa06f98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1323,6 +1354,12 @@
                         app:minValue="1"
                         app:type="range" />
 
+                    <RadioButton
+                        android:id="@+id/pa06g98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1339,6 +1376,12 @@
                         app:maxValue="30"
                         app:minValue="1"
                         app:type="range" />
+
+                    <RadioButton
+                        android:id="@+id/pa06h98"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pa0698" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

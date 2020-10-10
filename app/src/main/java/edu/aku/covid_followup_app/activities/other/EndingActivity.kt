@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.covid_sero.ui.other
+package edu.aku.covid_followup_app.activities.other;
 
 import android.content.Intent
 import android.os.Bundle
