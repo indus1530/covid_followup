@@ -47,9 +47,9 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int i) {
 
-        holder.bi.index.setText(mList.get(i).getHhid());
+        holder.bi.index.setText(String.format("HH-ID: %s", mList.get(i).getHhid()));
         holder.bi.address.setText(mList.get(i).getAddress());
-        holder.bi.name.setText(mList.get(i).getHead());
+        holder.bi.name.setText(String.format("HH-Head: %s", mList.get(i).getHead()));
         holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i, isMother));
         viewHolder = holder.bi;
 

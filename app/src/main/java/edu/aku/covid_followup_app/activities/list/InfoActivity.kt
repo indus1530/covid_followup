@@ -1,5 +1,6 @@
 package edu.aku.covid_followup_app.activities.list
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import edu.aku.covid_followup_app.CONSTANTS
 import edu.aku.covid_followup_app.CONSTANTS.Companion.CLUSTER_INFO
 import edu.aku.covid_followup_app.R
+import edu.aku.covid_followup_app.activities.ui.SectionPAActivity
 import edu.aku.covid_followup_app.adapters.HHListAdapter
 import edu.aku.covid_followup_app.contracts.ClustersContract
 import edu.aku.covid_followup_app.contracts.MembersContract
@@ -75,7 +77,7 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
 
     override fun callWarningActivity(id: Int) {
         if (id == CONSTANTS.HH_CLICKED) {
-
+            startActivity(Intent(this, SectionPAActivity::class.java))
         }
     }
 

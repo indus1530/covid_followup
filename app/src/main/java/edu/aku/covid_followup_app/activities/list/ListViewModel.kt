@@ -36,7 +36,7 @@ class ListViewModel : ViewModel() {
         val data = db.getHHAccordingToCluster(cluster)
         val getHHLst = mutableListOf<MembersContract>()
         data.forEach { hh ->
-            val flag = hhLst.value?.filter { item -> item.hhid == hh.hhid }
+            val flag = hhLst.value?.filter { item -> item.hhid != hh.hhid }
             if (flag?.isEmpty() == true) {
                 getHHLst.add(hh)
             }

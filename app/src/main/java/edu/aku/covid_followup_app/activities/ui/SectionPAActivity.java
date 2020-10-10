@@ -8,6 +8,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -18,8 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.covid_followup_app.CONSTANTS;
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.MembersContract;
@@ -31,8 +32,6 @@ import edu.aku.covid_followup_app.utils.WarningActivityInterface;
 
 import static edu.aku.covid_followup_app.CONSTANTS.NASAL_TAKEN;
 import static edu.aku.covid_followup_app.CONSTANTS.PERSONAL_END;
-import static edu.aku.covid_followup_app.CONSTANTS.REQUEST_APP_UPDATE;
-import static edu.aku.covid_followup_app.CONSTANTS.REQUEST_PERSONAL_EXIT;
 import static edu.aku.covid_followup_app.core.MainApp.pc;
 import static edu.aku.covid_followup_app.utils.OtherUtilsKt.openWarningActivity;
 
@@ -93,8 +92,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         });
 
-        bi.pa01.setText(member.getMemberid());
-        bi.pa02.setText(member.getMembername());
+        /*bi.pa01.setText(member.getMemberid());
+        bi.pa02.setText(member.getMembername());*/
     }
 
     public void BtnContinue() {
