@@ -32,6 +32,11 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
         this.itemClicked = itemClicked;
     }
 
+    public void setMList(List<MembersContract> members) {
+        mList = members;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
@@ -45,7 +50,7 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
         holder.bi.index.setText(mList.get(i).getHhid());
         holder.bi.address.setText(mList.get(i).getAddress());
         holder.bi.name.setText(mList.get(i).getHead());
-        holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i, isMother, holder.bi));
+        holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i, isMother));
         viewHolder = holder.bi;
 
         /*if (isMother) {
@@ -68,7 +73,7 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
     }
 
     public interface OnItemClicked {
-        void onItemClick(MembersContract item, int position, boolean isMother, ItemListBinding holder);
+        void onItemClick(MembersContract item, int position, boolean flag);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

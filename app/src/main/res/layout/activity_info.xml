@@ -10,7 +10,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.covid_followup_app.activities.other.MainActivity" />
+            type="edu.aku.covid_followup_app.activities.list.InfoActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

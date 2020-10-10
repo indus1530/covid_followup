@@ -7,7 +7,9 @@ import android.provider.BaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ClustersContract {
+import java.io.Serializable;
+
+public class ClustersContract implements Serializable {
 
     private static final String TAG = ClustersContract.class.getName();
     String dist_id;

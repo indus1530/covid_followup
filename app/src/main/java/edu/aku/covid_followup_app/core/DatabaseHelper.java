@@ -23,6 +23,7 @@ import edu.aku.covid_followup_app.contracts.ClustersContract.ClusterTable;
 import edu.aku.covid_followup_app.contracts.FormsContract;
 import edu.aku.covid_followup_app.contracts.FormsContract.FormsTable;
 import edu.aku.covid_followup_app.contracts.MembersContract;
+import edu.aku.covid_followup_app.contracts.MembersContract.MembersTable;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract.PersonalTable;
 import edu.aku.covid_followup_app.contracts.UsersContract;
@@ -653,5 +654,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allEB;
+    }
+
+    public List<MembersContract> getHHAccordingToCluster(String cluster) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                MembersTable.COLUMN_ID,
+                MembersTable.COLUMN_BLOOD,
+                MembersTable.COLUMN_HHID,
+                MembersTable.COLUMN_HEAD,
+                MembersTable.COLUMN_MEMBERID,
+                MembersTable.COLUMN_MEMBERNAME,
+                MembersTable.COLUMN_ADDRESS,
+                MembersTable.COLUMN_NASAL,
+                MembersTable.COLUMN_HH_PERSONAL_COLID,
+                MembersTable.COLUMN_CLUSTER,
+        };
+
+
+        String whereClause = MembersTable.COLUMN_CLUSTER + " =? ";
+        String[] whereArgs = {cluster};
+        String groupBy = null;
+        String having = null;
+        String orderBy = MembersTable.COLUMN_HHID + " ASC";
+
+        List<MembersContract> allMember = new ArrayList<>();
+        try {
+            c = db.query(
+                    MembersTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                MembersContract members = new MembersContract();
+                allMember.add(members.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMember;
     }
 }

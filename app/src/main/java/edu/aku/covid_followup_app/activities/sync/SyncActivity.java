@@ -225,8 +225,8 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         protected void onPostExecute(String s) {
             new Handler().postDelayed(() -> {
 
-                editor.putBoolean("flag", true);
-                editor.commit();
+                /*editor.putBoolean("flag", true);
+                editor.commit();*/
 
                 dbBackup(mContext);
 

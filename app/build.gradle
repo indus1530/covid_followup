@@ -18,7 +18,7 @@ android {
         versionProps.store(versionPropsFile.newWriter(), null)
 
         defaultConfig {
-            applicationId "edu.aku.smk_hhlisting_app"
+            applicationId "edu.aku.covid_followup_app"
             minSdkVersion 22
             targetSdkVersion 30
             versionCode code
@@ -85,6 +85,7 @@ dependencies {
     def lifecycle_version = "2.2.0"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     //Date Time
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.4'
     //SDP
