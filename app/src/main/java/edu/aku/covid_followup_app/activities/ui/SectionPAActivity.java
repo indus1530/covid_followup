@@ -116,8 +116,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         if (!formValidation()) return;
         openWarningActivity(this,
                 PERSONAL_END,
-                getString(R.string.app_name) + "Warning!",
-                getString(R.string.app_name) + "App Ver." + newVer + " is now available. Your are currently using olderVer." + preVer + ".\nInstall new version to use this app.",
+                "Warning!",
+                "Do you want to Exit",
                 "Yes",
                 "No"
         );
