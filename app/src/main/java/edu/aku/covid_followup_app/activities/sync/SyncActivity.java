@@ -189,7 +189,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             runOnUiThread(() -> {
                 new SyncDevice(SyncActivity.this, false).execute();
                 if (booleans[0]) {
-                    String[] download = {"User", "VersionApp", "District", "Members"};
+                    String[] download = {"User", "VersionApp", "Cluster", "Members"};
                     for (String item : download) {
                         if (listActivityCreated) {
                             model = new SyncModel();

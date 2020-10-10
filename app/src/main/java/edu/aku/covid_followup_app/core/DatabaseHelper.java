@@ -276,20 +276,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 JSONObject jsonObjectUser = membersList.getJSONObject(i);
 
-                UsersContract user = new UsersContract();
-                user.Sync(jsonObjectUser);
+                MembersContract mem = new MembersContract();
+                mem.sync(jsonObjectUser);
                 ContentValues values = new ContentValues();
 
-                values.put(MembersContract.MembersTable.COLUMN_ID, user.getUserName());
-                values.put(MembersContract.MembersTable.COLUMN_BLOOD, user.getPassword());
-                values.put(MembersContract.MembersTable.COLUMN_HHID, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_HEAD, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_MEMBERID, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_MEMBERNAME, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_ADDRESS, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_NASAL, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_HH_PERSONAL_COLID, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_CLUSTER, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_ID, mem.getId());
+                values.put(MembersContract.MembersTable.COLUMN_BLOOD, mem.getBlood());
+                values.put(MembersContract.MembersTable.COLUMN_HHID, mem.getHhid());
+                values.put(MembersContract.MembersTable.COLUMN_HEAD, mem.getHead());
+                values.put(MembersContract.MembersTable.COLUMN_MEMBERID, mem.getMemberid());
+                values.put(MembersContract.MembersTable.COLUMN_MEMBERNAME, mem.getMembername());
+                values.put(MembersContract.MembersTable.COLUMN_ADDRESS, mem.getAddress());
+                values.put(MembersContract.MembersTable.COLUMN_NASAL, mem.getNasal());
+                values.put(MembersContract.MembersTable.COLUMN_HH_PERSONAL_COLID, mem.getPersonal_colid());
+                values.put(MembersContract.MembersTable.COLUMN_CLUSTER, mem.getCluster());
                 long rowID = db.insert(MembersContract.MembersTable.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }

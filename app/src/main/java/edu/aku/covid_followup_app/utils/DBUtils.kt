@@ -7,8 +7,8 @@ import edu.aku.covid_followup_app.contracts.PersonalContract.PersonalTable
 import edu.aku.covid_followup_app.contracts.UsersContract.UsersTable
 import edu.aku.covid_followup_app.contracts.VersionAppContract.VersionAppTable
 
-const val DATABASE_NAME = "SMK-hhl.db"
-const val PROJECT_NAME = "DMU-SMK/LISTING"
+const val DATABASE_NAME = "covidsero-fup.db"
+const val PROJECT_NAME = "DMU-COVIDSERO/FUP"
 val DB_NAME = DATABASE_NAME.replace(".db", "-copy.db")
 const val DATABASE_VERSION = 1
 const val SQL_CREATE_BL_RANDOM = ("CREATE TABLE " + MembersTable.TABLE_NAME + "("
@@ -20,6 +20,7 @@ const val SQL_CREATE_BL_RANDOM = ("CREATE TABLE " + MembersTable.TABLE_NAME + "(
         + MembersTable.COLUMN_ADDRESS + " TEXT,"
         + MembersTable.COLUMN_NASAL + " TEXT,"
         + MembersTable.COLUMN_HH_PERSONAL_COLID + " TEXT,"
+        + MembersTable.COLUMN_CLUSTER + " TEXT,"
         + MembersTable.COLUMN_BLOOD + " TEXT );")
 const val SQL_CREATE_FORM_TABLE = (("CREATE TABLE "
         + FormsTable.TABLE_NAME) + "("
