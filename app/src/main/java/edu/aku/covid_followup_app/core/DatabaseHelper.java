@@ -210,7 +210,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
-    public int syncDistrict(JSONArray distList) {
+    public int syncCluster(JSONArray distList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(ClusterTable.TABLE_NAME, null, null);
         int insertCount = 0;
