@@ -5,7 +5,6 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Environment
@@ -19,7 +18,6 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import edu.aku.covid_followup_app.R
 import edu.aku.covid_followup_app.databinding.ItemDialogBinding
-import edu.aku.hassannaqvi.covid_sero.ui.other.EndingActivity
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*

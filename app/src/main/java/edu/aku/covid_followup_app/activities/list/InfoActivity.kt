@@ -5,14 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import edu.aku.covid_followup_app.CONSTANTS
 import edu.aku.covid_followup_app.CONSTANTS.Companion.CLUSTER_INFO
 import edu.aku.covid_followup_app.R
 import edu.aku.covid_followup_app.adapters.HHListAdapter
 import edu.aku.covid_followup_app.contracts.ClustersContract
 import edu.aku.covid_followup_app.contracts.MembersContract
 import edu.aku.covid_followup_app.databinding.ActivityInfoBinding
+import edu.aku.covid_followup_app.utils.WarningActivityInterface
+import edu.aku.covid_followup_app.utils.openWarningActivity
 
-class InfoActivity : AppCompatActivity() {
+class InfoActivity : AppCompatActivity(), WarningActivityInterface {
 
     private lateinit var adapter: HHListAdapter
     private lateinit var bi: ActivityInfoBinding
@@ -37,7 +40,7 @@ class InfoActivity : AppCompatActivity() {
         }
 
         mainVModel.hhLst.observe(this, { item ->
-            adapter.setMList(item) p
+            adapter.setMList(item)
         })
 
         mainVModel.getHouseHoldLst(this, selectedCluster.cluster_id)
@@ -61,6 +64,18 @@ class InfoActivity : AppCompatActivity() {
                 startActivityForResult(Intent(this, SectionDActivity::class.java)
                         .putExtra(SERIAL_EXTRA, item.serialno.toInt()), CONSTANTS.MEMBER_ITEM)
             }*/
+            openWarningActivity(this,
+                    CONSTANTS.HH_CLICKED,
+                    "Update Household information",
+                    "Are you sure to update information of HHID: ${item.hhid} ?",
+                    "Yes",
+                    "Cancel")
+        }
+    }
+
+    override fun callWarningActivity(id: Int) {
+        if (id == CONSTANTS.HH_CLICKED) {
+
         }
     }
 
