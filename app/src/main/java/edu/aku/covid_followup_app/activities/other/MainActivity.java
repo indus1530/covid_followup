@@ -42,7 +42,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
+import edu.aku.covid_followup_app.CONSTANTS;
 import edu.aku.covid_followup_app.R;
+import edu.aku.covid_followup_app.activities.list.InfoActivity;
 import edu.aku.covid_followup_app.activities.menu.MenuActivity;
 import edu.aku.covid_followup_app.contracts.ClustersContract;
 import edu.aku.covid_followup_app.contracts.FormsContract;
@@ -75,6 +77,7 @@ public class MainActivity extends MenuActivity implements WarningActivityInterfa
     private SharedPreferences.Editor editorDownload;
     private ActivityMainBinding bi;
     private String preVer = "", newVer = "";
+    private ClustersContract selectedCluster;
 
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -260,7 +263,7 @@ public class MainActivity extends MenuActivity implements WarningActivityInterfa
     @Override
     public void onBackPressed() {
         if (exit) {
-            finish(); // finish activity
+            finish();
             startActivity(new Intent(this, LoginActivity.class));
         } else {
             Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
@@ -279,7 +282,7 @@ public class MainActivity extends MenuActivity implements WarningActivityInterfa
 
     //Screen Buttons
     public void OpenFormClicked(View view) {
-
+        startActivity(new Intent(this, InfoActivity.class).putExtra(CONSTANTS.CLUSTER_INFO, selectedCluster));
     }
 
     public void OpenDBManagerBtn(View view) {
@@ -337,6 +340,7 @@ public class MainActivity extends MenuActivity implements WarningActivityInterfa
                 if (position == 0) return;
                 bi.openFormBtn.setClickable(true);
                 /*MainApp.DIST_ID = Objects.requireNonNull(SplashscreenActivity.districtsMap.get(spinnerDistrict.getSelectedItem().toString())).getSecond().getDist_id();*/
+                selectedCluster = Objects.requireNonNull(SplashscreenActivity.subDistrictsMap.get(bi.spinnerDistrict.getSelectedItem().toString())).getSecond();
             }
 
             @Override

@@ -23,6 +23,7 @@ import edu.aku.covid_followup_app.contracts.ClustersContract.ClusterTable;
 import edu.aku.covid_followup_app.contracts.FormsContract;
 import edu.aku.covid_followup_app.contracts.FormsContract.FormsTable;
 import edu.aku.covid_followup_app.contracts.MembersContract;
+import edu.aku.covid_followup_app.contracts.MembersContract.MembersTable;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract.PersonalTable;
 import edu.aku.covid_followup_app.contracts.UsersContract;
@@ -210,7 +211,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
-    public int syncDistrict(JSONArray distList) {
+    public int syncCluster(JSONArray distList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(ClusterTable.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -276,20 +277,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 JSONObject jsonObjectUser = membersList.getJSONObject(i);
 
-                UsersContract user = new UsersContract();
-                user.Sync(jsonObjectUser);
+                MembersContract mem = new MembersContract();
+                mem.sync(jsonObjectUser);
                 ContentValues values = new ContentValues();
 
-                values.put(MembersContract.MembersTable.COLUMN_ID, user.getUserName());
-                values.put(MembersContract.MembersTable.COLUMN_BLOOD, user.getPassword());
-                values.put(MembersContract.MembersTable.COLUMN_HHID, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_HEAD, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_MEMBERID, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_MEMBERNAME, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_ADDRESS, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_NASAL, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_HH_PERSONAL_COLID, user.getDIST_ID());
-                values.put(MembersContract.MembersTable.COLUMN_CLUSTER, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_ID, mem.getId());
+                values.put(MembersContract.MembersTable.COLUMN_BLOOD, mem.getBlood());
+                values.put(MembersContract.MembersTable.COLUMN_HHID, mem.getHhid());
+                values.put(MembersContract.MembersTable.COLUMN_HEAD, mem.getHead());
+                values.put(MembersContract.MembersTable.COLUMN_MEMBERID, mem.getMemberid());
+                values.put(MembersContract.MembersTable.COLUMN_MEMBERNAME, mem.getMembername());
+                values.put(MembersContract.MembersTable.COLUMN_ADDRESS, mem.getAddress());
+                values.put(MembersContract.MembersTable.COLUMN_NASAL, mem.getNasal());
+                values.put(MembersContract.MembersTable.COLUMN_HH_PERSONAL_COLID, mem.getPersonal_colid());
+                values.put(MembersContract.MembersTable.COLUMN_CLUSTER, mem.getCluster());
                 long rowID = db.insert(MembersContract.MembersTable.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
@@ -690,5 +691,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allEB;
+    }
+
+    public List<MembersContract> getHHAccordingToCluster(String cluster) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                MembersTable.COLUMN_ID,
+                MembersTable.COLUMN_BLOOD,
+                MembersTable.COLUMN_HHID,
+                MembersTable.COLUMN_HEAD,
+                MembersTable.COLUMN_MEMBERID,
+                MembersTable.COLUMN_MEMBERNAME,
+                MembersTable.COLUMN_ADDRESS,
+                MembersTable.COLUMN_NASAL,
+                MembersTable.COLUMN_HH_PERSONAL_COLID,
+                MembersTable.COLUMN_CLUSTER,
+        };
+
+
+        String whereClause = MembersTable.COLUMN_CLUSTER + " =? ";
+        String[] whereArgs = {cluster};
+        String groupBy = null;
+        String having = null;
+        String orderBy = MembersTable.COLUMN_HHID + " ASC";
+
+        List<MembersContract> allMember = new ArrayList<>();
+        try {
+            c = db.query(
+                    MembersTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                MembersContract members = new MembersContract();
+                allMember.add(members.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMember;
     }
 }

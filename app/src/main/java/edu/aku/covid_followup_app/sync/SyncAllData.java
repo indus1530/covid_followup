@@ -39,11 +39,11 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
     private Context mContext;
     private ProgressDialog pd;
     private String syncClass, url, tableName, updateSyncClass;
-    private Class contractClass;
-    private Collection dbData;
+    private Class<?> contractClass;
+    private Collection<?> dbData;
 
-    public SyncAllData(Context mContext, String syncClass, String updateSyncClass, Class contractClass, String url,
-                       String tableName, Collection dbData, int position, UploadListAdapter adapter, List<SyncModel> uploadlist) {
+    public SyncAllData(Context mContext, String syncClass, String updateSyncClass, Class<?> contractClass, String url,
+                       String tableName, Collection<?> dbData, int position, UploadListAdapter adapter, List<SyncModel> uploadlist) {
         this.mContext = mContext;
         this.syncClass = syncClass;
         this.updateSyncClass = updateSyncClass;
@@ -250,7 +250,7 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
             if (result.equals("No new records to sync")) {
                 uploadlist.get(position).setmessage(result);
                 uploadlist.get(position).setstatus("Not processed");
-                uploadlist.get(position).setstatusID(4);
+                uploadlist.get(position).setstatusID(1);
                 adapter.updatesyncList(uploadlist);
             } else {
                 uploadlist.get(position).setmessage(result);

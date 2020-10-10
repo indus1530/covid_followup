@@ -189,29 +189,15 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             runOnUiThread(() -> {
                 new SyncDevice(SyncActivity.this, false).execute();
                 if (booleans[0]) {
-//                  getting Users!!
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
+                    String[] download = {"User", "VersionApp", "Cluster", "Members"};
+                    for (String item : download) {
+                        if (listActivityCreated) {
+                            model = new SyncModel();
+                            model.setstatusID(0);
+                            list.add(model);
+                        }
+                        new GetAllData(mContext, item, syncListAdapter, list).execute();
                     }
-                    new GetAllData(mContext, "User", syncListAdapter, list).execute();
-
-//                    Getting App Version
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "VersionApp", syncListAdapter, list).execute();
-
-//                  getting Districts!!
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "District", syncListAdapter, list).execute();
                     bi.noItem.setVisibility(View.GONE);
                 }
 
@@ -225,8 +211,8 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         protected void onPostExecute(String s) {
             new Handler().postDelayed(() -> {
 
-                editor.putBoolean("flag", true);
-                editor.commit();
+                /*editor.putBoolean("flag", true);
+                editor.commit();*/
 
                 dbBackup(mContext);
 
