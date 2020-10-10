@@ -247,6 +247,11 @@ public class GetAllData extends AsyncTask<String, String, String> {
                             insertCount = db.syncEnumBlocks(jsonArray);
                             position = 0;
                             break;
+                        case "Members":
+                            jsonArray = new JSONArray(result);
+                            insertCount = db.syncMembers(jsonArray);
+                            position = 0;
+                            break;
 
                     }
 

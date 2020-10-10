@@ -333,6 +333,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (int) count;
     }
 
+    public int syncMembers(JSONArray membersList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(MembersContract.MembersTable.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+            for (int i = 0; i < membersList.length(); i++) {
+
+                JSONObject jsonObjectUser = membersList.getJSONObject(i);
+
+                UsersContract user = new UsersContract();
+                user.Sync(jsonObjectUser);
+                ContentValues values = new ContentValues();
+
+                values.put(MembersContract.MembersTable.COLUMN_ID, user.getUserName());
+                values.put(MembersContract.MembersTable.COLUMN_BLOOD, user.getPassword());
+                values.put(MembersContract.MembersTable.COLUMN_HHID, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_HEAD, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_MEMBERID, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_MEMBERNAME, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_ADDRESS, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_NASAL, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_HH_PERSONAL_COLID, user.getDIST_ID());
+                values.put(MembersContract.MembersTable.COLUMN_CLUSTER, user.getDIST_ID());
+                long rowID = db.insert(MembersContract.MembersTable.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncMembers(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+
     //Update from server response
     public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
