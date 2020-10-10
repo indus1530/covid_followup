@@ -12,7 +12,7 @@ import java.util.List;
 
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.MembersContract;
-import edu.aku.covid_followup_app.databinding.ItemListBinding;
+import edu.aku.covid_followup_app.databinding.ItemHhLayoutBinding;
 
 public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder> {
 
@@ -20,7 +20,7 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
     boolean isMother;
     private Context mContext;
     private List<MembersContract> mList;
-    private ItemListBinding viewHolder;
+    private ItemHhLayoutBinding viewHolder;
 
     public HHListAdapter(Context mContext, List<MembersContract> mList, boolean isMother) {
         this.mContext = mContext;
@@ -40,7 +40,7 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
-        ItemListBinding bi = DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.item_list, viewGroup, false);
+        ItemHhLayoutBinding bi = DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.item_hh_layout, viewGroup, false);
         return new ViewHolder(bi);
     }
 
@@ -63,7 +63,7 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
 
     }
 
-    public ItemListBinding getHolder() {
+    public ItemHhLayoutBinding getHolder() {
         return viewHolder;
     }
 
@@ -77,9 +77,9 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        ItemListBinding bi;
+        ItemHhLayoutBinding bi;
 
-        ViewHolder(@NonNull ItemListBinding itemView) {
+        ViewHolder(@NonNull ItemHhLayoutBinding itemView) {
             super(itemView.getRoot());
             bi = itemView;
         }

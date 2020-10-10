@@ -319,8 +319,9 @@ public class MainActivity extends MenuActivity implements WarningActivityInterfa
         bi.spinnerProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) return;
                 List<String> districts = new ArrayList<>(Collections.singletonList("...."));
+                bi.openFormBtn.setClickable(false);
+                if (position == 0) return;
                 for (Map.Entry<String, Pair<String, ClustersContract>> entry : SplashscreenActivity.subDistrictsMap.entrySet()) {
                     if (entry.getValue().getFirst().equals(bi.spinnerProvince.getSelectedItem().toString()))
                         districts.add(entry.getKey());
