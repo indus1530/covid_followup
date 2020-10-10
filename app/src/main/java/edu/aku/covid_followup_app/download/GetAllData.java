@@ -21,6 +21,7 @@ import java.util.List;
 
 import edu.aku.covid_followup_app.adapters.SyncListAdapter;
 import edu.aku.covid_followup_app.contracts.ClustersContract;
+import edu.aku.covid_followup_app.contracts.MembersContract;
 import edu.aku.covid_followup_app.contracts.UsersContract;
 import edu.aku.covid_followup_app.contracts.VersionAppContract;
 import edu.aku.covid_followup_app.core.DatabaseHelper;
@@ -59,6 +60,9 @@ public class GetAllData extends AsyncTask<String, String, String> {
             case "District":
                 position = 2;
                 break;
+            case "Members":
+                position = 3;
+                break;
         }
         list.get(position).settableName(syncClass);
     }
@@ -89,6 +93,9 @@ public class GetAllData extends AsyncTask<String, String, String> {
                 break;
             case "District":
                 position = 2;
+                break;
+            case "Members":
+                position = 3;
                 break;
         }
         list.get(position).setstatus("Syncing");
@@ -121,6 +128,11 @@ public class GetAllData extends AsyncTask<String, String, String> {
                     url = new URL(MainApp._HOST_URL + MainApp._SERVER_GET_URL);
                     tableName = ClustersContract.ClusterTable.TABLE_NAME;
                     position = 2;
+                    break;
+                case "Members":
+                    url = new URL(MainApp._HOST_URL + MainApp._SERVER_GET_URL);
+                    tableName = MembersContract.MembersTable.TABLE_NAME;
+                    position = 3;
                     break;
             }
 
