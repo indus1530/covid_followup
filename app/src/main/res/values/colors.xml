@@ -29,4 +29,6 @@
     <color name="layout_border_color">#FF111111</color>
     <color name="darkRed">#D50000</color>
     <color name="lightOrange">#FFE0B2</color>
+    <color name="red_overlay">#7f990000</color>
+    <color name="green_overlay">#7f009900</color>
 </resources>

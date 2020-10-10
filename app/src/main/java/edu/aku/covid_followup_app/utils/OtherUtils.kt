@@ -2,13 +2,16 @@ package edu.aku.covid_followup_app.utils
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
@@ -16,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import edu.aku.covid_followup_app.R
 import edu.aku.covid_followup_app.databinding.ItemDialogBinding
+import edu.aku.hassannaqvi.covid_sero.ui.other.EndingActivity
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -137,4 +141,30 @@ fun openWarningActivity(
 
 interface WarningActivityInterface {
     fun callWarningActivity(id: Int)
+}
+
+fun showTooltip(context: Context, view: View) {
+    if (view.id != View.NO_ID) {
+        val package_name: String = context.applicationContext.packageName
+        // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
+        val infoid = view.resources.getResourceName(view.id).replace("$package_name:id/q_", "")
+        // Question info text must be suffixed with _info e.g.: aa12a_info
+        val stringRes: Int = context.resources.getIdentifier(infoid + "_info", "string", package_name)
+        // Fetch info text from strings.xml
+        //String infoText = (String) getResources().getText(stringRes);
+        // Check if string resource exists to avoid crash on missing info string
+        if (stringRes != 0) {
+            // Fetch info text from strings.xml
+            val infoText = context.resources.getText(stringRes) as String
+            AlertDialog.Builder(context)
+                    .setTitle("Info: " + infoid.toUpperCase(Locale.ROOT))
+                    .setMessage(infoText)
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show()
+        } else {
+            Toast.makeText(context, "No information available on this question.", Toast.LENGTH_SHORT).show()
+        }
+    } else {
+        Toast.makeText(context, "No ID Associated with this question.", Toast.LENGTH_SHORT).show()
+    }
 }

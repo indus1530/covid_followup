@@ -17,7 +17,7 @@ class CONSTANTS {
 
         //Main Activity
         const val REQUEST_APP_UPDATE = 1
-        const val REQUEST_PSU_EXIST = 2
+        const val REQUEST_PERSONAL_EXIT = 2
         const val MAIN_DT_FLAG = "main_dt_flag"
 
         //Login Result Code
@@ -27,6 +27,9 @@ class CONSTANTS {
         //DateUtils
         const val MINYEAR = 1940
         const val MAXYEAR = 2020
+
+        //PC
+        const val NASAL_TAKEN = "nasal_taken"
 
     }
 }

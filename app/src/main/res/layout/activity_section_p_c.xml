@@ -1,0 +1,577 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <!--<variable
+            name="form"
+            type="edu.aku.hassannaqvi.uencovid19.models.Form" />-->
+        <variable
+            name="callback"
+            type="edu.aku.covid_followup_app.activities.ui.SectionPCActivity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/fldGrpSectionC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- pc01  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVpc01"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pc01"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pc01"
+                            android:text="@string/pc01" />
+
+                        <TextView
+                            android:id="@+id/q_pc01"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pc01"
+                            android:layout_alignBottom="@id/qtxt_pc01"
+                            android:text="@string/Q_pc01" />
+                    </RelativeLayout>
+
+                    <RadioGroup
+                        android:id="@+id/pc01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/pc011"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/pc011" />
+
+                        <RadioButton
+                            android:id="@+id/pc012"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/pc012" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:id="@+id/fldGrpSectionC01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility='@{pc012.checked? View.GONE : View.VISIBLE}'>
+
+                <!-- pc02  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpc02"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom">
+
+                            <TextView
+                                android:id="@+id/qtxt_pc02"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/q_pc02"
+                                android:text="@string/pc02" />
+
+                            <TextView
+                                android:id="@+id/q_pc02"
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/qtxt_pc02"
+                                android:layout_alignBottom="@id/qtxt_pc02"
+                                android:text="@string/Q_pc02" />
+                        </RelativeLayout>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/pc02"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="#.##"
+                            android:inputType="number"
+                            app:mask="#.##"
+                            app:maxValue="6.00"
+                            app:minValue="1.00"
+                            app:pattern="^(\\d{1,1}\\.\\d{2,2})$"
+                            app:type="range" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- &lt;!&ndash; pc02text  Title   &ndash;&gt;
+                 <androidx.cardview.widget.CardView
+                     android:id="@+id/fldGrpCVpc02text"
+                     style="@style/cardView">
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="vertical">
+
+                         <RelativeLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:background="@drawable/bottom">
+
+                             <TextView
+                                 android:id="@+id/qtxt_pc02text"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:layout_toEndOf="@id/q_pc02text"
+                                 android:text="@string/pc02text" />
+
+                             <TextView
+                                 android:id="@+id/q_pc02text"
+                                 style="@style/quesNum"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_alignTop="@id/qtxt_pc02text"
+                                 android:layout_alignBottom="@id/qtxt_pc02text"
+                                 android:text="@string/Q_pc02text" />
+                         </RelativeLayout>
+                     </LinearLayout>
+                 </androidx.cardview.widget.CardView>-->
+
+                <!-- pc02a  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpc02a"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom">
+
+                            <TextView
+                                android:id="@+id/qtxt_pc02a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/q_pc02a"
+                                android:text="@string/pc02a" />
+
+                            <TextView
+                                android:id="@+id/q_pc02a"
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/qtxt_pc02a"
+                                android:layout_alignBottom="@id/qtxt_pc02a"
+                                android:text="@string/Q_pc02a" />
+                        </RelativeLayout>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/pc02a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="##.##"
+                            android:inputType="number"
+                            app:mask="##.##"
+                            app:maxValue="18.00"
+                            app:minValue="5.00"
+                            app:pattern="^(\\d{2,2}\\.\\d{2,2})$"
+                            app:type="range" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- pc03  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVpc03"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom">
+
+                            <TextView
+                                android:id="@+id/qtxt_pc03"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/q_pc03"
+                                android:text="@string/pc03" />
+
+                            <TextView
+                                android:id="@+id/q_pc03"
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/qtxt_pc03"
+                                android:layout_alignBottom="@id/qtxt_pc03"
+                                android:text="@string/Q_pc03" />
+                        </RelativeLayout>
+
+                        <EditText
+                            android:id="@+id/pc03"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/pc03" />
+
+                        <Button
+                            style="@style/button"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:background="@color/green_overlay"
+                            android:onClick="@{(v) -> callback.btnScan(1)}"
+                            android:text="SCAN BLOOD STICKER"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!-- pc03a  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVpc03a"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pc03a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pc03a"
+                            android:text="@string/pc03a" />
+
+                        <TextView
+                            android:id="@+id/q_pc03a"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pc03a"
+                            android:layout_alignBottom="@id/qtxt_pc03a"
+                            android:text="@string/Q_pc03a" />
+                    </RelativeLayout>
+
+                    <RadioGroup
+                        android:id="@+id/pc03a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/pc03a1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pc03a1" />
+
+                        <RadioButton
+                            android:id="@+id/pc03a2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pc03a2" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- pc03b  Input-Numeric   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVpc03b"
+                style="@style/cardView"
+                android:visibility="@{pc03a1.checked ? View.VISIBLE : View.GONE}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pc03b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pc03b"
+                            android:text="@string/pc03b" />
+
+                        <TextView
+                            android:id="@+id/q_pc03b"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pc03b"
+                            android:layout_alignBottom="@id/qtxt_pc03b"
+                            android:text="@string/Q_pc03b" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/pc03b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/pc03"
+                        android:text='@{pc03a1.checked ? pc03b.getText().toString() : ""}' />
+
+                    <Button
+                        style="@style/button"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@color/green_overlay"
+                        android:onClick="@{(v) -> callback.btnScan(2)}"
+                        android:text="SCAN NASAL STICKER"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- pc04  Input-Numeric   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVpc04"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pc04"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pc04"
+                            android:text="@string/pc04" />
+
+                        <TextView
+                            android:id="@+id/q_pc04"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pc04"
+                            android:layout_alignBottom="@id/qtxt_pc04"
+                            android:text="@string/Q_pc04" />
+                    </RelativeLayout>
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/pc04"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- pc04?  Input-Numeric   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVpc04a"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pc04a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pc04a"
+                            android:text="@string/pc04a" />
+
+                        <TextView
+                            android:id="@+id/q_pc04a"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pc04a"
+                            android:layout_alignBottom="@id/qtxt_pc04a"
+                            android:text="@string/Q_pc04a" />
+                    </RelativeLayout>
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/pc04a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:hint="@string/pc04a" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- pc05  Input-Numeric   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVpc05"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pc05"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pc05"
+                            android:text="@string/pc05" />
+
+                        <TextView
+                            android:id="@+id/q_pc05"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pc05"
+                            android:layout_alignBottom="@id/qtxt_pc05"
+                            android:text="@string/Q_pc05" />
+                    </RelativeLayout>
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/pc05"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="##.###"
+                        android:inputType="number"
+                        app:mask="###.##"
+                        app:maxValue="200.0"
+                        app:minValue="40.00"
+                        app:pattern="^(\\d{3,3}\\.\\d{2,2})$"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- pc06  Input-Numeric   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVpc06"
+                style="@style/cardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pc06"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pc06"
+                            android:text="@string/pc06" />
+
+                        <TextView
+                            android:id="@+id/q_pc06"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pc06"
+                            android:layout_alignBottom="@id/qtxt_pc06"
+                            android:text="@string/Q_pc06" />
+                    </RelativeLayout>
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/pc06"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="##.###"
+                        android:inputType="number"
+                        app:mask="###.##"
+                        app:maxValue="160.0"
+                        app:minValue="1.00"
+                        app:pattern="^(\\d{3,3}\\.\\d{2,2})$"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!--EndButton LinearLayout-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@color/red_overlay"
+                    android:onClick="@{() -> callback.BtnEnd()}"
+                    android:text="Cancel"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@color/green_overlay"
+                    android:onClick="@{() -> callback.BtnContinue()}"
+                    android:text="Save"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

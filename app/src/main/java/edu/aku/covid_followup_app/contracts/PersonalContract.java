@@ -369,6 +369,8 @@ public class PersonalContract {
         return this;
     }
 
+
+
     public PersonalContract hydrate(Cursor cursor) {
         this._ID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_UID));

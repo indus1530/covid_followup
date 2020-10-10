@@ -203,4 +203,87 @@
     <string name="nextSection"> اگلا سیکشن </string>
     <string name="copy_data_to_sdcard">COPY DATA TO SDCARD</string>
 
+    <string name="pc02a">ہیموگلوبن کے نتائج درج کریں۔</string>
+    <string name="pc03">سیمپل آئی ڈی</string>
+    <string name="pc03a">کیا کرونا کے ٹیسٹ کے لئے ناک سے سیمپل لیا گیا</string>
+    <string name="pc03b">ناک کے سیمپل کی آئی ڈی</string>
+    <string name="pc03a1">ہاں</string>
+    <string name="pc03a2">نہیں</string>
+    <string name="pc04">پیمائش کرنے والے کا نام</string>
+    <string name="pc04a">پیمائش کرنے والے کا کوڈ</string>
+    <string name="pc05"> قد سینٹی میٹر میں</string>
+    <string name="pc06">وزن کلو گرام میں</string>
+
+
+    <string name='Q_pa01'>pa01</string>
+    <string name='Q_pa02'>pa02</string>
+    <string name='Q_pa02a'>pa02a</string>
+    <string name='Q_pa02b'>pa02b</string>
+    <string name='Q_pa03'>pa03</string>
+    <string name='Q_pa04'>pa04</string>
+    <string name='Q_pa041'>pa041</string>
+    <string name='Q_pa0410'>pa0410</string>
+    <string name='Q_pa0411'>pa0411</string>
+    <string name='Q_pa0412'>pa0412</string>
+    <string name='Q_pa0413'>pa0413</string>
+    <string name='Q_pa0414'>pa0414</string>
+    <string name='Q_pa0415'>pa0415</string>
+    <string name='Q_pa042'>pa042</string>
+    <string name='Q_pa043'>pa043</string>
+    <string name='Q_pa044'>pa044</string>
+    <string name='Q_pa045'>pa045</string>
+    <string name='Q_pa046'>pa046</string>
+    <string name='Q_pa047'>pa047</string>
+    <string name='Q_pa048'>pa048</string>
+    <string name='Q_pa049'>pa049</string>
+    <string name='Q_pa05'>pa05</string>
+    <string name='Q_pa06'>pa06</string>
+    <string name='Q_pa07'>pa07</string>
+    <string name='Q_pa08'>pa08</string>
+    <string name='Q_pa0801ad'>pa0801ad</string>
+    <string name='Q_pa0801n'>pa0801n</string>
+    <string name='Q_pa0802ad'>pa0802ad</string>
+    <string name='Q_pa0802n'>pa0802n</string>
+    <string name='Q_pa0803ad'>pa0803ad</string>
+    <string name='Q_pa0803n'>pa0803n</string>
+    <string name='Q_pa0804ad'>pa0804ad</string>
+    <string name='Q_pa0804n'>pa0804n</string>
+    <string name='Q_pa0805ad'>pa0805ad</string>
+    <string name='Q_pa0805n'>pa0805n</string>
+    <string name='Q_pa0806ad'>pa0806ad</string>
+    <string name='Q_pa0806n'>pa0806n</string>
+    <string name='Q_pa0807ad'>pa0807ad</string>
+    <string name='Q_pa0807n'>pa0807n</string>
+    <string name='Q_pa0808ad'>pa0808ad</string>
+    <string name='Q_pa0808n'>pa0808n</string>
+    <string name='Q_pb13c'>pb13c</string>
+    <string name='Q_hh21'>hh21</string>
+
+    <string name='Q_pc01'>pc01</string>
+    <string name='Q_pc02'>pc02</string>
+    <string name='Q_pc02a'>pc02a</string>
+    <string name='Q_pc02text'>pc02text</string>
+    <string name='Q_pc03'>pc03</string>
+    <string name='Q_pc03a'>pc03a</string>
+    <string name='Q_pc03b'>pc03b</string>
+    <string name='Q_pc04'>pc04</string>
+    <string name='Q_pc04a'>pc04a</string>
+    <string name='Q_pc05'>pc05</string>
+    <string name='Q_pc06'>pc06</string>
+
+
+    <string name="istatus"> گھرانے کے انٹرویو کا نتیجہ: </string>
+    <string name="Q_istatus">iStatus</string>
+    <string name="hh1401">مکمل ۔</string>
+    <string name="hh1402">گھر بند ہے</string>
+    <string name="hh1403">گھر میں کوئی اہل جواب دہندہ موجود نہیں</string>
+    <string name="hh1404">گھر طویل مدت سے بند ہے</string>
+    <string name="hh1405">انکار کردیا</string>
+    <string name="hh1406">رہائش خالی ہے یا رہائش گاہ نہیں</string>
+    <string name="hh1407">رہائش نہیں ملی</string>
+    <string name="hh1496">دیگر(وضاحت کریں)</string>
+    <string name="istatus96">دیگر(وضاحت کریں)</string>
+
+
+
 </resources>

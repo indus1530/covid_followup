@@ -16,15 +16,18 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="edu.aku.covid_followup_app.core.MainApp"
+        android:name=".core.MainApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edu.aku.covid_followup_app.activities.list.InfoActivity"></activity>
+        <activity android:name=".activities.other.EndingActivity"></activity>
+        <activity android:name=".activities.ui.SectionPCActivity" />
+        <activity android:name=".activities.ui.SectionPAActivity" />
+        <activity android:name=".activities.list.InfoActivity" />
         <activity
-            android:name="edu.aku.covid_followup_app.activities.other.SplashscreenActivity"
+            android:name=".activities.other.SplashscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
@@ -35,22 +38,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.aku.covid_followup_app.activities.other.LoginActivity"
+            android:name=".activities.other.LoginActivity"
             android:label="Login In"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="edu.aku.covid_followup_app.activities.other.MainActivity"
+            android:name=".activities.other.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="edu.aku.covid_followup_app.activities.sync.SyncActivity"
+            android:name=".activities.sync.SyncActivity"
             android:label="DATA SYNC ACTIVITY"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
+            android:theme="@style/AppTheme" />
         <activity
-            android:name="edu.aku.covid_followup_app.core.AndroidDatabaseManager"
+            android:name=".core.AndroidDatabaseManager"
             android:screenOrientation="portrait"
             android:theme="@style/android:Theme.Holo.Light.DarkActionBar" />
     </application>

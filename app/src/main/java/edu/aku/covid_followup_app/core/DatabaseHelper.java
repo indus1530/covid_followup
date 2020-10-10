@@ -29,6 +29,7 @@ import edu.aku.covid_followup_app.contracts.UsersContract;
 import edu.aku.covid_followup_app.contracts.VersionAppContract;
 import edu.aku.covid_followup_app.contracts.VersionAppContract.VersionAppTable;
 
+import static edu.aku.covid_followup_app.core.MainApp.fc;
 import static edu.aku.covid_followup_app.utils.DBUtilsKt.DATABASE_NAME;
 import static edu.aku.covid_followup_app.utils.DBUtilsKt.DATABASE_VERSION;
 import static edu.aku.covid_followup_app.utils.DBUtilsKt.SQL_COUNT_LISTINGS;
@@ -321,6 +322,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values,
                 where,
                 whereArgs);
+    }
+
+    //    Generic update PersonalColumn
+    public int updatePersonalColumn(String column, String value, String valueID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = FormsTable._ID + "=? ";
+        String[] selectionArgs = {String.valueOf(valueID)};
+
+        return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    public int updateEnding() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
+        values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus88x());
+        values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
+
+        // Which row to update, based on the ID
+        String selection = FormsTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(fc.get_ID())};
+
+        return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
     }
 
 
