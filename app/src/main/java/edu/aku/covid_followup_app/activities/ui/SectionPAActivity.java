@@ -30,7 +30,9 @@ import edu.aku.covid_followup_app.databinding.ActivitySectionPABinding;
 import edu.aku.covid_followup_app.utils.WarningActivityInterface;
 
 import static edu.aku.covid_followup_app.CONSTANTS.NASAL_TAKEN;
+import static edu.aku.covid_followup_app.CONSTANTS.PERSONAL_END;
 import static edu.aku.covid_followup_app.CONSTANTS.REQUEST_APP_UPDATE;
+import static edu.aku.covid_followup_app.CONSTANTS.REQUEST_PERSONAL_EXIT;
 import static edu.aku.covid_followup_app.core.MainApp.pc;
 import static edu.aku.covid_followup_app.utils.OtherUtilsKt.openWarningActivity;
 
@@ -110,14 +112,14 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         }
     }
 
-    public void BtnEnd(String newVer, String preVer) {
+    public void BtnEnd() {
         if (!formValidation()) return;
         openWarningActivity(this,
-                REQUEST_APP_UPDATE,
-                getString(R.string.app_name) + "APP is availabe!",
+                PERSONAL_END,
+                getString(R.string.app_name) + "Warning!",
                 getString(R.string.app_name) + "App Ver." + newVer + " is now available. Your are currently using olderVer." + preVer + ".\nInstall new version to use this app.",
                 "Yes",
-                "Cancel"
+                "No"
         );
     }
 

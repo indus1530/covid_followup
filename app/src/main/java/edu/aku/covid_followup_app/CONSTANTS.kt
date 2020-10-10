@@ -32,6 +32,9 @@ class CONSTANTS {
 
         //PC
         const val NASAL_TAKEN = "nasal_taken"
+        const val PERSONAL_END = 10102
+
+
 
     }
 }
