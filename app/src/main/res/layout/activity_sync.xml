@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.smk_hhlisting_app.activities.sync.SyncActivity" />
+            type="edu.aku.covid_followup_app.activities.sync.SyncActivity" />
     </data>
 
     <ScrollView

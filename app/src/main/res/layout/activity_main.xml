@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.other.MainActivity">
 
     <data>
 
@@ -9,7 +10,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.smk_hhlisting_app.activities.other.MainActivity" />
+            type="edu.aku.covid_followup_app.activities.other.MainActivity" />
     </data>
 
     <LinearLayout
@@ -56,8 +57,7 @@
         <ScrollView
             android:id="@+id/activity_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".activities.other.MainActivity">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

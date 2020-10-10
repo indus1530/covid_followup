@@ -51,7 +51,7 @@
     <string name="ha02">انٹرویو شروع کرنے کا وقت(24 گھنٹوں میں)</string>
     <string name="ha03">انٹرویو لینے والے کا کوڈ</string>
     <string name="ha04">انٹرویو لینے والے کا نام</string>
-    <string name="ha08">ضلع                                                         </string>
+    <string name="ha08">ضلع</string>
     <string name="ha0801">مٹیاری </string>
     <string name="ha0802">کراچی سینٹرل</string>
     <string name="ha0803"> ضلع کراچی شرقی</string>
@@ -60,7 +60,7 @@
     <string name="ha09">سب ڈسٹرکٹ</string>
     <string name="ha0806">کورنگی</string>
     <string name="ha0807">ملیر</string>
-    <string name="ha13">گھرانے کانمبر                           </string>
+    <string name="ha13">گھرانے کا نمبر</string>
     <string name="ha12">کلسٹر نمبر</string>
     <string name="ha11">مقام،گھر کے قریب مشہور جگہ کے ساتھ گلی کا پتہ</string>
     <string name="ha14">گھرانے کے انٹرویوکا نتیجہ:
