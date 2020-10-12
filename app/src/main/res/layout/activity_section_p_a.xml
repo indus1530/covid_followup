@@ -55,6 +55,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        style="@style/EditTextAlpha"
                         android:id="@+id/pa01"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -96,6 +97,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        style="@style/EditTextAlpha"
                         android:id="@+id/pa02"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -189,6 +191,7 @@
                     </RelativeLayout>
 
                     <EditText
+                        style="@style/EditTextAlpha"
                         android:id="@+id/pa02b"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1189,6 +1192,7 @@
                     </RelativeLayout>
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1205,6 +1209,7 @@
                         android:text="@string/pa06a" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06a"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1229,6 +1234,7 @@
                         android:text="@string/pa06b" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06b"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1252,6 +1258,7 @@
                         android:text="@string/pa06c" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06c"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1275,6 +1282,7 @@
                         android:text="@string/pa06d" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06d"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1298,6 +1306,7 @@
                         android:text="@string/pa06e" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06e"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1321,6 +1330,7 @@
                         android:text="@string/pa06f" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06f"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1344,6 +1354,7 @@
                         android:text="@string/pa06g" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06g"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1367,6 +1378,7 @@
                         android:text="@string/pa06h" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa06h"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1745,6 +1757,7 @@
 
 
                     <com.edittextpicker.aliazaz.EditTextPicker
+                        style="@style/EditTextAlphaNumeric"
                         android:id="@+id/pa08n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1790,20 +1803,19 @@
                         android:id="@+id/pa0801n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0801n" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0801ad" />
 
                     <EditText
                         android:id="@+id/pa0801ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0801ad" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1822,33 +1834,30 @@
                         style="@style/sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="02" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0802n" />
 
                     <EditText
                         android:id="@+id/pa0802n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0802n" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0802ad" />
 
                     <EditText
                         android:id="@+id/pa0802ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0802ad" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1867,33 +1876,30 @@
                         style="@style/sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="03" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0803n" />
 
                     <EditText
                         android:id="@+id/pa0803n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0803n" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0803ad" />
 
                     <EditText
                         android:id="@+id/pa0803ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0803ad" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1912,33 +1918,30 @@
                         style="@style/sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="04" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0804n" />
 
                     <EditText
                         android:id="@+id/pa0804n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0804n" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0804ad" />
 
                     <EditText
                         android:id="@+id/pa0804ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0804ad" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1957,33 +1960,30 @@
                         style="@style/sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="05" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0805n" />
 
                     <EditText
                         android:id="@+id/pa0805n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0805n" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0805ad" />
 
                     <EditText
                         android:id="@+id/pa0805ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0805ad" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -2002,33 +2002,30 @@
                         style="@style/sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="06" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0806n" />
 
                     <EditText
                         android:id="@+id/pa0806n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0806n" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0806ad" />
 
                     <EditText
                         android:id="@+id/pa0806ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0806ad" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -2047,33 +2044,30 @@
                         style="@style/sub"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="07" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0807n" />
 
                     <EditText
                         android:id="@+id/pa0807n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0807n" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:text="@string/pa0807ad" />
 
                     <EditText
                         android:id="@+id/pa0807ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0807ad" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -2103,6 +2097,7 @@
                         android:id="@+id/pa0808n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0808n" />
 
                     <TextView
@@ -2114,6 +2109,7 @@
                         android:id="@+id/pa0808ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/EditTextAlphaNumeric"
                         android:hint="@string/pa0808ad" />
 
                 </LinearLayout>
