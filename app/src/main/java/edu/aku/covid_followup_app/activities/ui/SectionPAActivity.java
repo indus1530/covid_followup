@@ -30,7 +30,6 @@ import edu.aku.covid_followup_app.CONSTANTS;
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.MembersContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
-import edu.aku.covid_followup_app.core.AppInfo;
 import edu.aku.covid_followup_app.core.DatabaseHelper;
 import edu.aku.covid_followup_app.core.MainApp;
 import edu.aku.covid_followup_app.databinding.ActivitySectionPABinding;
@@ -111,7 +110,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             SaveDraft();
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
+                if (bi.pa031.isChecked())
+                    startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
             } else {
                 Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
             }
@@ -121,7 +121,6 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     }
 
     public void BtnEnd() {
-        if (!formValidation()) return;
         openWarningActivity(this,
                 PERSONAL_END,
                 null,
