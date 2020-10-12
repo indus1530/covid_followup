@@ -76,6 +76,6 @@ class EndingActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Toast.makeText(applicationContext, "You Can't go back", Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext, "Back press not allowed", Toast.LENGTH_LONG).show()
     }
 }

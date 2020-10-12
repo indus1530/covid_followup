@@ -1,21 +1,35 @@
 package edu.aku.covid_followup_app.activities.list
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.format.DateFormat
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.aku.covid_followup_app.CONSTANTS
 import edu.aku.covid_followup_app.CONSTANTS.Companion.CLUSTER_INFO
 import edu.aku.covid_followup_app.R
-import edu.aku.covid_followup_app.activities.ui.SectionPAActivity
 import edu.aku.covid_followup_app.adapters.HHListAdapter
 import edu.aku.covid_followup_app.contracts.ClustersContract
+import edu.aku.covid_followup_app.contracts.FormsContract
 import edu.aku.covid_followup_app.contracts.MembersContract
+import edu.aku.covid_followup_app.contracts.PersonalContract
+import edu.aku.covid_followup_app.core.MainApp
 import edu.aku.covid_followup_app.databinding.ActivityInfoBinding
 import edu.aku.covid_followup_app.utils.WarningActivityInterface
 import edu.aku.covid_followup_app.utils.openWarningActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
 
 class InfoActivity : AppCompatActivity(), WarningActivityInterface {
 
@@ -25,7 +39,6 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_info)
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_info)
         bi.callback = this
@@ -61,25 +74,70 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
         bi.hhList.layoutManager = LinearLayoutManager(this)
         bi.hhList.adapter = adapter
         adapter.setItemClicked { item, position, flag ->
-            /*openDialog(this, item)
-            MainApp.setItemClick {
-                currentFM = item
-                startActivityForResult(Intent(this, SectionDActivity::class.java)
-                        .putExtra(SERIAL_EXTRA, item.serialno.toInt()), CONSTANTS.MEMBER_ITEM)
-            }*/
-            openWarningActivity(this,
-                    CONSTANTS.HH_CLICKED,
-                    "Update Household information",
-                    "Are you sure to update information of HHID: ${item.hhid} ?",
-                    "Yes",
-                    "Cancel")
+            openWarningActivity(activity = this,
+                    id = CONSTANTS.HH_CLICKED,
+                    item = item,
+                    title = "Update Household information",
+                    message = "Are you sure to update information of HHID: ${item.hhid} ?",
+                    btnYesTxt = "Yes",
+                    btnNoTxt = "Cancel")
         }
     }
 
-    override fun callWarningActivity(id: Int) {
+    override fun callWarningActivity(id: Int, item: Any?) {
         if (id == CONSTANTS.HH_CLICKED) {
-            startActivity(Intent(this, SectionPAActivity::class.java))
+
+            val mem = item as MembersContract
+
+            MainApp.fc = FormsContract()
+            MainApp.fc.deviceID = MainApp.appInfo.deviceID
+            MainApp.fc.devicetagID = MainApp.appInfo.tagName
+            MainApp.fc.hhno = mem.hhid
+            MainApp.fc.clusterCode = mem.cluster
+            MainApp.fc.formDate = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(Date().time)
+            MainApp.fc.sysDate = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(Date().time)
+            MainApp.fc.user = MainApp.userEmail
+            MainApp.fc.appversion = MainApp.appInfo.appVersion
+            setGPS(this)
+
+            runBlocking {
+                val result = lifecycleScope.async { updateDB(this@InfoActivity) }
+                if (result.await()) startActivity(Intent(this@InfoActivity, MembersActivity::class.java).putExtra(CONSTANTS.MEMBER_INFO, mem))
+            }
         }
     }
+
+    private fun setGPS(activity: Activity) {
+        val GPSPref = activity.getSharedPreferences("GPSCoordinates", MODE_PRIVATE)
+        try {
+            val lat = GPSPref.getString("Latitude", "0")
+            val lang = GPSPref.getString("Longitude", "0")
+            if (lat == "0" && lang == "0") {
+                Toast.makeText(activity, "Could not obtained GPS points", Toast.LENGTH_SHORT).show()
+            }
+            val date = DateFormat.format("dd-MM-yyyy HH:mm", GPSPref.getString("Time", "0")!!.toLong()).toString()
+            MainApp.fc.gpsLat = GPSPref.getString("Latitude", "0")
+            MainApp.fc.gpsLng = GPSPref.getString("Longitude", "0")
+            MainApp.fc.gpsAcc = GPSPref.getString("Accuracy", "0")
+            MainApp.fc.gpsDT = date
+        } catch (e: Exception) {
+            Log.e("GPS", "setGPS: " + e.message)
+        }
+    }
+
+    private suspend fun updateDB(context: Context): Boolean = withContext(Dispatchers.Main) {
+        val db = MainApp.appInfo.dbHelper
+        val updcount = db.addForm(MainApp.fc)
+        MainApp.fc._ID = updcount.toString()
+        if (updcount > 0) {
+            MainApp.fc._UID = MainApp.appInfo.deviceID + MainApp.fc._ID
+            db.updatePersonalColumn(PersonalContract.PersonalTable.COLUMN_UID, MainApp.fc._UID, MainApp.fc._ID)
+            return@withContext true
+        } else {
+            Toast.makeText(context, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show()
+        }
+        return@withContext false
+    }
+
 
 }

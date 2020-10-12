@@ -20,7 +20,9 @@ class CONSTANTS {
         const val REQUEST_PERSONAL_EXIT = 2
         const val MAIN_DT_FLAG = "main_dt_flag"
         const val CLUSTER_INFO = "selected_cluster"
+        const val MEMBER_INFO = "selected_member"
         const val HH_CLICKED = 3
+        const val MM_CLICKED = 4
 
         //Login Result Code
         const val LOGIN_RESULT_CODE = 10101

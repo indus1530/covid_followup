@@ -15,9 +15,6 @@ public class PersonalContract {
     private String _UID = "";
     private String _UUID = "";
     private String sysdate = "";
-    private String a01 = ""; // Date
-    private String a02 = ""; // Time
-    private String a03 = ""; // Interviewer
     private String hh12 = ""; // Cluster
     private String hh13 = ""; // HHNo
     private String cstatus = ""; // Interview Status
@@ -33,9 +30,7 @@ public class PersonalContract {
     private String synced_date = "";
     private String appversion = "";
     private String sA = "";
-    private String sB = "";
     private String sC = "";
-    private String sI = "";
 
     //Not in DB
     private String memberName;
@@ -145,14 +140,6 @@ public class PersonalContract {
     }
 
 
-    public String getsB() {
-        return sB;
-    }
-
-    public void setsB(String sB) {
-        this.sB = sB;
-    }
-
 
     public String getsC() {
         return sC;
@@ -162,14 +149,6 @@ public class PersonalContract {
         this.sC = sC;
     }
 
-
-    public String getsI() {
-        return sI;
-    }
-
-    public void setsI(String sI) {
-        this.sI = sI;
-    }
 
 
     public String getAppversion() {
@@ -182,7 +161,7 @@ public class PersonalContract {
 
 
     public String getProjectName() {
-        return "covid_sero";
+        return "Covid Sero Followup";
     }
 
 
@@ -201,33 +180,6 @@ public class PersonalContract {
 
     public void set_UID(String _UID) {
         this._UID = _UID;
-    }
-
-
-    public String getA01() {
-        return a01;
-    }
-
-    public void setA01(String a01) {
-        this.a01 = a01;
-    }
-
-
-    public String getA02() {
-        return a02;
-    }
-
-    public void setA02(String a02) {
-        this.a02 = a02;
-    }
-
-
-    public String getA03() {
-        return a03;
-    }
-
-    public void setA03(String a03) {
-        this.a03 = a03;
     }
 
 
@@ -343,9 +295,6 @@ public class PersonalContract {
         this._ID = jsonObject.getString(PersonalTable.COLUMN_ID);
         this._UID = jsonObject.getString(PersonalTable.COLUMN_UID);
         this.sysdate = jsonObject.getString(PersonalTable.COLUMN_SYSDATE);
-        this.a01 = jsonObject.getString(PersonalTable.COLUMN_A01);
-        this.a02 = jsonObject.getString(PersonalTable.COLUMN_A02);
-        this.a03 = jsonObject.getString(PersonalTable.COLUMN_A03);
         this.hh12 = jsonObject.getString(PersonalTable.COLUMN_HH12);
         this.hh13 = jsonObject.getString(PersonalTable.COLUMN_HH13);
         this._UUID = jsonObject.getString(PersonalTable.COLUMN_UUID);
@@ -362,9 +311,7 @@ public class PersonalContract {
         this.synced_date = jsonObject.getString(PersonalTable.COLUMN_SYNCED_DATE);
         this.appversion = jsonObject.getString(PersonalTable.COLUMN_SYNCED_DATE);
         this.sA = jsonObject.getString(PersonalTable.COLUMN_SA);
-        this.sB = jsonObject.getString(PersonalTable.COLUMN_SB);
         this.sC = jsonObject.getString(PersonalTable.COLUMN_SC);
-        this.sI = jsonObject.getString(PersonalTable.COLUMN_SI);
 
         return this;
     }
@@ -375,9 +322,6 @@ public class PersonalContract {
         this._ID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_UID));
         this.sysdate = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SYSDATE));
-        this.a01 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_A01));
-        this.a02 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_A02));
-        this.a03 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_A03));
         this.hh12 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_HH12));
         this.hh13 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_HH13));
         this._UUID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_UUID));
@@ -392,9 +336,7 @@ public class PersonalContract {
         this.devicetagID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_DEVICETAGID));
         this.appversion = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_APPVERSION));
         this.sA = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SA));
-        this.sB = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SB));
         this.sC = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SC));
-        this.sI = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SI));
 
 
         return this;
@@ -415,9 +357,6 @@ public class PersonalContract {
             json.put(PersonalTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
             json.put(PersonalTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
             json.put(PersonalTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-            json.put(PersonalTable.COLUMN_A01, this.a01 == null ? JSONObject.NULL : this.a01);
-            json.put(PersonalTable.COLUMN_A02, this.a02 == null ? JSONObject.NULL : this.a02);
-            json.put(PersonalTable.COLUMN_A03, this.a03 == null ? JSONObject.NULL : this.a03);
             json.put(PersonalTable.COLUMN_HH12, this.hh12 == null ? JSONObject.NULL : this.hh12);
             json.put(PersonalTable.COLUMN_HH13, this.hh13 == null ? JSONObject.NULL : this.hh13);
             json.put(PersonalTable.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
@@ -428,14 +367,8 @@ public class PersonalContract {
             if (this.sA != null && !this.sA.equals("")) {
                 json.put(PersonalTable.COLUMN_SA, new JSONObject(this.sA));
             }
-            if (this.sB != null && !this.sB.equals("")) {
-                json.put(PersonalTable.COLUMN_SB, new JSONObject(this.sB));
-            }
             if (this.sC != null && !this.sC.equals("")) {
                 json.put(PersonalTable.COLUMN_SC, new JSONObject(this.sC));
-            }
-            if (this.sI != null && !this.sI.equals("")) {
-                json.put(PersonalTable.COLUMN_SI, new JSONObject(this.sI));
             }
 
             json.put(PersonalTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
@@ -461,9 +394,6 @@ public class PersonalContract {
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_UUID = "_uuid";
         public static final String COLUMN_SYSDATE = "sysdate";
-        public static final String COLUMN_A01 = "a01";
-        public static final String COLUMN_A02 = "a02";
-        public static final String COLUMN_A03 = "a03";
         public static final String COLUMN_HH12 = "hh12";
         public static final String COLUMN_HH13 = "hh13";
         public static final String COLUMN_CSTATUS = "cstatus";
@@ -479,9 +409,7 @@ public class PersonalContract {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_SA = "sA";    // personal member
-        public static final String COLUMN_SB = "sB";    // personal member
         public static final String COLUMN_SC = "sC";    // personal member
-        public static final String COLUMN_SI = "sI";    // personal member
 
     }
 }

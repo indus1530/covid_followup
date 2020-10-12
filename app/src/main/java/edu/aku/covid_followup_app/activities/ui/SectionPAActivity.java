@@ -30,7 +30,6 @@ import edu.aku.covid_followup_app.CONSTANTS;
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.MembersContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
-import edu.aku.covid_followup_app.core.AppInfo;
 import edu.aku.covid_followup_app.core.DatabaseHelper;
 import edu.aku.covid_followup_app.core.MainApp;
 import edu.aku.covid_followup_app.databinding.ActivitySectionPABinding;
@@ -50,10 +49,13 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_p_a);
+        bi.setCallback(this);
         setupContentUI();
     }
 
     private void setupContentUI() {
+
+        member = (MembersContract) getIntent().getSerializableExtra(CONSTANTS.MEMBER_INFO);
 
         bi.pa03.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrppa03));
 
@@ -100,8 +102,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         });
 
-        /*bi.pa01.setText(member.getMemberid());
-        bi.pa02.setText(member.getMembername());*/
+        bi.pa01.setText(member.getMemberid());
+        bi.pa02.setText(member.getMembername());
     }
 
     public void BtnContinue() {
@@ -110,7 +112,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             SaveDraft();
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
+                if (bi.pa031.isChecked())
+                    startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
             } else {
                 Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
             }
@@ -120,9 +123,9 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     }
 
     public void BtnEnd() {
-        if (!formValidation()) return;
         openWarningActivity(this,
                 PERSONAL_END,
+                null,
                 "Warning!",
                 "Do you want to Exit",
                 "Yes",
@@ -139,7 +142,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             db.updatePersonalColumn(PersonalContract.PersonalTable.COLUMN_UID, pc.get_UUID(), pc.get_ID());
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
@@ -348,7 +351,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     }
 
     @Override
-    public void callWarningActivity(int id) {
+    public void callWarningActivity(int id, Object item) {
 
         if (id == CONSTANTS.REQUEST_PERSONAL_EXIT) {
             try {
@@ -363,5 +366,10 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             }
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show();
     }
 }

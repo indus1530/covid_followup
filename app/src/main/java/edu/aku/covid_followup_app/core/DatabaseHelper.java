@@ -114,10 +114,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_FSTATUS88x, fc.getFstatus88x());
         values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
         values.put(FormsTable.COLUMN_SINFO, fc.getsInfo());
-        values.put(FormsTable.COLUMN_SE, fc.getsE());
-        values.put(FormsTable.COLUMN_SM, fc.getsM());
-        values.put(FormsTable.COLUMN_SN, fc.getsN());
-        values.put(FormsTable.COLUMN_SO, fc.getsO());
         values.put(FormsTable.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(FormsTable.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(FormsTable.COLUMN_GPSDATE, fc.getGpsDT());
@@ -148,9 +144,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PersonalTable.COLUMN_PROJECT_NAME, personal.getProjectName());
         values.put(PersonalTable.COLUMN_UID, personal.get_UID());
         values.put(PersonalTable.COLUMN_SYSDATE, personal.getSysdate());
-        values.put(PersonalTable.COLUMN_A01, personal.getA01());
-        values.put(PersonalTable.COLUMN_A02, personal.getA02());
-        values.put(PersonalTable.COLUMN_A03, personal.getA03());
         values.put(PersonalTable.COLUMN_HH12, personal.getHh12());
         values.put(PersonalTable.COLUMN_HH13, personal.getHh13());
         values.put(PersonalTable.COLUMN_UUID, personal.get_UUID());
@@ -158,9 +151,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PersonalTable.COLUMN_CSTATUS96x, personal.getCstatus96x());
         values.put(PersonalTable.COLUMN_ENDINGDATETIME, personal.getEndingdatetime());
         values.put(PersonalTable.COLUMN_SA, personal.getsA());
-        values.put(PersonalTable.COLUMN_SB, personal.getsB());
         values.put(PersonalTable.COLUMN_SC, personal.getsC());
-        values.put(PersonalTable.COLUMN_SI, personal.getsI());
         values.put(PersonalTable.COLUMN_GPSLAT, personal.getGpsLat());
         values.put(PersonalTable.COLUMN_GPSLNG, personal.getGpsLng());
         values.put(PersonalTable.COLUMN_GPSDATE, personal.getGpsDT());
@@ -452,10 +443,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_LUID,
                 FormsTable.COLUMN_ENDINGDATETIME,
                 FormsTable.COLUMN_SINFO,
-                FormsTable.COLUMN_SE,
-                FormsTable.COLUMN_SM,
-                FormsTable.COLUMN_SN,
-                FormsTable.COLUMN_SO,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
                 FormsTable.COLUMN_GPSDATE,
@@ -513,9 +500,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PersonalTable._ID,
                 PersonalTable.COLUMN_UID,
                 PersonalTable.COLUMN_SYSDATE,
-                PersonalTable.COLUMN_A01,
-                PersonalTable.COLUMN_A02,
-                PersonalTable.COLUMN_A03,
                 PersonalTable.COLUMN_HH12,
                 PersonalTable.COLUMN_HH13,
                 PersonalTable.COLUMN_UUID,
@@ -523,9 +507,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PersonalTable.COLUMN_CSTATUS96x,
                 PersonalTable.COLUMN_ENDINGDATETIME,
                 PersonalTable.COLUMN_SA,
-                PersonalTable.COLUMN_SB,
                 PersonalTable.COLUMN_SC,
-                PersonalTable.COLUMN_SI,
                 PersonalTable.COLUMN_GPSLAT,
                 PersonalTable.COLUMN_GPSLNG,
                 PersonalTable.COLUMN_GPSDATE,
@@ -714,7 +696,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] whereArgs = {cluster};
         String groupBy = null;
         String having = null;
-        String orderBy = MembersTable.COLUMN_HHID + " ASC";
+        String orderBy = MembersTable.COLUMN_HEAD + " ASC";
+
+        List<MembersContract> allMember = new ArrayList<>();
+        try {
+            c = db.query(
+                    MembersTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                MembersContract members = new MembersContract();
+                allMember.add(members.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMember;
+    }
+
+    public List<MembersContract> getMMAccordingToClusterHH(String cluster, String hh) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                MembersTable.COLUMN_ID,
+                MembersTable.COLUMN_BLOOD,
+                MembersTable.COLUMN_HHID,
+                MembersTable.COLUMN_HEAD,
+                MembersTable.COLUMN_MEMBERID,
+                MembersTable.COLUMN_MEMBERNAME,
+                MembersTable.COLUMN_ADDRESS,
+                MembersTable.COLUMN_NASAL,
+                MembersTable.COLUMN_HH_PERSONAL_COLID,
+                MembersTable.COLUMN_CLUSTER,
+        };
+
+
+        String whereClause = MembersTable.COLUMN_CLUSTER + " =? AND " + MembersTable.COLUMN_HHID + "=?";
+        String[] whereArgs = {cluster, hh};
+        String groupBy = null;
+        String having = null;
+        String orderBy = MembersTable.COLUMN_MEMBERID + " ASC";
 
         List<MembersContract> allMember = new ArrayList<>();
         try {

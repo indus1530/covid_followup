@@ -32,10 +32,6 @@ public class FormsContract {
     private String sInfo = "";
     private String fStatus = "";
     private String fstatus88x = ""; // Interview Status
-    private String sE = "";
-    private String sM = "";
-    private String sN = "";
-    private String sO = "";
 
     public FormsContract() {
     }
@@ -54,38 +50,6 @@ public class FormsContract {
 
     public void setfStatus(String fStatus) {
         this.fStatus = fStatus;
-    }
-
-    public String getsE() {
-        return sE;
-    }
-
-    public void setsE(String sE) {
-        this.sE = sE;
-    }
-
-    public String getsM() {
-        return sM;
-    }
-
-    public void setsM(String sM) {
-        this.sM = sM;
-    }
-
-    public String getsN() {
-        return sN;
-    }
-
-    public void setsN(String sN) {
-        this.sN = sN;
-    }
-
-    public String getsO() {
-        return sO;
-    }
-
-    public void setsO(String sO) {
-        this.sO = sO;
     }
 
     public String getAppversion() {
@@ -130,10 +94,6 @@ public class FormsContract {
         this.sInfo = jsonObject.getString(FormsTable.COLUMN_SINFO);
         this.sInfo = jsonObject.getString(FormsTable.COLUMN_SINFO);
         this.fStatus = jsonObject.getString(FormsTable.COLUMN_FSTATUS);
-        this.sE = jsonObject.getString(FormsTable.COLUMN_SE);
-        this.sM = jsonObject.getString(FormsTable.COLUMN_SM);
-        this.sN = jsonObject.getString(FormsTable.COLUMN_SN);
-        this.sO = jsonObject.getString(FormsTable.COLUMN_SO);
 
         return this;
 
@@ -162,10 +122,6 @@ public class FormsContract {
         this.hhno = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HHNO));
         this.sInfo = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SINFO));
         this.fStatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FSTATUS));
-        this.sE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
-        this.sM = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SM));
-        this.sN = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SN));
-        this.sO = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SO));
 
         return this;
     }
@@ -193,22 +149,6 @@ public class FormsContract {
             json.put(FormsTable.COLUMN_SINFO, new JSONObject(this.sInfo));
         }
 
-        if (this.sE != null && !this.sE.equals("")) {
-            json.put(FormsTable.COLUMN_SE, new JSONObject(this.sE));
-        }
-
-        if (this.sM != null && !this.sM.equals("")) {
-            json.put(FormsTable.COLUMN_SM, new JSONObject(this.sM));
-        }
-
-        if (this.sN != null && !this.sN.equals("")) {
-            json.put(FormsTable.COLUMN_SN, new JSONObject(this.sN));
-        }
-
-        if (this.sO != null && !this.sO.equals("")) {
-            json.put(FormsTable.COLUMN_SO, new JSONObject(this.sO));
-        }
-
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormsTable.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
@@ -224,8 +164,7 @@ public class FormsContract {
     }
 
     public String getProjectName() {
-        String projectName = "COVID-FollowUp Survey_HH";
-        return projectName;
+        return "Covid Sero Followup";
     }
 
     public String get_ID() {
@@ -420,9 +359,5 @@ public class FormsContract {
         public static final String COLUMN_CLUSTERCODE = "cluster_code";
         public static final String COLUMN_HHNO = "hhno";
         public static final String COLUMN_SINFO = "sInfo";
-        public static final String COLUMN_SE = "sE";
-        public static final String COLUMN_SM = "sM";
-        public static final String COLUMN_SN = "sN";
-        public static final String COLUMN_SO = "sO";
     }
 }

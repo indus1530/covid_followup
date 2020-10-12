@@ -7,7 +7,9 @@ import android.provider.BaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MembersContract {
+import java.io.Serializable;
+
+public class MembersContract implements Serializable {
 
     private static final String TAG = MembersContract.class.getName();
     private String id;
