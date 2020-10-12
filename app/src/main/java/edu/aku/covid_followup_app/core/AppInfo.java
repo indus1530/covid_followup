@@ -1,5 +1,6 @@
 package edu.aku.covid_followup_app.core;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;

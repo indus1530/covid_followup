@@ -81,6 +81,21 @@
 
     <style name="EditTextAlpha" parent="@style/textInput">
         <item name="android:digits">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:radius">8dp</item>
+        <!--        <item name="android:textDirection">ltr</item>-->
+
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
     <style name="EditTextAlphaNumeric" parent="@style/textInput">
@@ -116,24 +131,38 @@
     </style>
 
     <!-- Form Styles -->
-    <style name="labels" parent="@android:style/TextAppearance.Widget.TextView">
+    <!--<style name="labels" parent="@android:style/TextAppearance.Widget.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <!--        <item name="android:layout_marginTop">24dp</item>-->
+        &lt;!&ndash;        <item name="android:layout_marginTop">24dp</item>&ndash;&gt;
         <item name="android:background">@drawable/text_style</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20sp</item>
         <item name="android:typeface">serif</item>
         <item name="android:padding">10dp</item>
-        <!--        <item name="android:paddingTop">16dp</item>-->
+        &lt;!&ndash;        <item name="android:paddingTop">16dp</item>&ndash;&gt;
         <item name="android:elevation">1dp</item>
-        <!--        <item name="android:paddingStart">8dp</item>-->
+        &lt;!&ndash;        <item name="android:paddingStart">8dp</item>&ndash;&gt;
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
-        <!--        <item name="android:textStyle">bold</item>-->
-        <!--        <item name="android:paddingEnd">8dp</item>-->
+        &lt;!&ndash;        <item name="android:textStyle">bold</item>&ndash;&gt;
+        &lt;!&ndash;        <item name="android:paddingEnd">8dp</item>&ndash;&gt;
+    </style>-->
 
+
+    <!-- Form Styles -->
+    <style name="labels" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textStyle">bold</item>
 
     </style>
+
+
 
     <style name="HeadingTitle" parent="@android:style/TextAppearance.Widget.TextView">
         <item name="android:layout_width">match_parent</item>
@@ -182,7 +211,7 @@
         <item name="android:padding">16dp</item>
     </style>
 
-    <style name="textInput" parent="Widget.AppCompat.EditText">
+    <style name="textInput">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/et_style</item>

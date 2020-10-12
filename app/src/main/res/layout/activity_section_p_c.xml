@@ -119,6 +119,7 @@
 
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/pc02"
+                            style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="#.##"
@@ -199,6 +200,7 @@
 
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/pc02a"
+                            style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="##.##"
@@ -245,6 +247,7 @@
 
                         <EditText
                             android:id="@+id/pc03"
+                            style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/pc03" />
@@ -351,6 +354,7 @@
 
                     <EditText
                         android:id="@+id/pc03b"
+                        style="@style/EditTextAlphaNumeric"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/pc03"
@@ -403,8 +407,10 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pc04"
+                        style="@style/EditTextAlphaNumeric"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="@string/pc04" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -442,9 +448,9 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pc04a"
+                        style="@style/EditTextAlphaNumeric"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:hint="@string/pc04a" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -483,6 +489,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pc05"
+                        style="@style/EditTextAlphaNumeric"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="##.###"
@@ -529,6 +536,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pc06"
+                        style="@style/EditTextAlphaNumeric"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="##.###"

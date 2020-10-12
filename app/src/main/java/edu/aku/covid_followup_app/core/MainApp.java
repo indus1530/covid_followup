@@ -13,12 +13,11 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 
-import androidx.core.app.ActivityCompat;
-
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import androidx.core.app.ActivityCompat;
 import edu.aku.covid_followup_app.contracts.FormsContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.other.TypefaceUtil;
@@ -93,7 +92,7 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
         Log.d("App", "Creating...");
-        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
+        TypefaceUtil.overrideFont(getApplicationContext(), "SANS_SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 //        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/MBLateefi.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
         // Declare and Initialize GPS collection module
