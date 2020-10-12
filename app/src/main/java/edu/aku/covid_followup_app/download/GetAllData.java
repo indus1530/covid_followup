@@ -221,7 +221,7 @@ public class GetAllData extends AsyncTask<String, String, String> {
                         case "Members":
                             jsonArray = new JSONArray(result);
                             insertCount = db.syncMembers(jsonArray);
-                            position = 0;
+                            position = 3;
                             break;
 
                     }

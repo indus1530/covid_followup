@@ -36,6 +36,7 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
 
     private fun settingUIContent() {
         selectedCluster = intent.getSerializableExtra(CLUSTER_INFO) as ClustersContract
+        this.title = "Household List of Cluster:${selectedCluster.cluster_id}"
 
         mainVModel = this.run {
             ViewModelProvider(this).get(ListViewModel::class.java)
