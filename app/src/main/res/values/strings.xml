@@ -73,6 +73,7 @@
     <string name="ha1406">رہائش خالی ہے یا رہائش گاہ نہیں</string>
     <string name="ha1407">رہائش نہیں ملی</string>
     <string name="ha1408">دیگر(وضاحت کریں)</string>
+
     <string name="pc01"></string>
     <string name="pc011">ہاں</string>
     <string name="pc012">نہیں</string>
@@ -84,6 +85,7 @@
     <string name="pc041">ہاں</string>
     <string name="pc042">نہیں</string>
     <string name="pc05">ناک کے سیمپل کی آئی ڈی</string>
+
     <string name="pa01">منتخب فرد /بچہ کی شناختی آئی ڈی</string>
     <string name="pa02">بچے کا نام(منتخب فرد/بچہ) کا نام</string>
     <string name="pa02a">کیا منتخب فرد /بچہ جوابدہندہ ہے</string>

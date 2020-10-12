@@ -141,12 +141,12 @@ public class MembersContract implements Serializable {
         public static final String COLUMN_ID = "id";
         public static final String COLUMN_BLOOD = "blood";
         public static final String COLUMN_HHID = "hhid";
-        public static final String COLUMN_HEAD = "head";
+        public static final String COLUMN_HEAD = "hb05";
         public static final String COLUMN_MEMBERID = "memberid";
-        public static final String COLUMN_MEMBERNAME = "membername";
-        public static final String COLUMN_ADDRESS = "address";
+        public static final String COLUMN_MEMBERNAME = "pa01";
+        public static final String COLUMN_ADDRESS = "hh11";
         public static final String COLUMN_NASAL = "nasal";
-        public static final String COLUMN_HH_PERSONAL_COLID = "personal_colid";
+        public static final String COLUMN_HH_PERSONAL_COLID = "col_id";
         public static final String COLUMN_CLUSTER = "cluster";
     }
 }

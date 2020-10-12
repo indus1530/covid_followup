@@ -79,10 +79,6 @@ public class SectionPCActivity extends AppCompatActivity {
                 : bi.pc03a2.isChecked() ? "2"
                 : "-1");
         json.put("pc03b", bi.pc03b.getText().toString());
-        json.put("pc04", bi.pc04.getText().toString());
-        json.put("pc04a", bi.pc04a.getText().toString());
-        json.put("pc05", bi.pc05.getText().toString());
-        json.put("pc06", bi.pc06.getText().toString());
 
 
         pc.setsC(json.toString());
