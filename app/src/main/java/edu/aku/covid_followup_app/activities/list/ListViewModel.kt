@@ -21,7 +21,7 @@ class ListViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 hhLst.value = mutableListOf()
-                hhLoadFromDB(context, cluster)
+                clusterHHLoadFromDB(context, cluster)
             } catch (error: Error) {
 
             } finally {
@@ -31,17 +31,16 @@ class ListViewModel : ViewModel() {
 
     }
 
-    suspend fun hhLoadFromDB(context: Context, cluster: String) = withContext(Dispatchers.Main) {
+    private suspend fun clusterHHLoadFromDB(context: Context, cluster: String) = withContext(Dispatchers.Main) {
         val db = DatabaseHelper(context)
         val data = db.getHHAccordingToCluster(cluster)
         val getHHLst = mutableListOf<MembersContract>()
         data.forEach { hh ->
-            val flag = hhLst.value?.filter { item -> item.hhid != hh.hhid }
-            if (flag?.isEmpty() == true) {
+            val flag = getHHLst.find { item -> item.hhid == hh.hhid }
+            if (flag == null) {
                 getHHLst.add(hh)
             }
         }
-
         hhLst.value = getHHLst
     }
 

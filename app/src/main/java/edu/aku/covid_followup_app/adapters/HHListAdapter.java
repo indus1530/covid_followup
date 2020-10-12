@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import edu.aku.covid_followup_app.R;
@@ -20,7 +22,6 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
     boolean isMother;
     private Context mContext;
     private List<MembersContract> mList;
-    private ItemHhLayoutBinding viewHolder;
 
     public HHListAdapter(Context mContext, List<MembersContract> mList, boolean isMother) {
         this.mContext = mContext;
@@ -51,7 +52,10 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
         holder.bi.address.setText(mList.get(i).getAddress());
         holder.bi.name.setText(String.format("HH-Head: %s", mList.get(i).getHead()));
         holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i, isMother));
-        viewHolder = holder.bi;
+        Glide.with(mContext)
+                .asBitmap()
+                .load(R.drawable.home_final)
+                .into(holder.bi.houseImg);
 
         /*if (isMother) {
             if (InfoActivity.womenList.size() == 0) return;
@@ -61,10 +65,6 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
             }
         }*/
 
-    }
-
-    public ItemHhLayoutBinding getHolder() {
-        return viewHolder;
     }
 
     @Override
