@@ -55,6 +55,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
     private void setupContentUI() {
 
+        bi.pa03.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrppa03));
+
         bi.pa07.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.pa07b.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVpa08);
