@@ -44,10 +44,13 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_p_a);
+        bi.setCallback(this);
         setupContentUI();
     }
 
     private void setupContentUI() {
+
+        member = (MembersContract) getIntent().getSerializableExtra(CONSTANTS.MEMBER_INFO);
 
         bi.pa07.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.pa07b.getId()) {
@@ -92,8 +95,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         });
 
-        /*bi.pa01.setText(member.getMemberid());
-        bi.pa02.setText(member.getMembername());*/
+        bi.pa01.setText(member.getMemberid());
+        bi.pa02.setText(member.getMembername());
     }
 
     public void BtnContinue() {
@@ -115,6 +118,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         if (!formValidation()) return;
         openWarningActivity(this,
                 PERSONAL_END,
+                null,
                 "Warning!",
                 "Do you want to Exit",
                 "Yes",
@@ -131,7 +135,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             db.updatePersonalColumn(PersonalContract.PersonalTable.COLUMN_UID, pc.get_UUID(), pc.get_ID());
             return true;
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
@@ -311,7 +315,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     }
 
     @Override
-    public void callWarningActivity(int id) {
+    public void callWarningActivity(int id, Object item) {
 
         if (id == CONSTANTS.REQUEST_PERSONAL_EXIT) {
             try {
@@ -326,5 +330,10 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             }
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show();
     }
 }

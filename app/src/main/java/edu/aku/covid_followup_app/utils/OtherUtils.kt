@@ -105,6 +105,7 @@ fun getPermissionsList(context: Context): List<String> {
 fun openWarningActivity(
         activity: Activity,
         id: Int,
+        item: Any? = null,
         title: String = "WARNING!",
         message: String = "Are you sure, you want to exit without saving?",
         btnYesTxt: String = "YES",
@@ -130,7 +131,7 @@ fun openWarningActivity(
     bi.btnOk.setOnClickListener {
         dialog.dismiss()
         val warningActivity = activity as WarningActivityInterface
-        warningActivity.callWarningActivity(id)
+        warningActivity.callWarningActivity(id, item)
     }
     bi.btnNo.setOnClickListener {
         dialog.dismiss()
@@ -138,7 +139,7 @@ fun openWarningActivity(
 }
 
 interface WarningActivityInterface {
-    fun callWarningActivity(id: Int)
+    fun callWarningActivity(id: Int, item: Any? = null)
 }
 
 fun showTooltip(context: Context, view: View) {

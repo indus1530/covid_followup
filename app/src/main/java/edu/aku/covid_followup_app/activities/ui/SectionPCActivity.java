@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.validatorcrawler.aliazaz.Clear;
@@ -12,8 +15,6 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.core.DatabaseHelper;
@@ -51,7 +52,6 @@ public class SectionPCActivity extends AppCompatActivity {
             SaveDraft();
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionPCActivity.class));
             } else {
                 Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
             }
@@ -100,7 +100,7 @@ public class SectionPCActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show();
     }
 
     public void btnScan(int type) {

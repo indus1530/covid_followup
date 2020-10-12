@@ -1217,8 +1217,9 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+                    <CheckBox
                         android:id="@+id/pa06a98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1230,6 +1231,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pa06b"
+                        android:enabled='@{pa06b98.checked ? false : true}'
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/pa06b"
@@ -1240,8 +1242,10 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+
+                    <CheckBox
                         android:id="@+id/pa06b98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1253,6 +1257,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pa06c"
+                        android:enabled='@{pa06c98.checked ? false : true}'
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/pa06c"
@@ -1263,8 +1268,10 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+
+                    <CheckBox
                         android:id="@+id/pa06c98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1278,6 +1285,7 @@
                         android:id="@+id/pa06d"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:enabled='@{pa06d98.checked ? false : true}'
                         android:hint="@string/pa06d"
                         android:inputType="number"
                         android:maxLength="2"
@@ -1286,8 +1294,10 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+
+                    <CheckBox
                         android:id="@+id/pa06d98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1299,6 +1309,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pa06e"
+                        android:enabled='@{pa06e98.checked ? false : true}'
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/pa06e"
@@ -1309,8 +1320,10 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+
+                    <CheckBox
                         android:id="@+id/pa06e98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1323,6 +1336,7 @@
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pa06f"
                         android:layout_width="match_parent"
+                        android:enabled='@{pa06f98.checked ? false : true}'
                         android:layout_height="wrap_content"
                         android:hint="@string/pa06f"
                         android:inputType="number"
@@ -1332,8 +1346,10 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+
+                    <CheckBox
                         android:id="@+id/pa06f98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1345,6 +1361,7 @@
 
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/pa06g"
+                        android:enabled='@{pa06g98.checked ? false : true}'
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/pa06g"
@@ -1355,8 +1372,10 @@
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+
+                    <CheckBox
                         android:id="@+id/pa06g98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1372,14 +1391,17 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/pa06h"
                         android:inputType="number"
+                        android:enabled='@{pa06a98.checked ? false : true}'
                         android:maxLength="2"
                         app:defaultValue="97"
                         app:maxValue="30"
                         app:minValue="1"
                         app:type="range" />
 
-                    <RadioButton
+
+                    <CheckBox
                         android:id="@+id/pa06h98"
+                        style="@style/checkbox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/pa0698" />
@@ -1763,7 +1785,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView

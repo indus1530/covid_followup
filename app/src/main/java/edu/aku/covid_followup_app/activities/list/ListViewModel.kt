@@ -15,6 +15,12 @@ class ListViewModel : ViewModel() {
     var hhLst = MutableLiveData<MutableList<MembersContract>>()
         private set
 
+    var mmLst = MutableLiveData<MutableList<MembersContract>>()
+        private set
+
+    var checkedItems = MutableLiveData<MutableList<Int>>()
+        private set
+
 
     fun getHouseHoldLst(context: Context, cluster: String) {
 
@@ -31,6 +37,36 @@ class ListViewModel : ViewModel() {
 
     }
 
+    fun getMembersLst(context: Context, cluster: String, hh: String) {
+
+        viewModelScope.launch {
+            try {
+                mmLst.value = mutableListOf()
+                clusterMMLoadFromDB(context, cluster, hh)
+            } catch (error: Error) {
+
+            } finally {
+
+            }
+        }
+
+    }
+
+    fun setCheckedItemValues(index: Int) {
+        var lst = checkedItems.value
+        if (lst.isNullOrEmpty()) {
+            lst = mutableListOf()
+            lst.add(index)
+        } else lst.add(index)
+
+        checkedItems.value = lst
+    }
+
+    fun getCheckedItemValues(fmItem: Int): Boolean {
+        val flag = checkedItems.value?.find { it == fmItem }
+        flag?.let { return true } ?: return false
+    }
+
     private suspend fun clusterHHLoadFromDB(context: Context, cluster: String) = withContext(Dispatchers.Main) {
         val db = DatabaseHelper(context)
         val data = db.getHHAccordingToCluster(cluster)
@@ -42,6 +78,16 @@ class ListViewModel : ViewModel() {
             }
         }
         hhLst.value = getHHLst
+    }
+
+    private suspend fun clusterMMLoadFromDB(context: Context, cluster: String, hh: String) = withContext(Dispatchers.Main) {
+        val db = DatabaseHelper(context)
+        val data = db.getMMAccordingToClusterHH(cluster, hh)
+        val getHHLst = mutableListOf<MembersContract>()
+        data.forEach { hh ->
+            getHHLst.add(hh)
+        }
+        mmLst.value = getHHLst
     }
 
 }
