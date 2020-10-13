@@ -387,8 +387,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
     }
 
-    @Override
+/*    @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show();
-    }
+    }*/
 }
