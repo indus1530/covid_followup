@@ -1231,6 +1231,7 @@
                             style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:enabled='@{pa06a98.checked ? false : true}'
                             android:hint="@string/pa06a"
                             android:inputType="number"
                             android:maxLength="2"

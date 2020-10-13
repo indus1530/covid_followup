@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import edu.aku.covid_followup_app.CONSTANTS
 import edu.aku.covid_followup_app.CONSTANTS.Companion.MEMBER_INFO
 import edu.aku.covid_followup_app.R
@@ -73,7 +74,9 @@ class MembersActivity : AppCompatActivity(), WarningActivityInterface {
 
     fun BtnEndHH(v: View) {
         if (memberCounter != adapter.itemCount) {
-            Toast.makeText(this, "Please lock all members to proceed next section", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Please lock all members to proceed next section", Toast.LENGTH_SHORT).show()
+            Snackbar.make(findViewById(android.R.id.content), "Please lock all members to proceed next section", Snackbar.LENGTH_SHORT)
+                    .show()
             return
         }
         finish()
@@ -82,5 +85,10 @@ class MembersActivity : AppCompatActivity(), WarningActivityInterface {
 
     override fun onBackPressed() {
         Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
     }
 }
