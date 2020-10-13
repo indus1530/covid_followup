@@ -27,6 +27,7 @@ import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.adapters.SyncListAdapter;
 import edu.aku.covid_followup_app.adapters.UploadListAdapter;
 import edu.aku.covid_followup_app.contracts.FormsContract;
+import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.core.MainApp;
 import edu.aku.covid_followup_app.databinding.ActivitySyncBinding;
 import edu.aku.covid_followup_app.download.GetAllData;
@@ -126,7 +127,6 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
             new SyncDevice(this, false).execute();
 //  *******************************************************Forms*********************************
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
                 uploadmodel.setstatusID(0);
@@ -140,6 +140,21 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     MainApp._HOST_URL + MainApp._SERVER_UPLOAD_URL,
                     FormsContract.FormsTable.TABLE_NAME,
                     MainApp.appInfo.getDbHelper().getUnsyncedForms(), 0, uploadListAdapter, uploadlist
+            ).execute();
+//  *******************************************************Personals*********************************
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "Personals",
+                    "updateSyncedPersonal",
+                    PersonalContract.class,
+                    MainApp._HOST_URL + MainApp._SERVER_UPLOAD_URL,
+                    PersonalContract.PersonalTable.TABLE_NAME,
+                    MainApp.appInfo.getDbHelper().getUnsyncedPersonal(), 1, uploadListAdapter, uploadlist
             ).execute();
 
             bi.noDataItem.setVisibility(View.GONE);

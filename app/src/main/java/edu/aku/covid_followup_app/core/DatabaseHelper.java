@@ -202,6 +202,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
+    public int updateEnding() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
+        values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus88x());
+        values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
+
+        // Which row to update, based on the ID
+        String selection = FormsTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(fc.get_ID())};
+
+        return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
 
     //Sync functions
     public int syncUser(JSONArray userList) {
@@ -368,27 +387,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-
-    public int updateEnding() {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        // New value for one column
-        ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
-        values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus88x());
-        values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
-
-        // Which row to update, based on the ID
-        String selection = FormsTable.COLUMN_ID + " =? ";
-        String[] selectionArgs = {String.valueOf(fc.get_ID())};
-
-        return db.update(FormsTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-
     //Get Functions
     public int getListingCount() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -492,8 +490,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         };
 
 
-        String whereClause = FormsTable.COLUMN_SYNCED + " is null AND " + FormsTable.COLUMN_ISTATUS + " != '' ";
-        //String whereClause = FormsTable.COLUMN_ISTATUS +" != '' ";
+        String whereClause = FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == '' ";
 
         String[] whereArgs = null;
 
