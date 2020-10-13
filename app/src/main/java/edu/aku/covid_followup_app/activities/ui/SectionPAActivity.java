@@ -109,12 +109,12 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         bi.pa02.setText(member.getMembername());
 
         bi.pa02a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.pa0202.getId()) {
+            if (i == bi.pa0201.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVpa02b);
-                bi.pa02b.setEnabled(true);
+                bi.fldGrpCVpa02b.setVisibility(View.GONE);
             }
             else
-                bi.pa02b.setEnabled(false);
+                bi.fldGrpCVpa02b.setVisibility(View.VISIBLE);
         }));
     }
 
