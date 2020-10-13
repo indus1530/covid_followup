@@ -97,8 +97,14 @@ public class SectionPCActivity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.fldGrpSectionC);
+        if (!Validator.emptyCheckingContainer(this, bi.fldGrpSectionC))
+            return false;
 
+        if (bi.pc011.isChecked())
+            if (!Validator.emptyTextBox(this, bi.pc03)) return false;
+        if (bi.pc03a1.isChecked())
+            return Validator.emptyTextBox(this, bi.pc03b);
+        return true;
     }
 
     @Override
@@ -126,10 +132,10 @@ public class SectionPCActivity extends AppCompatActivity {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 if (stickerType) {
                     bi.pc03.setText(null);
-                    bi.pc03.setEnabled(true);
+//                    bi.pc03.setEnabled(true);
                 } else {
                     bi.pc03b.setText(null);
-                    bi.pc03b.setEnabled(true);
+//                    bi.pc03b.setEnabled(true);
                 }
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();

@@ -167,6 +167,7 @@
                             style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:enabled="false"
                             android:hint="@string/pc03" />
 
                         <Button
@@ -274,6 +275,7 @@
                         style="@style/EditTextAlphaNumeric"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:enabled="false"
                         android:hint="@string/pc03"
                         android:text='@{pc03a1.checked ? pc03b.getText().toString() : ""}' />
 

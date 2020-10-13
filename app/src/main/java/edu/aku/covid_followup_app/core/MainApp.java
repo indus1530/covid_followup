@@ -13,11 +13,12 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 
+import androidx.core.app.ActivityCompat;
+
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import androidx.core.app.ActivityCompat;
 import edu.aku.covid_followup_app.contracts.FormsContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.other.TypefaceUtil;
@@ -26,8 +27,8 @@ import edu.aku.covid_followup_app.other.TypefaceUtil;
 public class MainApp extends Application {
 
     public static final String TAG = MainApp.class.getName();
-    public static final String _IP = "http://f38158";// .TEST server
-    //    public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
+    //    public static final String _IP = "http://f38158";// .TEST server
+    public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
     public static final String _HOST_URL = MainApp._IP + "/covidsero/api/";
     public static final String _SERVER_UPLOAD_URL = "sync.php";
     public static final String _SERVER_GET_URL = "getData.php";

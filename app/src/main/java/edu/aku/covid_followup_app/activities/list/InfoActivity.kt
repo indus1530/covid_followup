@@ -31,7 +31,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
 
-class InfoActivity : AppCompatActivity(), WarningActivityInterface, MultiStateView.StateListener {
+class InfoActivity : AppCompatActivity(), WarningActivityInterface {
 
     private lateinit var adapter: HHListAdapter
     private lateinit var bi: ActivityInfoBinding
@@ -48,8 +48,7 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface, MultiStateVi
 
 
     private fun settingUIContent() {
-
-        bi.multiStateView.listener = this
+        bi.multiStateView.viewState = MultiStateView.ViewState.LOADING
 
         selectedCluster = intent.getSerializableExtra(CLUSTER_INFO) as ClustersContract
         this.title = "Household List of Cluster:${selectedCluster.cluster_id}"
@@ -155,11 +154,7 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface, MultiStateVi
 
     override fun onResume() {
         super.onResume()
-        bi.multiStateView.viewState = MultiStateView.ViewState.LOADING
+//        if (adapter.itemCount == 0) bi.multiStateView.viewState = MultiStateView.ViewState.LOADING
         adapter.notifyDataSetChanged()
-    }
-
-    override fun onStateChanged(viewState: MultiStateView.ViewState) {
-
     }
 }
