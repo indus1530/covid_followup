@@ -74,7 +74,7 @@
     <string name="ha1407">رہائش نہیں ملی</string>
     <string name="ha1408">دیگر(وضاحت کریں)</string>
 
-    <string name="pc01"></string>
+    <string name="pc01"> کیا خون کا نمونہ لیا گیا تھا؟</string>
     <string name="pc011">ہاں</string>
     <string name="pc012">نہیں</string>
     <string name="pc02">حاصل کئے گئے خون کے نمونے کی مقدار</string>
@@ -96,7 +96,7 @@
     <string name="pa031">ہاں، اجازت مل گئی </string>
     <string name="pa032">نہیں، اجازت نہیں ملی</string>
     <string name="pa033">منتخب فرد /بچہ گھر پر موجود نہیں</string>
-    <string name="pa04">کیا بچے کو پچھلے 2 ہفتوں میں مندرجہ ذیل علامات میں سے کوئی علامت ہے یا تھی؟</string>
+    <string name="pa04">کیا (منتخب فرد/بچہ) کو ہمارے آخری دورے کے بعد سے مندرجہ ذیل علامات میں سے کوئی علامت ہے یا تھی؟</string>
     <string name="pa041">بخار       </string>
     <string name="pa041a">ہاں</string>
     <string name="pa041b">نہیں</string>
