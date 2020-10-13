@@ -170,6 +170,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Update forms in DB
+    //    Generic update PersonalColumn
+    public int updatePersonalColumn(String column, String value, String valueID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = PersonalTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(valueID)};
+
+        return db.update(PersonalTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    //    Generic update FormsColumn
+    public int updateFormsColumn(String column, String value, String valueID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = FormsTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(valueID)};
+
+        return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
 
 
     //Sync functions
@@ -316,21 +347,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
-    //    Generic update PersonalColumn
-    public int updatePersonalColumn(String column, String value, String valueID) {
+    public void updateSyncedPersonal(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
+        // New value for one column
         ContentValues values = new ContentValues();
-        values.put(column, value);
+        values.put(PersonalTable.COLUMN_SYNCED, true);
+        values.put(PersonalTable.COLUMN_SYNCED_DATE, new Date().toString());
 
-        String selection = FormsTable._ID + "=? ";
-        String[] selectionArgs = {String.valueOf(valueID)};
+        // Which row to update, based on the title
+        String where = PersonalTable._ID + " = ?";
+        String[] whereArgs = {id};
 
-        return db.update(FormsTable.TABLE_NAME,
+        int count = db.update(
+                PersonalTable.TABLE_NAME,
                 values,
-                selection,
-                selectionArgs);
+                where,
+                whereArgs);
     }
+
+
 
 
     public int updateEnding() {

@@ -161,6 +161,7 @@
 
             <!-- pa02b  Input   -->
             <androidx.cardview.widget.CardView
+
                 android:id="@+id/fldGrpCVpa02b"
                 style="@style/cardView">
 

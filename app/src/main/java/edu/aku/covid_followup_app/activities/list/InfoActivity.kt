@@ -131,7 +131,7 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
         MainApp.fc._ID = updcount.toString()
         if (updcount > 0) {
             MainApp.fc._UID = MainApp.appInfo.deviceID + MainApp.fc._ID
-            db.updatePersonalColumn(PersonalContract.PersonalTable.COLUMN_UID, MainApp.fc._UID, MainApp.fc._ID)
+            db.updateFormsColumn(FormsContract.FormsTable.COLUMN_UID, MainApp.fc._UID, MainApp.fc._ID)
             return@withContext true
         } else {
             Toast.makeText(context, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show()

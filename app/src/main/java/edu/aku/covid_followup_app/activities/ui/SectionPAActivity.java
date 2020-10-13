@@ -11,6 +11,7 @@ import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -106,6 +107,15 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         bi.pa01.setText(member.getMemberid());
         bi.pa02.setText(member.getMembername());
+
+        bi.pa02a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.pa0202.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVpa02b);
+                bi.pa02b.setEnabled(true);
+            }
+            else
+                bi.pa02b.setEnabled(false);
+        }));
     }
 
     public void BtnContinue() {
