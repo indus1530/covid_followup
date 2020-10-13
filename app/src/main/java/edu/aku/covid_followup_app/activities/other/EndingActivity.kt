@@ -1,6 +1,5 @@
 package edu.aku.covid_followup_app.activities.other
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -46,7 +45,6 @@ class EndingActivity : AppCompatActivity() {
         saveDraft()
         if (updateDB()) {
             finish()
-            startActivity(Intent(this, MainActivity::class.java))
         } else {
             Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show()
         }
@@ -56,7 +54,7 @@ class EndingActivity : AppCompatActivity() {
         val statusValue = if (bi.istatus01.isChecked) "1" else if (bi.istatus02.isChecked) "2" else if (bi.istatus03.isChecked) "3" else if (bi.istatus04.isChecked) "4" else if (bi.istatus05.isChecked) "5" else if (bi.istatus06.isChecked) "6" else if (bi.istatus07.isChecked) "96" else "-1"
         MainApp.fc.istatus = statusValue
         MainApp.fc.istatus88x = bi.istatus96x.text.toString()
-        MainApp.fc.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)
+        MainApp.fc.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm", Locale.getDefault()).format(Date().time)
     }
 
 

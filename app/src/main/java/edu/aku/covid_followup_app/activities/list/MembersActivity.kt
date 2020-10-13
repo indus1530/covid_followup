@@ -74,13 +74,12 @@ class MembersActivity : AppCompatActivity(), WarningActivityInterface {
 
     fun BtnEndHH(v: View) {
         if (memberCounter != adapter.itemCount) {
-//            Toast.makeText(this, "Please lock all members to proceed next section", Toast.LENGTH_SHORT).show()
-            Snackbar.make(findViewById(android.R.id.content), "Please lock all members to proceed next section", Snackbar.LENGTH_SHORT)
+            Snackbar.make(findViewById(android.R.id.content), "Please lock all members to proceed next section", Snackbar.LENGTH_LONG)
                     .show()
             return
         }
         finish()
-        startActivity(Intent(this, EndingActivity::class.java))
+        startActivity(Intent(this, EndingActivity::class.java).putExtra("complete", true))
     }
 
     override fun onBackPressed() {
