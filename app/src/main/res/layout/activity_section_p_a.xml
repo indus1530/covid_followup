@@ -1231,6 +1231,8 @@
                             style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:enabled='@{pa06a98.checked ? false : true}'
+                            android:text='@{pa06a98.checked ? "" : pa06a.getText().toString() }'
                             android:hint="@string/pa06a"
                             android:inputType="number"
                             android:maxLength="2"
@@ -1258,6 +1260,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:enabled='@{pa06b98.checked ? false : true}'
+                            android:text='@{pa06b98.checked ? "" : pa06b.getText().toString() }'
                             android:hint="@string/pa06b"
                             android:inputType="number"
                             android:maxLength="2"
@@ -1286,6 +1289,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:enabled='@{pa06c98.checked ? false : true}'
+                            android:text='@{pa06c98.checked ? "" : pa06c.getText().toString() }'
                             android:hint="@string/pa06c"
                             android:inputType="number"
                             android:maxLength="2"
@@ -1314,6 +1318,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:enabled='@{pa06d98.checked ? false : true}'
+                            android:text='@{pa06d98.checked ? "" : pa06d.getText().toString() }'
                             android:hint="@string/pa06d"
                             android:inputType="number"
                             android:maxLength="2"
@@ -1342,6 +1347,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:enabled='@{pa06e98.checked ? false : true}'
+                            android:text='@{pa06e98.checked ? "" : pa06e.getText().toString() }'
                             android:hint="@string/pa06e"
                             android:inputType="number"
                             android:maxLength="2"
@@ -1370,6 +1376,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:enabled='@{pa06f98.checked ? false : true}'
+                            android:text='@{pa06f98.checked ? "" : pa06f.getText().toString() }'
                             android:hint="@string/pa06f"
                             android:inputType="number"
                             android:maxLength="2"
@@ -1398,6 +1405,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:enabled='@{pa06g98.checked ? false : true}'
+                            android:text='@{pa06g98.checked ? "" : pa06g.getText().toString() }'
                             android:hint="@string/pa06g"
                             android:inputType="number"
                             android:maxLength="2"
@@ -1425,7 +1433,8 @@
                             style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:enabled='@{pa06a98.checked ? false : true}'
+                            android:enabled='@{pa06h98.checked ? false : true}'
+                            android:text='@{pa06h98.checked ? "" : pa06h.getText().toString() }'
                             android:hint="@string/pa06h"
                             android:inputType="number"
                             android:maxLength="2"
