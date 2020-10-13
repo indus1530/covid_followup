@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kennyc.view.MultiStateView
 import edu.aku.covid_followup_app.CONSTANTS
 import edu.aku.covid_followup_app.CONSTANTS.Companion.CLUSTER_INFO
 import edu.aku.covid_followup_app.R
@@ -19,19 +20,18 @@ import edu.aku.covid_followup_app.adapters.HHListAdapter
 import edu.aku.covid_followup_app.contracts.ClustersContract
 import edu.aku.covid_followup_app.contracts.FormsContract
 import edu.aku.covid_followup_app.contracts.MembersContract
-import edu.aku.covid_followup_app.contracts.PersonalContract
 import edu.aku.covid_followup_app.core.MainApp
 import edu.aku.covid_followup_app.databinding.ActivityInfoBinding
 import edu.aku.covid_followup_app.utils.WarningActivityInterface
 import edu.aku.covid_followup_app.utils.openWarningActivity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.Executors
+import java.util.concurrent.ScheduledExecutorService
+import java.util.concurrent.TimeUnit
 
-class InfoActivity : AppCompatActivity(), WarningActivityInterface {
+class InfoActivity : AppCompatActivity(), WarningActivityInterface, MultiStateView.StateListener {
 
     private lateinit var adapter: HHListAdapter
     private lateinit var bi: ActivityInfoBinding
@@ -48,6 +48,9 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
 
 
     private fun settingUIContent() {
+
+        bi.multiStateView.listener = this
+
         selectedCluster = intent.getSerializableExtra(CLUSTER_INFO) as ClustersContract
         this.title = "Household List of Cluster:${selectedCluster.cluster_id}"
 
@@ -56,6 +59,17 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
         }
 
         mainVModel.hhLst.observe(this, { item ->
+            bi.multiStateView.postDelayed(Runnable {
+                if (item.size == 0) {
+                    bi.multiStateView.viewState = MultiStateView.ViewState.EMPTY
+                    val worker: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
+                    worker.schedule(Runnable {
+                        finish()
+                    }, 3500, TimeUnit.MILLISECONDS)
+                } else {
+                    bi.multiStateView.viewState = MultiStateView.ViewState.CONTENT
+                }
+            }, 2000L)
             adapter.setMList(item)
         })
 
@@ -139,5 +153,13 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
         return@withContext false
     }
 
+    override fun onResume() {
+        super.onResume()
+        bi.multiStateView.viewState = MultiStateView.ViewState.LOADING
+        adapter.notifyDataSetChanged()
+    }
 
+    override fun onStateChanged(viewState: MultiStateView.ViewState) {
+
+    }
 }

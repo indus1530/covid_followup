@@ -321,7 +321,10 @@ public class MainActivity extends MenuActivity implements WarningActivityInterfa
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 List<String> districts = new ArrayList<>(Collections.singletonList("...."));
                 bi.openFormBtn.setClickable(false);
+                bi.spinnerDistrict.setSelection(0);
+                bi.spinnerDistrict.setEnabled(false);
                 if (position == 0) return;
+                bi.spinnerDistrict.setEnabled(true);
                 for (Map.Entry<String, Pair<String, ClustersContract>> entry : SplashscreenActivity.subDistrictsMap.entrySet()) {
                     if (entry.getValue().getFirst().equals(bi.spinnerProvince.getSelectedItem().toString()))
                         districts.add(entry.getKey());

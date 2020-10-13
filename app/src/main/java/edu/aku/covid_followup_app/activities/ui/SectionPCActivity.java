@@ -2,6 +2,7 @@ package edu.aku.covid_followup_app.activities.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +16,15 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.core.DatabaseHelper;
 import edu.aku.covid_followup_app.core.MainApp;
 import edu.aku.covid_followup_app.databinding.ActivitySectionPCBinding;
 
+import static edu.aku.covid_followup_app.CONSTANTS.NASAL_TAKEN;
 import static edu.aku.covid_followup_app.core.MainApp.pc;
 
 public class SectionPCActivity extends AppCompatActivity {
@@ -37,6 +41,10 @@ public class SectionPCActivity extends AppCompatActivity {
     }
 
     private void setupSkips() {
+
+        if (Objects.equals(getIntent().getStringExtra(NASAL_TAKEN), "2")) {
+            bi.fldGrpCVpc03a.setVisibility(View.GONE);
+        }
 
         bi.pc01.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.pc012.getId()) {
@@ -73,7 +81,6 @@ public class SectionPCActivity extends AppCompatActivity {
                 : bi.pc012.isChecked() ? "2"
                 : "-1");
         json.put("pc02", bi.pc02.getText().toString());
-        json.put("pc02a", bi.pc02a.getText().toString());
         json.put("pc03", bi.pc03.getText().toString());
         json.put("pc03a", bi.pc03a1.isChecked() ? "1"
                 : bi.pc03a2.isChecked() ? "2"

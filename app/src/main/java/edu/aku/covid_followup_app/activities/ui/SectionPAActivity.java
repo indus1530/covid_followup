@@ -11,7 +11,6 @@ import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -380,8 +379,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
     }
 
-    @Override
+/*    @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show();
-    }
+    }*/
 }

@@ -52,15 +52,26 @@
         </androidx.cardview.widget.CardView>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/hhList"
+        <com.kennyc.view.MultiStateView
+            android:id="@+id/multiStateView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/light_gray"
-            app:layout_constraintTop_toBottomOf="@+id/checkLayout2"
-            tools:listitem="@layout/item_hh_layout">
+            android:layout_height="match_parent"
+            app:msv_animateViewChanges="true"
+            app:msv_emptyView="@layout/empty_view"
+            app:msv_loadingView="@layout/loading_view"
+            app:msv_viewState="content">
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hhList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray"
+                app:layout_constraintTop_toBottomOf="@+id/checkLayout2"
+                tools:listitem="@layout/item_hh_layout">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </com.kennyc.view.MultiStateView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
