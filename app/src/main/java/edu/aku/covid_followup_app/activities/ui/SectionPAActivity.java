@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -362,7 +363,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             return false;
 
         if (bi.pa0201.isChecked() && bi.pa033.isChecked()) {
-            Snackbar.make(findViewById(android.R.id.content), "Invalid Response :Select Member is Respondent in PA02A", Snackbar.LENGTH_LONG)
+            Snackbar.make(findViewById(android.R.id.content), "Invalid Response :Select Member is Respondent in PA02A", Snackbar.LENGTH_LONG).setTextColor(Color.WHITE)
                     .show();
             return false;
         }
