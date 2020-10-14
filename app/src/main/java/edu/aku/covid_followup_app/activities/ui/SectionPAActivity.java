@@ -14,6 +14,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.google.android.material.snackbar.Snackbar;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
@@ -25,8 +28,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.covid_followup_app.CONSTANTS;
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.MembersContract;
@@ -206,6 +207,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("address", member.getAddress());
         json.put("blood", member.getBlood());
         json.put("nasal", member.getNasal());
+
+        json.put("pa01", bi.pa01.getText().toString());
 
         json.put("pa02", bi.pa02.getText().toString());
 
