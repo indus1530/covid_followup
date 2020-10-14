@@ -164,6 +164,10 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         pc.setDevicetagID(MainApp.appInfo.getTagName());
         pc.setClusterCode(MainApp.fc.getClusterCode());
         pc.setHhno(MainApp.fc.getHhno());
+        pc.setPa03(bi.pa031.isChecked() ? "1"
+                : bi.pa032.isChecked() ? "2"
+                : bi.pa033.isChecked() ? "3"
+                : "-1");
 
         JSONObject json = new JSONObject();
 
@@ -184,10 +188,10 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         json.put("pa02b", bi.pa02b.getText().toString());
 
-        json.put("pa03", bi.pa031.isChecked() ? "1"
+        /*json.put("pa03", bi.pa031.isChecked() ? "1"
                 : bi.pa032.isChecked() ? "2"
                 : bi.pa033.isChecked() ? "3"
-                : "-1");
+                : "-1");*/
 
         json.put("pa041", bi.pa041a.isChecked() ? "1"
                 : bi.pa041b.isChecked() ? "2"

@@ -156,6 +156,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PersonalTable.COLUMN_DEVICETAGID, personal.getDevicetagID());
         values.put(PersonalTable.COLUMN_DEVICEID, personal.getDeviceID());
         values.put(PersonalTable.COLUMN_APPVERSION, personal.getAppversion());
+        values.put(PersonalTable.COLUMN_PA03, personal.getPa03());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -540,6 +541,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PersonalTable.COLUMN_DEVICETAGID,
                 PersonalTable.COLUMN_DEVICEID,
                 PersonalTable.COLUMN_APPVERSION,
+                PersonalTable.COLUMN_PA03,
         };
 
 

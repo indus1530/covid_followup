@@ -66,13 +66,14 @@
     <string name="ha14">گھرانے کے انٹرویوکا نتیجہ:
 نوٹ:  انٹرویو مکمل نہ ہونے  کی صورت میں سپروائزر سے رابطہ کریں</string>
     <string name="ha1401">گھر مل گیا انٹرویو جاری رکھیں۔</string>
+    <string name="ha1408">دوبارہ دورہ</string>
+    <string name="ha1496">دیگر(وضاحت کریں)</string>
     <string name="ha1402">گھر بند ہے</string>
     <string name="ha1403">گھر میں کوئی اہل جواب دہندہ موجود نہیں</string>
     <string name="ha1404">گھر طویل مدت سے بند ہے</string>
     <string name="ha1405">انکار کردیا</string>
     <string name="ha1406">رہائش خالی ہے یا رہائش گاہ نہیں</string>
     <string name="ha1407">رہائش نہیں ملی</string>
-    <string name="ha1408">دیگر(وضاحت کریں)</string>
 
     <string name="pc01"> کیا خون کا نمونہ لیا گیا تھا؟</string>
     <string name="pc011">ہاں</string>

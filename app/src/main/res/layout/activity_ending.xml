@@ -42,7 +42,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/q_istatus"
-                            android:text="@string/istatus" />
+                            android:text="@string/ha14" />
 
                         <TextView
                             android:id="@+id/q_istatus"
@@ -65,62 +65,62 @@
                             android:id="@+id/istatus01"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1401" />
+                            android:text="@string/ha1401" />
 
                         <RadioButton
                             android:id="@+id/istatus02"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1402" />
+                            android:text="@string/ha1402" />
 
                         <RadioButton
                             android:id="@+id/istatus03"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1403" />
+                            android:text="@string/ha1403" />
 
                         <RadioButton
                             android:id="@+id/istatus04"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1404" />
+                            android:text="@string/ha1404" />
 
                         <RadioButton
                             android:id="@+id/istatus05"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1405" />
+                            android:text="@string/ha1405" />
 
                         <RadioButton
                             android:id="@+id/istatus06"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1406" />
+                            android:text="@string/ha1406" />
 
                         <RadioButton
                             android:id="@+id/istatus07"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1407" />
+                            android:text="@string/ha1407" />
 
                         <RadioButton
                             android:id="@+id/istatus08"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh1408" />
+                            android:text="@string/ha1408" />
 
                         <RadioButton
                             android:id="@+id/istatus96"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="1dp"
-                            android:text="@string/istatus96" />
+                            android:text="@string/ha1496" />
 
                         <EditText
                             android:id="@+id/istatus96x"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/istatus96"
+                            android:hint="@string/ha1496"
                             android:maxLength="40"
                             android:tag="istatus96"
                             android:text='@{istatus96.checked ? istatus96x.getText().toString(): ""}'
