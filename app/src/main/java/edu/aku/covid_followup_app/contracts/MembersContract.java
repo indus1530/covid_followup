@@ -23,6 +23,17 @@ public class MembersContract implements Serializable {
     private String personal_colid;
     private String cluster;
 
+    //Not in DB
+    private Boolean formFlag = true;
+
+    public Boolean getFormFlag() {
+        return formFlag;
+    }
+
+    public void setFormFlag(Boolean formFlag) {
+        this.formFlag = formFlag;
+    }
+
     public MembersContract() {
     }
 

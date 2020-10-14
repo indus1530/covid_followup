@@ -15,8 +15,8 @@ public class PersonalContract {
     private String _UID = "";
     private String _UUID = "";
     private String sysdate = "";
-    private String hh12 = ""; // Cluster
-    private String hh13 = ""; // HHNo
+    private String clusterCode = ""; // Cluster
+    private String hhno = ""; // HHNo
     private String cstatus = ""; // Interview Status
     private String cstatus96x = ""; // Interview Status
     private String endingdatetime = "";
@@ -29,18 +29,6 @@ public class PersonalContract {
     private String sA = "";
     private String sC = "";
 
-    //Not in DB
-    private String formFlag;
-
-
-    public String getFormFlag() {
-        return formFlag;
-    }
-
-    public void setFormFlag(String formFlag) {
-        this.formFlag = formFlag;
-    }
-
 
     public String getSysdate() {
         return sysdate;
@@ -51,21 +39,21 @@ public class PersonalContract {
     }
 
 
-    public String getHh12() {
-        return hh12;
+    public String getClusterCode() {
+        return clusterCode;
     }
 
-    public void setHh12(String hh12) {
-        this.hh12 = hh12;
+    public void setClusterCode(String clusterCode) {
+        this.clusterCode = clusterCode;
     }
 
 
-    public String getHh13() {
-        return hh13;
+    public String getHhno() {
+        return hhno;
     }
 
-    public void setHh13(String hh13) {
-        this.hh13 = hh13;
+    public void setHhno(String hhno) {
+        this.hhno = hhno;
     }
 
 
@@ -206,8 +194,8 @@ public class PersonalContract {
         this._ID = jsonObject.getString(PersonalTable.COLUMN_ID);
         this._UID = jsonObject.getString(PersonalTable.COLUMN_UID);
         this.sysdate = jsonObject.getString(PersonalTable.COLUMN_SYSDATE);
-        this.hh12 = jsonObject.getString(PersonalTable.COLUMN_HH12);
-        this.hh13 = jsonObject.getString(PersonalTable.COLUMN_HH13);
+        this.clusterCode = jsonObject.getString(PersonalTable.COLUMN_CLUSTERCODE);
+        this.hhno = jsonObject.getString(PersonalTable.COLUMN_HHNO);
         this._UUID = jsonObject.getString(PersonalTable.COLUMN_UUID);
         this.cstatus = jsonObject.getString(PersonalTable.COLUMN_CSTATUS);
         this.cstatus96x = jsonObject.getString(PersonalTable.COLUMN_CSTATUS96x);
@@ -230,8 +218,8 @@ public class PersonalContract {
         this._ID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_UID));
         this.sysdate = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SYSDATE));
-        this.hh12 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_HH12));
-        this.hh13 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_HH13));
+        this.clusterCode = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_CLUSTERCODE));
+        this.hhno = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_HHNO));
         this._UUID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_UUID));
         this.cstatus = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_CSTATUS));
         this.cstatus96x = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_CSTATUS96x));
@@ -262,8 +250,8 @@ public class PersonalContract {
             json.put(PersonalTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
             json.put(PersonalTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
             json.put(PersonalTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-            json.put(PersonalTable.COLUMN_HH12, this.hh12 == null ? JSONObject.NULL : this.hh12);
-            json.put(PersonalTable.COLUMN_HH13, this.hh13 == null ? JSONObject.NULL : this.hh13);
+            json.put(PersonalTable.COLUMN_CLUSTERCODE, this.clusterCode == null ? JSONObject.NULL : this.clusterCode);
+            json.put(PersonalTable.COLUMN_HHNO, this.hhno == null ? JSONObject.NULL : this.hhno);
             json.put(PersonalTable.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
             json.put(PersonalTable.COLUMN_CSTATUS, this.cstatus == null ? JSONObject.NULL : this.cstatus);
             json.put(PersonalTable.COLUMN_CSTATUS96x, this.cstatus96x == null ? JSONObject.NULL : this.cstatus96x);
@@ -296,8 +284,8 @@ public class PersonalContract {
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_UUID = "_uuid";
         public static final String COLUMN_SYSDATE = "sysdate";
-        public static final String COLUMN_HH12 = "hh12";
-        public static final String COLUMN_HH13 = "hh13";
+        public static final String COLUMN_CLUSTERCODE = "ha12";
+        public static final String COLUMN_HHNO = "ha13";
         public static final String COLUMN_CSTATUS = "cstatus";
         public static final String COLUMN_CSTATUS96x = "cstatus96x";
         public static final String COLUMN_ENDINGDATETIME = "endingdatetime";

@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import edu.aku.covid_followup_app.R;
@@ -52,19 +54,17 @@ public class MMListAdapter extends RecyclerView.Adapter<MMListAdapter.ViewHolder
         holder.bi.address.setText(mList.get(i).getAddress());
         holder.bi.name.setText(mList.get(i).getMembername());
         holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i));
-
-        /*if (isMother) {
-            if (InfoActivity.womenList.size() == 0) return;
-            if (InfoActivity.Companion.checkingWomenExist(Integer.valueOf(mList.get(i).getSerialno()))) {
-                holder.bi.parentLayout.setEnabled(false);
-                holder.bi.parentLayout.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
-            }
-        }*/
+        int iconRes = R.drawable.ic_lock;
 
         if (vModel.getCheckedItemValues(Integer.parseInt(mList.get(i).getMemberid()))) {
             holder.bi.checkIcon.setVisibility(View.VISIBLE);
             holder.bi.parentLayout.setEnabled(false);
         }
+
+        Glide.with(mContext)
+                .asBitmap()
+                .load(iconRes)
+                .into(holder.bi.statusImg);
 
 
     }

@@ -144,8 +144,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PersonalTable.COLUMN_PROJECT_NAME, personal.getProjectName());
         values.put(PersonalTable.COLUMN_UID, personal.get_UID());
         values.put(PersonalTable.COLUMN_SYSDATE, personal.getSysdate());
-        values.put(PersonalTable.COLUMN_HH12, personal.getHh12());
-        values.put(PersonalTable.COLUMN_HH13, personal.getHh13());
+        values.put(PersonalTable.COLUMN_CLUSTERCODE, personal.getClusterCode());
+        values.put(PersonalTable.COLUMN_HHNO, personal.getHhno());
         values.put(PersonalTable.COLUMN_UUID, personal.get_UUID());
         values.put(PersonalTable.COLUMN_CSTATUS, personal.getCstatus());
         values.put(PersonalTable.COLUMN_CSTATUS96x, personal.getCstatus96x());
@@ -528,8 +528,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PersonalTable._ID,
                 PersonalTable.COLUMN_UID,
                 PersonalTable.COLUMN_SYSDATE,
-                PersonalTable.COLUMN_HH12,
-                PersonalTable.COLUMN_HH13,
+                PersonalTable.COLUMN_CLUSTERCODE,
+                PersonalTable.COLUMN_HHNO,
                 PersonalTable.COLUMN_UUID,
                 PersonalTable.COLUMN_CSTATUS,
                 PersonalTable.COLUMN_CSTATUS96x,
@@ -690,7 +690,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
         String orderBy = FormsTable.COLUMN_ID + " ASC";
 
-        FormsContract allFC = new FormsContract();
+        FormsContract allFC = null;
         try {
             c = db.query(
                     FormsTable.TABLE_NAME,  // The table to query

@@ -78,6 +78,10 @@ class MembersActivity : AppCompatActivity(), WarningActivityInterface {
                     .show()
             return
         }
+
+
+
+
         finish()
         startActivity(Intent(this, EndingActivity::class.java).putExtra("complete", true))
     }

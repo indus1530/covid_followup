@@ -52,10 +52,7 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
         holder.bi.address.setText(mList.get(i).getAddress());
         holder.bi.name.setText(String.format("HH-Head: %s", mList.get(i).getHead()));
         holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i, isMother));
-        Glide.with(mContext)
-                .asBitmap()
-                .load(R.drawable.home)
-                .into(holder.bi.houseImg);
+        int imageRes = R.drawable.home;
 
         /*if (isMother) {
             if (InfoActivity.womenList.size() == 0) return;
@@ -64,6 +61,16 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
                 holder.bi.parentLayout.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
             }
         }*/
+
+        if (!mList.get(i).getFormFlag()) {
+            holder.bi.parentLayout.setEnabled(false);
+            holder.bi.parentLayout.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
+            imageRes = R.drawable.home_filled;
+        }
+        Glide.with(mContext)
+                .asBitmap()
+                .load(imageRes)
+                .into(holder.bi.houseImg);
 
     }
 

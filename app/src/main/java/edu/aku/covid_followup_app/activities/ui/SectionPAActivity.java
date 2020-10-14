@@ -164,6 +164,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         JSONObject json = new JSONObject();
 
+
         json.put("ha12", MainApp.fc.getClusterCode());
         json.put("ha13", MainApp.fc.getHhno());
         json.put("username", MainApp.userEmail);

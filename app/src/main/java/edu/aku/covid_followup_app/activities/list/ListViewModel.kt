@@ -74,6 +74,8 @@ class ListViewModel : ViewModel() {
         data.forEach { hh ->
             val flag = getHHLst.find { item -> item.hhid == hh.hhid }
             if (flag == null) {
+                val subForm = db.getExistingForm(cluster, hh.hhid)
+                if (subForm != null) hh.formFlag = false
                 getHHLst.add(hh)
             }
         }
