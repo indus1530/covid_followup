@@ -146,8 +146,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         long updcount = db.addPersonal(pc);
         pc.set_ID(String.valueOf(updcount));
         if (updcount > 0) {
-            pc.set_UUID(MainApp.appInfo.getDeviceID() + pc.get_ID());
-            db.updatePersonalColumn(PersonalContract.PersonalTable.COLUMN_UID, pc.get_UUID(), pc.get_ID());
+            pc.set_UID(MainApp.appInfo.getDeviceID() + pc.get_ID());
+            db.updatePersonalColumn(PersonalContract.PersonalTable.COLUMN_UID, pc.get_UID(), pc.get_ID());
             return true;
         } else {
             Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
@@ -158,16 +158,15 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     private void SaveDraft() throws JSONException {
         pc = new PersonalContract();
         pc.set_UUID(MainApp.fc.get_UID());
+        pc.setFormdate(bi.pafd.getText().toString());
         pc.setSysdate(new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(new Date().getTime()));
         pc.setDeviceID(MainApp.appInfo.getDeviceID());
         pc.setDevicetagID(MainApp.appInfo.getTagName());
-        pc.setFormdate(bi.pafd.getText().toString());
+        pc.setClusterCode(MainApp.fc.getClusterCode());
+        pc.setHhno(MainApp.fc.getHhno());
 
         JSONObject json = new JSONObject();
 
-
-        json.put("ha12", MainApp.fc.getClusterCode());
-        json.put("ha13", MainApp.fc.getHhno());
         json.put("username", MainApp.userEmail);
         json.put("appversion", MainApp.appInfo.getAppVersion());
 
