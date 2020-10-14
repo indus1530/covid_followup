@@ -10,7 +10,7 @@ public class FormsContract {
 
     private String _ID = "";
     private String _UID = "";
-    private String formType = "";
+    private String ha11 = "";
     private String formDate = ""; // Date
     private String sysDate = ""; // Date
     private String user = ""; // Interviewer
@@ -88,7 +88,7 @@ public class FormsContract {
         this.synced = jsonObject.getString(FormsTable.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
         this.appversion = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
-        this.formType = jsonObject.getString(FormsTable.COLUMN_FORMTYPE);
+        this.ha11 = jsonObject.getString(FormsTable.COLUMN_ADDRESS);
         this.clusterCode = jsonObject.getString(FormsTable.COLUMN_CLUSTERCODE);
         this.hhno = jsonObject.getString(FormsTable.COLUMN_HHNO);
         this.sInfo = jsonObject.getString(FormsTable.COLUMN_SINFO);
@@ -117,7 +117,7 @@ public class FormsContract {
         this.deviceID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
         this.appversion = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APPVERSION));
-        this.formType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMTYPE));
+        this.ha11 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ADDRESS));
         this.clusterCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_CLUSTERCODE));
         this.hhno = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HHNO));
         this.sInfo = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SINFO));
@@ -156,7 +156,7 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(FormsTable.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(FormsTable.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
-        json.put(FormsTable.COLUMN_FORMTYPE, this.formType == null ? JSONObject.NULL : this.formType);
+        json.put(FormsTable.COLUMN_ADDRESS, this.ha11 == null ? JSONObject.NULL : this.ha11);
         json.put(FormsTable.COLUMN_CLUSTERCODE, this.clusterCode == null ? JSONObject.NULL : this.clusterCode);
         json.put(FormsTable.COLUMN_HHNO, this.hhno == null ? JSONObject.NULL : this.hhno);
 
@@ -183,12 +183,12 @@ public class FormsContract {
         this._UID = _UID;
     }
 
-    public String getFormType() {
-        return formType;
+    public String getHa11() {
+        return ha11;
     }
 
-    public void setFormType(String formType) {
-        this.formType = formType;
+    public void setHa11(String ha11) {
+        this.ha11 = ha11;
     }
 
     public String getFormDate() {
@@ -339,10 +339,10 @@ public class FormsContract {
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_SYSDATE = "sysdate";
-        public static final String COLUMN_FORMTYPE = "formtype";
+        public static final String COLUMN_ADDRESS = "ha11";
         public static final String COLUMN_USER = "username";
-        public static final String COLUMN_ISTATUS = "istatus";
-        public static final String COLUMN_ISTATUS88x = "istatus88x";
+        public static final String COLUMN_ISTATUS = "ha14";
+        public static final String COLUMN_ISTATUS88x = "ha1488x";
         public static final String COLUMN_FSTATUS = "fStatus";
         public static final String COLUMN_FSTATUS88x = "fstatus88x";
         public static final String COLUMN_LUID = "_luid";
@@ -356,8 +356,8 @@ public class FormsContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APPVERSION = "appversion";
-        public static final String COLUMN_CLUSTERCODE = "cluster_code";
-        public static final String COLUMN_HHNO = "hhno";
+        public static final String COLUMN_CLUSTERCODE = "ha12";
+        public static final String COLUMN_HHNO = "ha13";
         public static final String COLUMN_SINFO = "sInfo";
     }
 }
