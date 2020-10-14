@@ -20,10 +20,7 @@ public class PersonalContract {
     private String cstatus = ""; // Interview Status
     private String cstatus96x = ""; // Interview Status
     private String endingdatetime = "";
-    private String gpsLat = "";
-    private String gpsLng = "";
-    private String gpsDT = "";
-    private String gpsAcc = "";
+    private String formdate = "";
     private String deviceID = "";
     private String devicetagID = "";
     private String synced = "";
@@ -33,74 +30,15 @@ public class PersonalContract {
     private String sC = "";
 
     //Not in DB
-    private String memberName;
-    private String memberSerial;
-    private String gender;
-    private String agey;
-    private String agem;
-    private String cluster;
-    private String hhno;
+    private String formFlag;
 
-    public String getMemberName() {
-        return memberName;
+
+    public String getFormFlag() {
+        return formFlag;
     }
 
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
-    }
-
-
-    public String getMemberSerial() {
-        return memberSerial;
-    }
-
-    public void setMemberSerial(String memberSerial) {
-        this.memberSerial = memberSerial;
-    }
-
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-
-    public String getAgey() {
-        return agey;
-    }
-
-    public void setAgey(String agey) {
-        this.agey = agey;
-    }
-
-
-    public String getAgem() {
-        return agem;
-    }
-
-    public void setAgem(String agem) {
-        this.agem = agem;
-    }
-
-
-    public String getCluster() {
-        return cluster;
-    }
-
-    public void setCluster(String cluster) {
-        this.cluster = cluster;
-    }
-
-
-    public String getHhno() {
-        return hhno;
-    }
-
-    public void setHhno(String hhno) {
-        this.hhno = hhno;
+    public void setFormFlag(String formFlag) {
+        this.formFlag = formFlag;
     }
 
 
@@ -210,39 +148,12 @@ public class PersonalContract {
     }
 
 
-    public String getGpsLat() {
-        return gpsLat;
+    public String getFormdate() {
+        return formdate;
     }
 
-    public void setGpsLat(String gpsLat) {
-        this.gpsLat = gpsLat;
-    }
-
-
-    public String getGpsLng() {
-        return gpsLng;
-    }
-
-    public void setGpsLng(String gpsLng) {
-        this.gpsLng = gpsLng;
-    }
-
-
-    public String getGpsDT() {
-        return gpsDT;
-    }
-
-    public void setGpsDT(String gpsDT) {
-        this.gpsDT = gpsDT;
-    }
-
-
-    public String getGpsAcc() {
-        return gpsAcc;
-    }
-
-    public void setGpsAcc(String gpsAcc) {
-        this.gpsAcc = gpsAcc;
+    public void setFormdate(String formdate) {
+        this.formdate = formdate;
     }
 
 
@@ -301,10 +212,7 @@ public class PersonalContract {
         this.cstatus = jsonObject.getString(PersonalTable.COLUMN_CSTATUS);
         this.cstatus96x = jsonObject.getString(PersonalTable.COLUMN_CSTATUS96x);
         this.endingdatetime = jsonObject.getString(PersonalTable.COLUMN_ENDINGDATETIME);
-        this.gpsLat = jsonObject.getString(PersonalTable.COLUMN_GPSLAT);
-        this.gpsLng = jsonObject.getString(PersonalTable.COLUMN_GPSLNG);
-        this.gpsDT = jsonObject.getString(PersonalTable.COLUMN_GPSDATE);
-        this.gpsAcc = jsonObject.getString(PersonalTable.COLUMN_GPSACC);
+        this.formdate = jsonObject.getString(PersonalTable.COLUMN_FORMDATE);
         this.deviceID = jsonObject.getString(PersonalTable.COLUMN_DEVICEID);
         this.devicetagID = jsonObject.getString(PersonalTable.COLUMN_DEVICETAGID);
         this.synced = jsonObject.getString(PersonalTable.COLUMN_SYNCED);
@@ -328,10 +236,7 @@ public class PersonalContract {
         this.cstatus = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_CSTATUS));
         this.cstatus96x = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_CSTATUS96x));
         this.endingdatetime = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_ENDINGDATETIME));
-        this.gpsLat = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_GPSLAT));
-        this.gpsLng = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_GPSLNG));
-        this.gpsDT = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_GPSDATE));
-        this.gpsAcc = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_GPSACC));
+        this.formdate = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_FORMDATE));
         this.deviceID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_DEVICEID));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_DEVICETAGID));
         this.appversion = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_APPVERSION));
@@ -371,10 +276,7 @@ public class PersonalContract {
                 json.put(PersonalTable.COLUMN_SC, new JSONObject(this.sC));
             }
 
-            json.put(PersonalTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
-            json.put(PersonalTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
-            json.put(PersonalTable.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
-            json.put(PersonalTable.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
+            json.put(PersonalTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
             json.put(PersonalTable.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
             json.put(PersonalTable.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
             json.put(PersonalTable.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
@@ -399,10 +301,7 @@ public class PersonalContract {
         public static final String COLUMN_CSTATUS = "cstatus";
         public static final String COLUMN_CSTATUS96x = "cstatus96x";
         public static final String COLUMN_ENDINGDATETIME = "endingdatetime";
-        public static final String COLUMN_GPSLAT = "gpslat";
-        public static final String COLUMN_GPSLNG = "gpslng";
-        public static final String COLUMN_GPSDATE = "gpsdate";
-        public static final String COLUMN_GPSACC = "gpsacc";
+        public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_DEVICETAGID = "tagid";
         public static final String COLUMN_SYNCED = "synced";

@@ -152,10 +152,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PersonalTable.COLUMN_ENDINGDATETIME, personal.getEndingdatetime());
         values.put(PersonalTable.COLUMN_SA, personal.getsA());
         values.put(PersonalTable.COLUMN_SC, personal.getsC());
-        values.put(PersonalTable.COLUMN_GPSLAT, personal.getGpsLat());
-        values.put(PersonalTable.COLUMN_GPSLNG, personal.getGpsLng());
-        values.put(PersonalTable.COLUMN_GPSDATE, personal.getGpsDT());
-        values.put(PersonalTable.COLUMN_GPSACC, personal.getGpsAcc());
+        values.put(PersonalTable.COLUMN_FORMDATE, personal.getFormdate());
         values.put(PersonalTable.COLUMN_DEVICETAGID, personal.getDevicetagID());
         values.put(PersonalTable.COLUMN_DEVICEID, personal.getDeviceID());
         values.put(PersonalTable.COLUMN_APPVERSION, personal.getAppversion());
@@ -169,8 +166,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+
     //Update forms in DB
-    //    Generic update PersonalColumn
     public int updatePersonalColumn(String column, String value, String valueID) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -186,7 +183,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
-    //    Generic update FormsColumn
     public int updateFormsColumn(String column, String value, String valueID) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -386,7 +382,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
     //Get Functions
     public int getListingCount() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -541,10 +536,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PersonalTable.COLUMN_ENDINGDATETIME,
                 PersonalTable.COLUMN_SA,
                 PersonalTable.COLUMN_SC,
-                PersonalTable.COLUMN_GPSLAT,
-                PersonalTable.COLUMN_GPSLNG,
-                PersonalTable.COLUMN_GPSDATE,
-                PersonalTable.COLUMN_GPSACC,
+                PersonalTable.COLUMN_FORMDATE,
                 PersonalTable.COLUMN_DEVICETAGID,
                 PersonalTable.COLUMN_DEVICEID,
                 PersonalTable.COLUMN_APPVERSION,
@@ -583,7 +575,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allPersonal;
     }
 
-    public ArrayList<Cursor> getData(String Query) {
+    public ArrayList<Cursor> getData(String query) {
         //get writable database
         SQLiteDatabase sqlDB = this.getWritableDatabase();
         String[] columns = new String[]{"mesage"};
@@ -596,7 +588,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         try {
             //execute the query results will be save in Cursor c
-            Cursor c = sqlDB.rawQuery(Query, null);
+            Cursor c = sqlDB.rawQuery(query, null);
 
             //add value to cursor2
             Cursor2.addRow(new Object[]{"Success"});
@@ -662,6 +654,65 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allVC;
+    }
+
+    public FormsContract getExistingForm(String cluster, String hhno) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsTable._ID,
+                FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_SYSDATE,
+                FormsTable.COLUMN_USER,
+                FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_ISTATUS88x,
+                FormsTable.COLUMN_FSTATUS,
+                FormsTable.COLUMN_FSTATUS88x,
+                FormsTable.COLUMN_LUID,
+                FormsTable.COLUMN_ENDINGDATETIME,
+                FormsTable.COLUMN_SINFO,
+                FormsTable.COLUMN_GPSLAT,
+                FormsTable.COLUMN_GPSLNG,
+                FormsTable.COLUMN_GPSDATE,
+                FormsTable.COLUMN_GPSACC,
+                FormsTable.COLUMN_DEVICETAGID,
+                FormsTable.COLUMN_DEVICEID,
+                FormsTable.COLUMN_APPVERSION,
+                FormsTable.COLUMN_CLUSTERCODE,
+                FormsTable.COLUMN_HHNO,
+                FormsTable.COLUMN_ADDRESS
+        };
+
+        String whereClause = FormsTable.COLUMN_CLUSTERCODE + " =? AND " + FormsTable.COLUMN_HHNO + " =? AND " + FormsTable.COLUMN_ISTATUS + "=?";
+        String[] whereArgs = {cluster, hhno, "8"};
+        String groupBy = null;
+        String having = null;
+        String orderBy = FormsTable.COLUMN_ID + " ASC";
+
+        FormsContract allFC = new FormsContract();
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                allFC = new FormsContract().Hydrate(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
     }
 
     public List<ClustersContract> getDistrictSubDistrict() {
