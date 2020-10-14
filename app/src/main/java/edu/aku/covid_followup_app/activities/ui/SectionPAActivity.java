@@ -1,18 +1,16 @@
 package edu.aku.covid_followup_app.activities.ui;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.validatorcrawler.aliazaz.Clear;
@@ -25,8 +23,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.covid_followup_app.CONSTANTS;
 import edu.aku.covid_followup_app.R;
 import edu.aku.covid_followup_app.contracts.MembersContract;
@@ -45,34 +41,6 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
     ActivitySectionPABinding bi;
     private MembersContract member;
-
-    public static void setGPS(Activity activity) {
-        SharedPreferences GPSPref = activity.getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
-
-        try {
-            String lat = GPSPref.getString("Latitude", "0");
-            String lang = GPSPref.getString("Longitude", "0");
-            String acc = GPSPref.getString("Accuracy", "0");
-            String dt = GPSPref.getString("Time", "0");
-
-            if (lat.equals("0") && lang.equals("0")) {
-                Toast.makeText(activity, "Could not obtained GPS points", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(activity, "GPS set", Toast.LENGTH_SHORT).show();
-            }
-
-            String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
-
-            MainApp.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
-            MainApp.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
-            MainApp.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
-//            MainApp.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
-            MainApp.fc.setGpsDT(date); // Timestamp is converted to date above
-
-        } catch (Exception e) {
-            Log.e("GPS", "setGPS: " + e.getMessage());
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,13 +169,12 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("username", MainApp.userEmail);
         json.put("appversion", MainApp.appInfo.getAppVersion());
 
-        json.put("hhid", member.getHhid());
         json.put("head", member.getHead());
-        json.put("address", member.getAddress());
         json.put("blood", member.getBlood());
         json.put("nasal", member.getNasal());
 
-        json.put("pafd", bi.pafd.getText().toString());
+        json.put("pa01", bi.pa01.getText().toString());
+
         json.put("pa02", bi.pa02.getText().toString());
 
         json.put("pa02a", bi.pa0201.isChecked() ? "1"
@@ -340,8 +307,6 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("pa0808ad", bi.pa0808ad.getText().toString());
 
         pc.setsA(String.valueOf(json));
-
-        setGPS(this); // Set GPS
 
     }
 

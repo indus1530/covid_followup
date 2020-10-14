@@ -41,14 +41,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/home_final" />
+                            android:src="@drawable/home" />
                     </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="16dp"
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -58,7 +57,7 @@
                             android:layout_height="wrap_content"
                             android:text="Head Name"
                             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
 
                         <TextView
@@ -66,6 +65,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="HHID"
+                            android:textColor="@color/colorPrimary"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </LinearLayout>
                 </LinearLayout>

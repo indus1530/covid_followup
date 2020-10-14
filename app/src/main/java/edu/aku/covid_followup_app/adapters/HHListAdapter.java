@@ -54,7 +54,7 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
         holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i, isMother));
         Glide.with(mContext)
                 .asBitmap()
-                .load(R.drawable.home_final)
+                .load(R.drawable.home)
                 .into(holder.bi.houseImg);
 
         /*if (isMother) {

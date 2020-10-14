@@ -51,7 +51,7 @@ class EndingActivity : AppCompatActivity() {
     }
 
     private fun saveDraft() {
-        val statusValue = if (bi.istatus01.isChecked) "1" else if (bi.istatus02.isChecked) "2" else if (bi.istatus03.isChecked) "3" else if (bi.istatus04.isChecked) "4" else if (bi.istatus05.isChecked) "5" else if (bi.istatus06.isChecked) "6" else if (bi.istatus07.isChecked) "96" else "-1"
+        val statusValue = if (bi.istatus01.isChecked) "1" else if (bi.istatus02.isChecked) "2" else if (bi.istatus03.isChecked) "3" else if (bi.istatus04.isChecked) "4" else if (bi.istatus05.isChecked) "5" else if (bi.istatus06.isChecked) "6" else if (bi.istatus07.isChecked) "7" else if (bi.istatus08.isChecked) "8" else if (bi.istatus96.isChecked) "96" else "-1"
         MainApp.fc.istatus = statusValue
         MainApp.fc.istatus88x = bi.istatus96x.text.toString()
         MainApp.fc.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm", Locale.getDefault()).format(Date().time)
