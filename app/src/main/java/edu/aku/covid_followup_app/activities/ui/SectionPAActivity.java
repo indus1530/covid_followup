@@ -161,6 +161,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         pc.setSysdate(new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(new Date().getTime()));
         pc.setDeviceID(MainApp.appInfo.getDeviceID());
         pc.setDevicetagID(MainApp.appInfo.getTagName());
+        pc.setFormdate(bi.pafd.getText().toString());
 
         JSONObject json = new JSONObject();
 
