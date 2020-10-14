@@ -23,6 +23,52 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- pafd  Input   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ec01cv"
+                style="@style/cardView">
+
+                <LinearLayout style="@style/hlinearlayout">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_pafd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_pafd"
+                            android:text="@string/pafd" />
+
+                        <TextView
+                            android:id="@+id/q_pafd"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_pafd"
+                            android:layout_alignBottom="@id/qtxt_pafd"
+                            android:text="@string/Q_pafd" />
+
+                    </RelativeLayout>
+
+                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+                        android:id="@+id/pafd"
+                        style="@style/EditTextNum"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:hint="DD/MM/YYYY"
+                        app:dateFormat="dd-MM-yyyy"
+                        app:maxDate="CR_DATE"
+                        app:minDate="01/01/2020" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
             <!-- pa01 -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa01"

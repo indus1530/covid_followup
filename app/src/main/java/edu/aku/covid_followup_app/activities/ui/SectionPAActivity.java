@@ -207,6 +207,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("blood", member.getBlood());
         json.put("nasal", member.getNasal());
 
+        json.put("pafd", bi.pafd.getText().toString());
         json.put("pa02", bi.pa02.getText().toString());
 
         json.put("pa02a", bi.pa0201.isChecked() ? "1"

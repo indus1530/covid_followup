@@ -216,7 +216,9 @@
     <string name="pc04a">پیمائش کرنے والے کا کوڈ</string>
     <string name="pc06">وزن کلو گرام میں</string>
 
+    <string name="pafd"> انٹرویو کی تاریخ : سال / مہینہ / دن </string>
 
+    <string name='Q_pafd'>pafd</string>
     <string name='Q_pa01'>pa01</string>
     <string name='Q_pa02'>pa02</string>
     <string name='Q_pa02a'>pa02a</string>
