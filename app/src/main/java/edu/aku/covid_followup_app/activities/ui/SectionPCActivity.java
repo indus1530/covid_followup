@@ -87,7 +87,6 @@ public class SectionPCActivity extends AppCompatActivity {
                 : "-1");
         json.put("pc03b", bi.pc03b.getText().toString());
 
-
         pc.setsC(json.toString());
 
     }
@@ -151,6 +150,5 @@ public class SectionPCActivity extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-
 
 }

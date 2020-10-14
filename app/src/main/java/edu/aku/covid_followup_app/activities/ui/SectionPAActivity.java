@@ -298,20 +298,14 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("pa06f", bi.pa06f.getText().toString());
         json.put("pa06g", bi.pa06g.getText().toString());
         json.put("pa06h", bi.pa06h.getText().toString());
+
         json.put("pa06a98", "-1");
-
         json.put("pa06b98", "-1");
-
         json.put("pa06c98", "-1");
-
         json.put("pa06d98", "-1");
-
         json.put("pa06e98", "-1");
-
         json.put("pa06f98", "-1");
-
         json.put("pa06g98", "-1");
-
         json.put("pa06h98", "-1");
 
         json.put("pa07", bi.pa07a.isChecked() ? "1"
@@ -321,35 +315,27 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("pa08n", bi.pa08n.getText().toString());
 
         json.put("pa0801n", bi.pa0801n.getText().toString());
-
         json.put("pa0801ad", bi.pa0801ad.getText().toString());
 
         json.put("pa0802n", bi.pa0802n.getText().toString());
-
         json.put("pa0802ad", bi.pa0802ad.getText().toString());
 
         json.put("pa0803n", bi.pa0803n.getText().toString());
-
         json.put("pa0803ad", bi.pa0803ad.getText().toString());
 
         json.put("pa0804n", bi.pa0804n.getText().toString());
-
         json.put("pa0804ad", bi.pa0804ad.getText().toString());
 
         json.put("pa0805n", bi.pa0805n.getText().toString());
-
         json.put("pa0805ad", bi.pa0805ad.getText().toString());
 
         json.put("pa0806n", bi.pa0806n.getText().toString());
-
         json.put("pa0806ad", bi.pa0806ad.getText().toString());
 
         json.put("pa0807n", bi.pa0807n.getText().toString());
-
         json.put("pa0807ad", bi.pa0807ad.getText().toString());
 
         json.put("pa0808n", bi.pa0808n.getText().toString());
-
         json.put("pa0808ad", bi.pa0808ad.getText().toString());
 
         pc.setsA(String.valueOf(json));

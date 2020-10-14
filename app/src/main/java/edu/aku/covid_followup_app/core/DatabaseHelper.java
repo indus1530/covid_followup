@@ -123,7 +123,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_APPVERSION, fc.getAppversion());
         values.put(FormsTable.COLUMN_CLUSTERCODE, fc.getClusterCode());
         values.put(FormsTable.COLUMN_HHNO, fc.getHhno());
-        values.put(FormsTable.COLUMN_FORMTYPE, fc.getFormType());
+        values.put(FormsTable.COLUMN_ADDRESS, fc.getHa11());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -486,7 +486,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_APPVERSION,
                 FormsTable.COLUMN_CLUSTERCODE,
                 FormsTable.COLUMN_HHNO,
-                FormsTable.COLUMN_FORMTYPE
+                FormsTable.COLUMN_ADDRESS
         };
 
 

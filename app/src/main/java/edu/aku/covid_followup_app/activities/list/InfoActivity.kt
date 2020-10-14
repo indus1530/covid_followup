@@ -111,6 +111,7 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
             MainApp.fc.sysDate = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(Date().time)
             MainApp.fc.user = MainApp.userEmail
             MainApp.fc.appversion = MainApp.appInfo.appVersion
+            MainApp.fc.ha11 = mem.address
             setGPS(this)
 
             runBlocking {
