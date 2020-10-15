@@ -42,6 +42,17 @@
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
                             android:src="@drawable/home" />
+
+                        <TextView
+                            android:id="@+id/open"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="OPEN"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textColor="@color/green"
+                            android:textStyle="bold" />
+
                     </RelativeLayout>
 
                     <LinearLayout
@@ -68,6 +79,7 @@
                             android:textColor="@color/colorPrimary"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -91,7 +103,9 @@
                         android:text="Address"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </LinearLayout>
+
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
