@@ -33,6 +33,7 @@ class MembersActivity : AppCompatActivity(), WarningActivityInterface {
     private lateinit var bi: ActivityMembersBinding
     private lateinit var selectedMember: MembersContract
     private var memberCounter = 0
+    private var exitFlag = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +65,7 @@ class MembersActivity : AppCompatActivity(), WarningActivityInterface {
             }, 2000L)
 
             adapter.mList = item
-            memberCounter = item.filter { sub -> sub.memFlag != 3 }.size
+            memberCounter = item.filter { sub -> sub.memFlag != 0 }.size
         })
         InfoActivity.mainVModel.getMembersLst(this, selectedMember.cluster, selectedMember.hhid)
         setupRecyclerView(mutableListOf())
@@ -147,7 +148,16 @@ class MembersActivity : AppCompatActivity(), WarningActivityInterface {
     }
 
     override fun onBackPressed() {
-        Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show()
+        if (exitFlag) {
+            finish()
+        } else {
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
+            exitFlag = true
+            val worker: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
+            worker.schedule(Runnable {
+                exitFlag = false
+            }, 3000.toLong(), TimeUnit.MILLISECONDS)
+        }
     }
 
     override fun onResume() {

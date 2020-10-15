@@ -487,7 +487,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         };
 
 
-        String whereClause = FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " == '' ";
+        String whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null OR " + FormsTable.COLUMN_SYNCED + " = '') AND " + FormsTable.COLUMN_ISTATUS + " not in (2,5,8)";
 
         String[] whereArgs = null;
 

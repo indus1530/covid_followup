@@ -120,12 +120,12 @@
                             style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="#.##"
+                            android:hint="##.##"
                             android:inputType="number"
-                            app:mask="#.##"
-                            app:maxValue="6.00"
+                            app:mask="##.##"
+                            app:maxValue="11.00"
                             app:minValue="1.00"
-                            app:pattern="^(\\d{1,1}\\.\\d{2,2})$"
+                            app:pattern="^(\\d{2,2}\\.\\d{2,2})$"
                             app:type="range" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

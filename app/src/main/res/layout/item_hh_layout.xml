@@ -44,13 +44,14 @@
                             android:src="@drawable/home" />
 
                         <TextView
-                            android:id="@+id/open"
+                            android:id="@+id/hhStatus"
                             android:layout_width="@dimen/_60sdp"
                             android:layout_height="wrap_content"
+                            android:background="@color/black_overlay"
                             android:gravity="center"
                             android:text="OPEN"
                             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textColor="@color/green"
+                            android:textColor="@color/white"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -76,8 +77,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="HHID"
-                            android:textColor="@color/colorPrimary"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/colorPrimary" />
                     </LinearLayout>
 
                 </LinearLayout>

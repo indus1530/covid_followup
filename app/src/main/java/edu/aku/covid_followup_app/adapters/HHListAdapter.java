@@ -53,6 +53,8 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
         holder.bi.name.setText(String.format("HH-Head: %s", mList.get(i).getHead()));
         holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i, isMother));
         int imageRes = R.drawable.home;
+        String hhStatusText = "OPEN";
+        int hhStatusColor = mContext.getResources().getColor(R.color.black_overlay);
 
         /*if (isMother) {
             if (InfoActivity.womenList.size() == 0) return;
@@ -62,18 +64,30 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
             }
         }*/
 
-        if (mList.get(i).getFormFlag() != 8 && mList.get(i).getFormFlag() != 0) {
+        int flagType = mList.get(i).getFormFlag();
+
+        if (flagType != 8 && flagType != 0 && flagType != 2 && flagType != 5) {
             holder.bi.parentLayout.setEnabled(false);
             holder.bi.parentLayout.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
+            hhStatusText = "CLOSED";
+            hhStatusColor = mContext.getResources().getColor(R.color.red_overlay);
             imageRes = R.drawable.home_filled;
         } else {
             holder.bi.parentLayout.setEnabled(true);
             holder.bi.parentLayout.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+            if (flagType == 8 || flagType == 5 || flagType == 2) {
+                hhStatusText = "RE-VISIT";
+                hhStatusColor = mContext.getResources().getColor(R.color.green_overlay);
+            }
         }
         Glide.with(mContext)
                 .asBitmap()
                 .load(imageRes)
                 .into(holder.bi.houseImg);
+
+
+        holder.bi.hhStatus.setText(hhStatusText);
+        holder.bi.hhStatus.setBackgroundColor(hhStatusColor);
 
     }
 

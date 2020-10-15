@@ -272,14 +272,14 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("pa06g", bi.pa06g.getText().toString());
         json.put("pa06h", bi.pa06h.getText().toString());
 
-        json.put("pa06a98", "-1");
-        json.put("pa06b98", "-1");
-        json.put("pa06c98", "-1");
-        json.put("pa06d98", "-1");
-        json.put("pa06e98", "-1");
-        json.put("pa06f98", "-1");
-        json.put("pa06g98", "-1");
-        json.put("pa06h98", "-1");
+        json.put("pa06a98", bi.pa06a98.isChecked() ? "1" : "-1");
+        json.put("pa06b98", bi.pa06b98.isChecked() ? "2" : "-1");
+        json.put("pa06c98", bi.pa06c98.isChecked() ? "3" : "-1");
+        json.put("pa06d98", bi.pa06d98.isChecked() ? "4" : "-1");
+        json.put("pa06e98", bi.pa06e98.isChecked() ? "5" : "-1");
+        json.put("pa06f98", bi.pa06f98.isChecked() ? "6" : "-1");
+        json.put("pa06g98", bi.pa06g98.isChecked() ? "7" : "-1");
+        json.put("pa06h98", bi.pa06h98.isChecked() ? "8" : "-1");
 
         json.put("pa07", bi.pa07a.isChecked() ? "1"
                 : bi.pa07b.isChecked() ? "2"

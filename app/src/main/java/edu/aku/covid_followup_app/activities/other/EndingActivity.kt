@@ -60,10 +60,7 @@ class EndingActivity : AppCompatActivity() {
         MainApp.fc.istatus = statusValue
         MainApp.fc.istatus88x = bi.istatus96x.text.toString()
         MainApp.fc.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm", Locale.getDefault()).format(Date().time)
-
-        if (statusValue == "1") {
-            InfoActivity.mainVModel.updateSpecificHHList(MainApp.fc.clusterCode, MainApp.fc.hhno, statusValue)
-        }
+        InfoActivity.mainVModel.updateSpecificHHList(MainApp.fc.clusterCode, MainApp.fc.hhno, statusValue)
     }
 
 

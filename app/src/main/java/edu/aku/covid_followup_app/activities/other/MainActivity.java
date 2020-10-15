@@ -269,7 +269,6 @@ public class MainActivity extends MenuActivity implements WarningActivityInterfa
             Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
             exit = true;
             new Handler().postDelayed(() -> exit = false, 3 * 1000);
-
         }
     }
 
