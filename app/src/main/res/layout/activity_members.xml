@@ -88,16 +88,27 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mmList"
+            <com.kennyc.view.MultiStateView
+                android:id="@+id/memMultiStateView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/light_gray"
-                tools:listitem="@layout/item_layout" />
+                app:msv_animateViewChanges="true"
+                app:msv_emptyView="@layout/empty_view"
+                app:msv_loadingView="@layout/loading_view"
+                app:msv_viewState="content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mmList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/light_gray"
+                    tools:listitem="@layout/item_layout" />
+
+            </com.kennyc.view.MultiStateView>
 
         </androidx.core.widget.NestedScrollView>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,7 +116,27 @@
             android:onClick="@{callback::BtnEndHH}"
             app:layout_anchor="@id/content_scroll"
             app:layout_anchorGravity="bottom|end"
-            app:srcCompat="@drawable/ic_stop" />
+            app:srcCompat="@drawable/ic_fab_close" />-->
+
+        <com.leinardi.android.speeddial.SpeedDialOverlayLayout
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:clickable_overlay="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <com.leinardi.android.speeddial.SpeedDialView
+            android:id="@+id/speedDial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="2dp"
+            app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"
+            app:sdExpansionMode="top"
+            app:sdMainFabAnimationRotateAngle="90"
+            app:sdMainFabClosedSrc="@drawable/ic_fab_close"
+            app:sdMainFabOpenedSrc="@drawable/ic_fab_open"
+            app:sdOverlayLayout="@id/overlay" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

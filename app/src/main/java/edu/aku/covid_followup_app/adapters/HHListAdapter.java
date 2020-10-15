@@ -62,10 +62,13 @@ public class HHListAdapter extends RecyclerView.Adapter<HHListAdapter.ViewHolder
             }
         }*/
 
-        if (!mList.get(i).getFormFlag()) {
+        if (mList.get(i).getFormFlag() != 8 && mList.get(i).getFormFlag() != 0) {
             holder.bi.parentLayout.setEnabled(false);
             holder.bi.parentLayout.setBackgroundColor(mContext.getResources().getColor(R.color.gray));
             imageRes = R.drawable.home_filled;
+        } else {
+            holder.bi.parentLayout.setEnabled(true);
+            holder.bi.parentLayout.setBackgroundColor(mContext.getResources().getColor(R.color.white));
         }
         Glide.with(mContext)
                 .asBitmap()

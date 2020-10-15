@@ -24,14 +24,32 @@ public class MembersContract implements Serializable {
     private String cluster;
 
     //Not in DB
-    private Boolean formFlag = true;
+    private int formFlag = 0;
+    private FormsContract existForm;
+    private int memFlag = 0;
 
-    public Boolean getFormFlag() {
+    public int getFormFlag() {
         return formFlag;
     }
 
-    public void setFormFlag(Boolean formFlag) {
+    public void setFormFlag(int formFlag) {
         this.formFlag = formFlag;
+    }
+
+    public int getMemFlag() {
+        return memFlag;
+    }
+
+    public void setMemFlag(int memFlag) {
+        this.memFlag = memFlag;
+    }
+
+    public FormsContract getExistForm() {
+        return existForm;
+    }
+
+    public void setExistForm(FormsContract existForm) {
+        this.existForm = existForm;
     }
 
     public MembersContract() {

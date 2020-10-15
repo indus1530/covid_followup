@@ -23,7 +23,7 @@
             android:textColor="@color/red"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_stop" />
+            app:drawableStartCompat="@drawable/ic_fab_close" />
 
         <TextView
             android:id="@+id/content"

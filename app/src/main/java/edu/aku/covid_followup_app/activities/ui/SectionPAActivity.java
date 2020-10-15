@@ -25,6 +25,7 @@ import java.util.Locale;
 
 import edu.aku.covid_followup_app.CONSTANTS;
 import edu.aku.covid_followup_app.R;
+import edu.aku.covid_followup_app.activities.list.InfoActivity;
 import edu.aku.covid_followup_app.contracts.MembersContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.core.DatabaseHelper;
@@ -168,6 +169,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
                 : bi.pa032.isChecked() ? "2"
                 : bi.pa033.isChecked() ? "3"
                 : "-1");
+        pc.setPa01(bi.pa01.getText().toString());
 
         JSONObject json = new JSONObject();
 
@@ -177,8 +179,6 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("head", member.getHead());
         json.put("blood", member.getBlood());
         json.put("nasal", member.getNasal());
-
-        json.put("pa01", bi.pa01.getText().toString());
 
         json.put("pa02", bi.pa02.getText().toString());
 
@@ -313,6 +313,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         pc.setsA(String.valueOf(json));
 
+        InfoActivity.mainVModel.updateSpecificMMList(pc.getClusterCode(), pc.getHhno(), pc.getPa01(), pc.getPa03());
+
     }
 
     private boolean formValidation() {
@@ -345,8 +347,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
     }
 
-/*    @Override
+    @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back press not allowed", Toast.LENGTH_SHORT).show();
-    }*/
+    }
 }

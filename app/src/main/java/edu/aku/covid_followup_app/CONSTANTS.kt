@@ -23,19 +23,22 @@ class CONSTANTS {
         const val MEMBER_INFO = "selected_member"
         const val HH_CLICKED = 3
         const val MM_CLICKED = 4
+        const val FORCE_EXIT_CLICKED = 5
 
         //Login Result Code
-        const val LOGIN_RESULT_CODE = 10101
+        const val LOGIN_RESULT_CODE = 20101
         const val LOGIN_SPLASH_FLAG = "splash_flag"
 
         //DateUtils
         const val MINYEAR = 1940
         const val MAXYEAR = 2020
 
-        //PC
+        //Personal
         const val NASAL_TAKEN = "nasal_taken"
         const val PERSONAL_END = 10102
 
+        //End
+        const val NOT_IN_HOME_END = "force_end"
 
 
     }

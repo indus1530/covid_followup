@@ -67,6 +67,25 @@ class ListViewModel : ViewModel() {
         flag?.let { return true } ?: return false
     }
 
+
+    fun updateSpecificMMList(cluster: String, hh: String, mm: String, pa03: String) {
+        val lst = mmLst.value
+        val member = mmLst.value?.find { item -> cluster == item.cluster && hh == item.hhid && mm == item.memberid }
+                ?: return
+        member.memFlag = pa03.toInt()
+        lst?.map { if (member.id == it.id) member else it }
+        mmLst.value = lst
+    }
+
+    fun updateSpecificHHList(cluster: String, hh: String, formflag: String) {
+        val lst = hhLst.value
+        val houshold = hhLst.value?.find { item -> cluster == item.cluster && hh == item.hhid }
+                ?: return
+        houshold.formFlag = formflag.toInt()
+        lst?.map { if (houshold.id == it.id) houshold else it }
+        hhLst.value = lst
+    }
+
     private suspend fun clusterHHLoadFromDB(context: Context, cluster: String) = withContext(Dispatchers.Main) {
         val db = DatabaseHelper(context)
         val data = db.getHHAccordingToCluster(cluster)
@@ -75,7 +94,10 @@ class ListViewModel : ViewModel() {
             val flag = getHHLst.find { item -> item.hhid == hh.hhid }
             if (flag == null) {
                 val subForm = db.getExistingForm(cluster, hh.hhid)
-                if (subForm != null) hh.formFlag = false
+                if (subForm != null) {
+                    hh.formFlag = subForm.istatus.toInt()
+                    hh.existForm = subForm
+                }
                 getHHLst.add(hh)
             }
         }
@@ -85,11 +107,19 @@ class ListViewModel : ViewModel() {
     private suspend fun clusterMMLoadFromDB(context: Context, cluster: String, hh: String) = withContext(Dispatchers.Main) {
         val db = DatabaseHelper(context)
         val data = db.getMMAccordingToClusterHH(cluster, hh)
-        val getHHLst = mutableListOf<MembersContract>()
+        val getMMLst = mutableListOf<MembersContract>()
         data.forEach { hh ->
-            getHHLst.add(hh)
+            val flag = getMMLst.find { item -> item.memberid == hh.memberid }
+            if (flag == null) {
+                val subForm = db.getExistingPersonal(cluster, hh.hhid, hh.memberid)
+                if (subForm != null) {
+                    if (subForm.pa03 == "3") hh.memFlag = 0
+                    else hh.memFlag = 1
+                }
+                getMMLst.add(hh)
+            }
         }
-        mmLst.value = getHHLst
+        mmLst.value = getMMLst
     }
 
 }

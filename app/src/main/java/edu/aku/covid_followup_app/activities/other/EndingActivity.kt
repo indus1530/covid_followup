@@ -5,7 +5,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.validatorcrawler.aliazaz.Validator
+import edu.aku.covid_followup_app.CONSTANTS.Companion.NOT_IN_HOME_END
 import edu.aku.covid_followup_app.R
+import edu.aku.covid_followup_app.activities.list.InfoActivity
 import edu.aku.covid_followup_app.core.MainApp
 import edu.aku.covid_followup_app.databinding.ActivityEndingBinding
 import java.text.SimpleDateFormat
@@ -27,16 +29,19 @@ class EndingActivity : AppCompatActivity() {
             bi.istatus05.isEnabled = false
             bi.istatus06.isEnabled = false
             bi.istatus07.isEnabled = false
+            bi.istatus08.isEnabled = false
             bi.istatus96.isEnabled = false
         } else {
+            val flag = intent.getBooleanExtra(NOT_IN_HOME_END, false)
             bi.istatus01.isEnabled = false
-            bi.istatus02.isEnabled = true
-            bi.istatus03.isEnabled = true
-            bi.istatus04.isEnabled = true
-            bi.istatus05.isEnabled = true
-            bi.istatus06.isEnabled = true
-            bi.istatus07.isEnabled = true
-            bi.istatus96.isEnabled = true
+            bi.istatus02.isEnabled = !flag
+            bi.istatus03.isEnabled = !flag
+            bi.istatus04.isEnabled = !flag
+            bi.istatus05.isEnabled = !flag
+            bi.istatus06.isEnabled = !flag
+            bi.istatus07.isEnabled = !flag
+            bi.istatus08.isEnabled = flag
+            bi.istatus96.isEnabled = !flag
         }
     }
 
@@ -55,13 +60,17 @@ class EndingActivity : AppCompatActivity() {
         MainApp.fc.istatus = statusValue
         MainApp.fc.istatus88x = bi.istatus96x.text.toString()
         MainApp.fc.endingdatetime = SimpleDateFormat("dd-MM-yy HH:mm", Locale.getDefault()).format(Date().time)
+
+        if (statusValue == "1") {
+            InfoActivity.mainVModel.updateSpecificHHList(MainApp.fc.clusterCode, MainApp.fc.hhno, statusValue)
+        }
     }
 
 
     private fun updateDB(): Boolean {
         val db = MainApp.appInfo.dbHelper
         val updcount = db.updateEnding()
-        return if (updcount == 1) {
+        return if (updcount > 0) {
             true
         } else {
             Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show()

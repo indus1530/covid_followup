@@ -110,5 +110,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //MultiStateView
     implementation  'com.github.Kennyc1012:MultiStateView:2.1.2'
+    //Float Button
+    implementation 'com.github.leinardi:FloatingActionButtonSpeedDial:3.1.1'
 
 }

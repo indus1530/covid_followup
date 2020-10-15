@@ -101,23 +101,27 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
         if (id == CONSTANTS.HH_CLICKED) {
 
             val mem = item as MembersContract
-
-            MainApp.fc = FormsContract()
-            MainApp.fc.deviceID = MainApp.appInfo.deviceID
-            MainApp.fc.devicetagID = MainApp.appInfo.tagName
-            MainApp.fc.hhno = mem.hhid
-            MainApp.fc.clusterCode = mem.cluster
-            MainApp.fc.formDate = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(Date().time)
-            MainApp.fc.sysDate = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(Date().time)
-            MainApp.fc.user = MainApp.userEmail
-            MainApp.fc.appversion = MainApp.appInfo.appVersion
-            MainApp.fc.ha11 = mem.address
-            setGPS(this)
-
-            runBlocking {
-                val result = lifecycleScope.async { updateDB(this@InfoActivity) }
-                if (result.await()) startActivity(Intent(this@InfoActivity, MembersActivity::class.java).putExtra(CONSTANTS.MEMBER_INFO, mem))
+            if (mem.formFlag == 0) {
+                MainApp.fc = FormsContract()
+                MainApp.fc.deviceID = MainApp.appInfo.deviceID
+                MainApp.fc.devicetagID = MainApp.appInfo.tagName
+                MainApp.fc.hhno = mem.hhid
+                MainApp.fc.clusterCode = mem.cluster
+                MainApp.fc.formDate = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(Date().time)
+                MainApp.fc.sysDate = SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(Date().time)
+                MainApp.fc.user = MainApp.userEmail
+                MainApp.fc.appversion = MainApp.appInfo.appVersion
+                MainApp.fc.ha11 = mem.address
+                setGPS(this)
+                runBlocking {
+                    val result = lifecycleScope.async { updateDB(this@InfoActivity) }
+                    if (result.await()) startActivity(Intent(this@InfoActivity, MembersActivity::class.java).putExtra(CONSTANTS.MEMBER_INFO, mem))
+                }
+            } else {
+                MainApp.fc = mem.existForm
+                startActivity(Intent(this@InfoActivity, MembersActivity::class.java).putExtra(CONSTANTS.MEMBER_INFO, mem))
             }
+
         }
     }
 

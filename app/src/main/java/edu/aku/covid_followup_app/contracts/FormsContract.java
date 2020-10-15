@@ -6,7 +6,9 @@ import android.provider.BaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class FormsContract {
+import java.io.Serializable;
+
+public class FormsContract implements Serializable {
 
     private String _ID = "";
     private String _UID = "";

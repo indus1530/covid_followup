@@ -1223,282 +1223,282 @@
                     android:orientation="vertical"
                     android:visibility='@{pa0502.checked? View.GONE : View.VISIBLE}'>
 
-                <!-- pa06  Input-Numeric   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVpa06"
-                    style="@style/cardView">
+                    <!-- pa06  Input-Numeric   -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/fldGrpCVpa06"
+                        style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bottom">
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/qtxt_pa06"
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_toEndOf="@id/q_pa06"
-                                android:text="@string/pa06" />
+                                android:background="@drawable/bottom">
+
+                                <TextView
+                                    android:id="@+id/qtxt_pa06"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toEndOf="@id/q_pa06"
+                                    android:text="@string/pa06" />
+
+                                <TextView
+                                    android:id="@+id/q_pa06"
+                                    style="@style/quesNum"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignTop="@id/qtxt_pa06"
+                                    android:layout_alignBottom="@id/qtxt_pa06"
+                                    android:text="@string/Q_pa06" />
+                            </RelativeLayout>
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/pa06"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
 
                             <TextView
-                                android:id="@+id/q_pa06"
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_alignTop="@id/qtxt_pa06"
-                                android:layout_alignBottom="@id/qtxt_pa06"
-                                android:text="@string/Q_pa06" />
-                        </RelativeLayout>
+                                android:text="@string/pa06a" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/pa06"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06a"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06a98.checked ? false : true}'
+                                android:hint="@string/pa06a"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06a98.checked ? "" : pa06a.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06a" />
+                            <CheckBox
+                                android:id="@+id/pa06a98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06a"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06a98.checked ? false : true}'
-                            android:text='@{pa06a98.checked ? "" : pa06a.getText().toString() }'
-                            android:hint="@string/pa06a"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pa06b" />
 
-                        <CheckBox
-                            android:id="@+id/pa06a98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06b" />
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06b"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06b98.checked ? false : true}'
-                            android:text='@{pa06b98.checked ? "" : pa06b.getText().toString() }'
-                            android:hint="@string/pa06b"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06b"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06b98.checked ? false : true}'
+                                android:hint="@string/pa06b"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06b98.checked ? "" : pa06b.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
 
 
-                        <CheckBox
-                            android:id="@+id/pa06b98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
+                            <CheckBox
+                                android:id="@+id/pa06b98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06c" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pa06c" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06c"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06c98.checked ? false : true}'
-                            android:text='@{pa06c98.checked ? "" : pa06c.getText().toString() }'
-                            android:hint="@string/pa06c"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
-
-
-                        <CheckBox
-                            android:id="@+id/pa06c98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06d" />
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06d"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06d98.checked ? false : true}'
-                            android:text='@{pa06d98.checked ? "" : pa06d.getText().toString() }'
-                            android:hint="@string/pa06d"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06c"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06c98.checked ? false : true}'
+                                android:hint="@string/pa06c"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06c98.checked ? "" : pa06c.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
 
 
-                        <CheckBox
-                            android:id="@+id/pa06d98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
+                            <CheckBox
+                                android:id="@+id/pa06c98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06e" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pa06d" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06e"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06e98.checked ? false : true}'
-                            android:text='@{pa06e98.checked ? "" : pa06e.getText().toString() }'
-                            android:hint="@string/pa06e"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
-
-
-                        <CheckBox
-                            android:id="@+id/pa06e98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06f" />
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06f"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06f98.checked ? false : true}'
-                            android:text='@{pa06f98.checked ? "" : pa06f.getText().toString() }'
-                            android:hint="@string/pa06f"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06d"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06d98.checked ? false : true}'
+                                android:hint="@string/pa06d"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06d98.checked ? "" : pa06d.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
 
 
-                        <CheckBox
-                            android:id="@+id/pa06f98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
+                            <CheckBox
+                                android:id="@+id/pa06d98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06g" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pa06e" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06g"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06g98.checked ? false : true}'
-                            android:text='@{pa06g98.checked ? "" : pa06g.getText().toString() }'
-                            android:hint="@string/pa06g"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
-
-
-                        <CheckBox
-                            android:id="@+id/pa06g98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pa06h" />
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/pa06h"
-                            style="@style/EditTextAlphaNumeric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:enabled='@{pa06h98.checked ? false : true}'
-                            android:text='@{pa06h98.checked ? "" : pa06h.getText().toString() }'
-                            android:hint="@string/pa06h"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            app:defaultValue="97"
-                            app:maxValue="30"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06e"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06e98.checked ? false : true}'
+                                android:hint="@string/pa06e"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06e98.checked ? "" : pa06e.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
 
 
-                        <CheckBox
-                            android:id="@+id/pa06h98"
-                            style="@style/checkbox"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:tag="-1"
-                            android:text="@string/pa0698" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                            <CheckBox
+                                android:id="@+id/pa06e98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pa06f" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06f"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06f98.checked ? false : true}'
+                                android:hint="@string/pa06f"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06f98.checked ? "" : pa06f.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
+
+
+                            <CheckBox
+                                android:id="@+id/pa06f98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pa06g" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06g"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06g98.checked ? false : true}'
+                                android:hint="@string/pa06g"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06g98.checked ? "" : pa06g.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
+
+
+                            <CheckBox
+                                android:id="@+id/pa06g98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pa06h" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/pa06h"
+                                style="@style/EditTextAlphaNumeric"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:enabled='@{pa06h98.checked ? false : true}'
+                                android:hint="@string/pa06h"
+                                android:inputType="number"
+                                android:maxLength="2"
+                                android:text='@{pa06h98.checked ? "" : pa06h.getText().toString() }'
+                                app:defaultValue="97"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
+
+
+                            <CheckBox
+                                android:id="@+id/pa06h98"
+                                style="@style/checkbox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:tag="-1"
+                                android:text="@string/pa0698" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
                 <!-- pa07  Radio   -->
@@ -1963,7 +1963,8 @@
                     android:background="@color/red_overlay"
                     android:onClick="@{() -> callback.BtnEnd()}"
                     android:text="Cancel"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
 
                 <Button
                     android:id="@+id/btn_Continue"

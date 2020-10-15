@@ -29,6 +29,7 @@ public class PersonalContract {
     private String sA = "";
     private String sC = "";
     private String pa03 = "";
+    private String pa01 = "";
 
 
     public String getSysdate() {
@@ -84,7 +85,13 @@ public class PersonalContract {
         this.pa03 = pa03;
     }
 
+    public String getPa01() {
+        return pa01;
+    }
 
+    public void setPa01(String pa01) {
+        this.pa01 = pa01;
+    }
 
     public String getAppversion() {
         return appversion;
@@ -218,6 +225,7 @@ public class PersonalContract {
         this.sA = jsonObject.getString(PersonalTable.COLUMN_SA);
         this.sC = jsonObject.getString(PersonalTable.COLUMN_SC);
         this.pa03 = jsonObject.getString(PersonalTable.COLUMN_PA03);
+        this.pa01 = jsonObject.getString(PersonalTable.COLUMN_PA01);
 
         return this;
     }
@@ -241,6 +249,7 @@ public class PersonalContract {
         this.sA = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SA));
         this.sC = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_SC));
         this.pa03 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_PA03));
+        this.pa01 = cursor.getString(cursor.getColumnIndex(PersonalTable.COLUMN_PA01));
 
 
         return this;
@@ -268,6 +277,7 @@ public class PersonalContract {
             json.put(PersonalTable.COLUMN_CSTATUS96x, this.cstatus96x == null ? JSONObject.NULL : this.cstatus96x);
             json.put(PersonalTable.COLUMN_ENDINGDATETIME, this.endingdatetime == null ? JSONObject.NULL : this.endingdatetime);
             json.put(PersonalTable.COLUMN_PA03, this.pa03 == null ? JSONObject.NULL : this.pa03);
+            json.put(PersonalTable.COLUMN_PA01, this.pa01 == null ? JSONObject.NULL : this.pa01);
 
             if (this.sA != null && !this.sA.equals("")) {
                 json.put(PersonalTable.COLUMN_SA, new JSONObject(this.sA));
@@ -310,6 +320,7 @@ public class PersonalContract {
         public static final String COLUMN_SA = "sA";    // personal member
         public static final String COLUMN_SC = "sC";    // personal member
         public static final String COLUMN_PA03 = "pa03";
+        public static final String COLUMN_PA01 = "pa01";
 
     }
 }

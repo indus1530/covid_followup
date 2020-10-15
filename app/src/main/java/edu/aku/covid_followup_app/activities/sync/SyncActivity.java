@@ -203,18 +203,18 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         protected String doInBackground(Boolean... booleans) {
             runOnUiThread(() -> {
                 new SyncDevice(SyncActivity.this, false).execute();
-                if (booleans[0]) {
-                    String[] download = {"User", "VersionApp", "Cluster", "Members"};
-                    for (String item : download) {
-                        if (listActivityCreated) {
-                            model = new SyncModel();
-                            model.setstatusID(0);
-                            list.add(model);
-                        }
-                        new GetAllData(mContext, item, syncListAdapter, list).execute();
+//                if (booleans[0]) {
+                String[] download = {"User", "VersionApp", "Cluster", "Members"};
+                for (String item : download) {
+                    if (listActivityCreated) {
+                        model = new SyncModel();
+                        model.setstatusID(0);
+                        list.add(model);
                     }
-                    bi.noItem.setVisibility(View.GONE);
+                    new GetAllData(mContext, item, syncListAdapter, list).execute();
                 }
+                bi.noItem.setVisibility(View.GONE);
+//                }
 
                 listActivityCreated = false;
             });

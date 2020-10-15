@@ -157,6 +157,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PersonalTable.COLUMN_DEVICEID, personal.getDeviceID());
         values.put(PersonalTable.COLUMN_APPVERSION, personal.getAppversion());
         values.put(PersonalTable.COLUMN_PA03, personal.getPa03());
+        values.put(PersonalTable.COLUMN_PA01, personal.getPa01());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -205,7 +206,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // New value for one column
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
-        values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus88x());
+        values.put(FormsTable.COLUMN_ISTATUS88x, fc.getIstatus88x());
         values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
 
         // Which row to update, based on the ID
@@ -542,6 +543,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PersonalTable.COLUMN_DEVICEID,
                 PersonalTable.COLUMN_APPVERSION,
                 PersonalTable.COLUMN_PA03,
+                PersonalTable.COLUMN_PA01,
         };
 
 
@@ -686,8 +688,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_ADDRESS
         };
 
-        String whereClause = FormsTable.COLUMN_CLUSTERCODE + " =? AND " + FormsTable.COLUMN_HHNO + " =? AND " + FormsTable.COLUMN_ISTATUS + "=?";
-        String[] whereArgs = {cluster, hhno, "8"};
+        String whereClause = FormsTable.COLUMN_CLUSTERCODE + " =? AND " + FormsTable.COLUMN_HHNO + " =? AND " + FormsTable.COLUMN_ISTATUS + " != ''";
+        String[] whereArgs = {cluster, hhno};
         String groupBy = null;
         String having = null;
         String orderBy = FormsTable.COLUMN_ID + " ASC";
@@ -715,6 +717,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allFC;
+    }
+
+    public PersonalContract getExistingPersonal(String cluster, String hhno, String memID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                PersonalTable._ID,
+                PersonalTable.COLUMN_UID,
+                PersonalTable.COLUMN_SYSDATE,
+                PersonalTable.COLUMN_CLUSTERCODE,
+                PersonalTable.COLUMN_HHNO,
+                PersonalTable.COLUMN_UUID,
+                PersonalTable.COLUMN_CSTATUS,
+                PersonalTable.COLUMN_CSTATUS96x,
+                PersonalTable.COLUMN_ENDINGDATETIME,
+                PersonalTable.COLUMN_SA,
+                PersonalTable.COLUMN_SC,
+                PersonalTable.COLUMN_FORMDATE,
+                PersonalTable.COLUMN_DEVICETAGID,
+                PersonalTable.COLUMN_DEVICEID,
+                PersonalTable.COLUMN_APPVERSION,
+                PersonalTable.COLUMN_PA03,
+                PersonalTable.COLUMN_PA01,
+        };
+
+        String whereClause = PersonalTable.COLUMN_CLUSTERCODE + " =? AND " + PersonalTable.COLUMN_HHNO + " =? AND " + PersonalTable.COLUMN_PA01 + "=?";
+        String[] whereArgs = {cluster, hhno, memID};
+        String groupBy = null;
+        String having = null;
+        String orderBy = PersonalTable.COLUMN_ID + " ASC";
+
+        PersonalContract allPersonal = null;
+        try {
+            c = db.query(
+                    PersonalTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                allPersonal = new PersonalContract().hydrate(c);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allPersonal;
     }
 
     public List<ClustersContract> getDistrictSubDistrict() {

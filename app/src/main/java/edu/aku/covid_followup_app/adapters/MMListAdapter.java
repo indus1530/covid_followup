@@ -56,9 +56,26 @@ public class MMListAdapter extends RecyclerView.Adapter<MMListAdapter.ViewHolder
         holder.bi.parentLayout.setOnClickListener(v -> itemClicked.onItemClick(mList.get(i), i));
         int iconRes = R.drawable.ic_lock;
 
-        if (vModel.getCheckedItemValues(Integer.parseInt(mList.get(i).getMemberid()))) {
+        /*if (vModel.getCheckedItemValues(Integer.parseInt(mList.get(i).getMemberid()))) {
             holder.bi.checkIcon.setVisibility(View.VISIBLE);
             holder.bi.parentLayout.setEnabled(false);
+        }*/
+
+        switch (mList.get(i).getMemFlag()) {
+            case 1:
+            case 2:
+                holder.bi.checkIcon.setVisibility(View.VISIBLE);
+                holder.bi.parentLayout.setEnabled(false);
+                break;
+            case 3:
+                holder.bi.checkIcon.setVisibility(View.VISIBLE);
+                holder.bi.parentLayout.setEnabled(false);
+                iconRes = R.drawable.ic_revisit;
+                break;
+            default:
+                holder.bi.checkIcon.setVisibility(View.GONE);
+                holder.bi.parentLayout.setEnabled(true);
+                break;
         }
 
         Glide.with(mContext)
@@ -72,6 +89,10 @@ public class MMListAdapter extends RecyclerView.Adapter<MMListAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    public List<MembersContract> getMList() {
+        return mList;
     }
 
     public interface OnItemClicked {
