@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -184,6 +185,18 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/nasalTasken"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nasal_taken"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textStyle="italic"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
             <!-- pc03a  Radio   -->
             <androidx.cardview.widget.CardView

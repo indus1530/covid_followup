@@ -22,7 +22,7 @@ android {
             minSdkVersion 22
             targetSdkVersion 30
             versionCode code
-            versionName "1.1"
+            versionName "1.4"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
     } else {
@@ -63,7 +63,6 @@ dependencies {
     implementation 'androidx.media:media:1.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
-    testImplementation 'junit:junit:4.13'
     //BlackBox
     implementation 'com.github.BlackBoxVision:datetimepicker-edittext:v0.4.0'
     //Butter-knife
@@ -112,5 +111,7 @@ dependencies {
     implementation  'com.github.Kennyc1012:MultiStateView:2.1.2'
     //Float Button
     implementation 'com.github.leinardi:FloatingActionButtonSpeedDial:3.1.1'
+    //Permission library
+    implementation 'com.nabinbhandari.android:permissions:3.8'
 
 }

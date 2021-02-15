@@ -62,6 +62,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         bi.pa07.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.pa07b.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVpa08);
+                Clear.clearAllFields(bi.fldGrpCVpa0801);
             }
         }));
 
@@ -73,6 +74,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Clear.clearAllFields(bi.fldGrpCVpa08n);
                 if (!TextUtils.isEmpty(bi.pa08n.getText())) {
                     int count = Integer.parseInt(bi.pa08n.getText().toString());
                     bi.fldGrpCVpa0801.setVisibility(count < 1 ? View.GONE : View.VISIBLE);

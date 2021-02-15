@@ -42,9 +42,11 @@ public class SectionPCActivity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        if (Objects.equals(getIntent().getStringExtra(NASAL_TAKEN), "2")) {
+        /*if (Objects.equals(getIntent().getStringExtra(NASAL_TAKEN), "2")) {
             bi.fldGrpCVpc03a.setVisibility(View.GONE);
-        }
+        }*/
+
+        bi.nasalTasken.setVisibility(Objects.equals(getIntent().getStringExtra(NASAL_TAKEN), "2") ? View.GONE : View.VISIBLE);
 
         bi.pc01.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.pc012.getId()) {
