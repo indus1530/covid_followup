@@ -112,7 +112,7 @@ class InfoActivity : AppCompatActivity(), WarningActivityInterface {
                 MainApp.fc.user = MainApp.userEmail
                 MainApp.fc.appversion = MainApp.appInfo.appVersion
                 MainApp.fc.ha11 = mem.address
-                setGPS(this)
+                //setGPS(this)
                 runBlocking {
                     val result = lifecycleScope.async { updateDB(this@InfoActivity) }
                     if (result.await()) startActivity(Intent(this@InfoActivity, MembersActivity::class.java).putExtra(CONSTANTS.MEMBER_INFO, mem))
