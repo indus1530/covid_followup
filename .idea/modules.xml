@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/COVID_FOLLOWUP.iml" filepath="$PROJECT_DIR$/.idea/COVID_FOLLOWUP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/COVID_FOLLOWUP.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/COVID_FOLLOWUP.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/covid_followup.iml" filepath="$PROJECT_DIR$/.idea/covid_followup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/covid_followup.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/covid_followup.app.iml" />
     </modules>
   </component>
 </project>
