@@ -9,17 +9,21 @@
         <variable
             name="callback"
             type="edu.aku.covid_followup_app.activities.ui.SectionPCActivity" />
+
     </data>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/fldGrpSectionC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
 
             <!-- pc01  Radio   -->
             <androidx.cardview.widget.CardView
@@ -31,27 +35,24 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bottom">
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/qtxt_pc01"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_pc01"
-                            android:text="@string/pc01" />
-
-                        <TextView
-                            android:id="@+id/q_pc01"
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_pc01"
-                            android:layout_alignBottom="@id/qtxt_pc01"
+                            android:layout_height="match_parent"
                             android:text="@string/Q_pc01" />
-                    </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/pc01" />
+
+                    </LinearLayout>
 
                     <RadioGroup
                         android:id="@+id/pc01"
@@ -72,9 +73,13 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/pc012" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
 
             <LinearLayout
@@ -83,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility='@{pc012.checked? View.GONE : View.VISIBLE}'>
+
 
                 <!-- pc02  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
@@ -94,33 +100,31 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bottom">
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/qtxt_pc02"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_toEndOf="@id/q_pc02"
-                                android:text="@string/pc02" />
-
-                            <TextView
-                                android:id="@+id/q_pc02"
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignTop="@id/qtxt_pc02"
-                                android:layout_alignBottom="@id/qtxt_pc02"
+                                android:layout_height="match_parent"
                                 android:text="@string/Q_pc02" />
-                        </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/pc02" />
+
+                        </LinearLayout>
 
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/pc02"
                             style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:hint="##.##"
                             android:inputType="number"
                             app:mask="##.##"
@@ -128,8 +132,11 @@
                             app:minValue="1.00"
                             app:pattern="^(\\d{2,2}\\.\\d{2,2})$"
                             app:type="range" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- pc03  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
@@ -141,35 +148,33 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bottom">
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/qtxt_pc03"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_toEndOf="@id/q_pc03"
-                                android:text="@string/pc03" />
-
-                            <TextView
-                                android:id="@+id/q_pc03"
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignTop="@id/qtxt_pc03"
-                                android:layout_alignBottom="@id/qtxt_pc03"
+                                android:layout_height="match_parent"
                                 android:text="@string/Q_pc03" />
-                        </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/pc03" />
+
+                        </LinearLayout>
 
                         <EditText
                             android:id="@+id/pc03"
                             style="@style/EditTextAlphaNumeric"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:enabled="false"
-                            android:hint="@string/pc03" />
+                            android:hint="######" />
 
                         <Button
                             style="@style/button"
@@ -182,9 +187,12 @@
                             android:textColor="@color/white" />
 
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
+
             </LinearLayout>
+
 
             <TextView
                 android:id="@+id/nasalTasken"
@@ -198,6 +206,7 @@
                 android:visibility="gone"
                 tools:visibility="visible" />
 
+
             <!-- pc03a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpc03a"
@@ -208,47 +217,51 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bottom">
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/qtxt_pc03a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_pc03a"
-                            android:text="@string/pc03a" />
-
-                        <TextView
-                            android:id="@+id/q_pc03a"
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_pc03a"
-                            android:layout_alignBottom="@id/qtxt_pc03a"
+                            android:layout_height="match_parent"
                             android:text="@string/Q_pc03a" />
-                    </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/pc03a" />
+
+                    </LinearLayout>
 
                     <RadioGroup
                         android:id="@+id/pc03a"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/pc03a1"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/pc03a1" />
 
                         <RadioButton
                             android:id="@+id/pc03a2"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/pc03a2" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- pc03b  Input-Numeric   -->
             <androidx.cardview.widget.CardView
@@ -261,35 +274,33 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bottom">
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/qtxt_pc03b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_pc03b"
-                            android:text="@string/pc03b" />
-
-                        <TextView
-                            android:id="@+id/q_pc03b"
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_pc03b"
-                            android:layout_alignBottom="@id/qtxt_pc03b"
+                            android:layout_height="match_parent"
                             android:text="@string/Q_pc03b" />
-                    </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/pc03b" />
+
+                    </LinearLayout>
 
                     <EditText
                         android:id="@+id/pc03b"
                         style="@style/EditTextAlphaNumeric"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:enabled="false"
-                        android:hint="@string/pc03"
+                        android:hint="#######"
                         android:text='@{pc03a1.checked ? pc03b.getText().toString() : ""}' />
 
                     <Button
@@ -301,8 +312,11 @@
                         android:onClick="@{(v) -> callback.btnScan(2)}"
                         android:text="SCAN NASAL STICKER"
                         android:textColor="@color/white" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!--EndButton LinearLayout-->
             <LinearLayout
@@ -331,7 +345,9 @@
                     android:onClick="@{() -> callback.BtnContinue()}"
                     android:text="Save"
                     android:textColor="@color/white" />
+
             </LinearLayout>
+
 
         </LinearLayout>
 
