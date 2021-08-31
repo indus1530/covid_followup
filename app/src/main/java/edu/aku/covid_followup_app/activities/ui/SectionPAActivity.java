@@ -125,6 +125,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
                 finish();
                 if (bi.pa031.isChecked())
                     startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
+                //startActivity(new Intent(this, SectionPDActivity.class));
             } else {
                 Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
             }

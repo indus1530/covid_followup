@@ -62,6 +62,7 @@ public class SectionPCActivity extends AppCompatActivity {
             SaveDraft();
             if (UpdateDB()) {
                 finish();
+                startActivity(new Intent(this, SectionPDActivity.class));
             } else {
                 Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
             }

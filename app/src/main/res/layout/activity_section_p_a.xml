@@ -50,7 +50,7 @@
 
                     </LinearLayout>
 
-                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerInputEditText
+                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
                         android:id="@+id/pafd"
                         style="@style/EditTextNum"
                         android:layout_width="0dp"
@@ -98,7 +98,7 @@
 
                     <EditText
                         android:id="@+id/pa01"
-                        style="@style/EditTextAlpha"
+                        style="@style/EditTextAlphaa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -141,10 +141,7 @@
 
                     <EditText
                         android:id="@+id/pa02"
-                        style="@style/EditTextAlpha"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
+                        style="@style/EditTextNum"
                         android:enabled="false"
                         android:hint="######" />
 
@@ -241,7 +238,7 @@
 
                     <EditText
                         android:id="@+id/pa02b"
-                        style="@style/EditTextAlpha"
+                        style="@style/EditTextAlphaa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/name" />
@@ -929,10 +926,7 @@
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/pa06"
                                 style="@style/EditTextNum"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
                                 android:hint="##"
-                                android:inputType="number"
                                 android:maxLength="2"
                                 app:maxValue="30"
                                 app:minValue="1"
@@ -1330,10 +1324,7 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/pa08n"
                             style="@style/EditTextNum"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                             android:hint="#"
-                            android:inputType="number"
                             android:maxLength="1"
                             app:maxValue="8"
                             app:minValue="1"
@@ -1378,9 +1369,7 @@
 
                             <EditText
                                 android:id="@+id/pa0801n"
-                                style="@style/EditTextAlpha"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                style="@style/EditTextAlphaa"
                                 android:hint="@string/name"
                                 android:maxLength="20" />
 
@@ -1392,8 +1381,6 @@
                             <EditText
                                 android:id="@+id/pa0801ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
                                 android:hint="@string/address"
                                 android:maxLength="50" />
 
@@ -1425,10 +1412,9 @@
 
                             <EditText
                                 android:id="@+id/pa0802n"
-                                style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0802n" />
+                                style="@style/EditTextAlphaa"
+                                android:hint="@string/name"
+                                android:maxLength="20" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1438,9 +1424,8 @@
                             <EditText
                                 android:id="@+id/pa0802ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0802ad" />
+                                android:hint="@string/address"
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
@@ -1470,10 +1455,9 @@
 
                             <EditText
                                 android:id="@+id/pa0803n"
-                                style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0803n" />
+                                style="@style/EditTextAlphaa"
+                                android:hint="@string/name"
+                                android:maxLength="20" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1483,9 +1467,8 @@
                             <EditText
                                 android:id="@+id/pa0803ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0803ad" />
+                                android:hint="@string/address"
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
@@ -1515,10 +1498,9 @@
 
                             <EditText
                                 android:id="@+id/pa0804n"
-                                style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0804n" />
+                                style="@style/EditTextAlphaa"
+                                android:hint="@string/name"
+                                android:maxLength="20" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1528,9 +1510,8 @@
                             <EditText
                                 android:id="@+id/pa0804ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0804ad" />
+                                android:hint="@string/address"
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
@@ -1560,10 +1541,9 @@
 
                             <EditText
                                 android:id="@+id/pa0805n"
-                                style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0805n" />
+                                style="@style/EditTextAlphaa"
+                                android:hint="@string/name"
+                                android:maxLength="20" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1573,9 +1553,8 @@
                             <EditText
                                 android:id="@+id/pa0805ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0805ad" />
+                                android:hint="@string/address"
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
@@ -1605,10 +1584,9 @@
 
                             <EditText
                                 android:id="@+id/pa0806n"
-                                style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0806n" />
+                                style="@style/EditTextAlphaa"
+                                android:hint="@string/name"
+                                android:maxLength="20" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1618,9 +1596,8 @@
                             <EditText
                                 android:id="@+id/pa0806ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0806ad" />
+                                android:hint="@string/address"
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
@@ -1650,10 +1627,9 @@
 
                             <EditText
                                 android:id="@+id/pa0807n"
-                                style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0807n" />
+                                style="@style/EditTextAlphaa"
+                                android:hint="@string/name"
+                                android:maxLength="20" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1663,9 +1639,8 @@
                             <EditText
                                 android:id="@+id/pa0807ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0807ad" />
+                                android:hint="@string/address"
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
@@ -1695,10 +1670,9 @@
 
                             <EditText
                                 android:id="@+id/pa0808n"
-                                style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0808n" />
+                                style="@style/EditTextAlphaa"
+                                android:hint="@string/name"
+                                android:maxLength="20" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1708,9 +1682,8 @@
                             <EditText
                                 android:id="@+id/pa0808ad"
                                 style="@style/EditTextAlphaNumeric"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/pa0808ad" />
+                                android:hint="@string/address"
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
