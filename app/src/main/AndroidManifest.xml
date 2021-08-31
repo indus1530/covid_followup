@@ -28,6 +28,11 @@
             android:theme="@style/AppThemeUrdu"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".activities.ui.SectionPDActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeUrdu"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".activities.ui.SectionPCActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu"
