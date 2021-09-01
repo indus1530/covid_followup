@@ -48,11 +48,10 @@ public class SectionPCActivity extends AppCompatActivity {
 
         bi.nasalTasken.setVisibility(Objects.equals(getIntent().getStringExtra(NASAL_TAKEN), "2") ? View.GONE : View.VISIBLE);
 
-        bi.pc01.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.pc012.getId()) {
-                Clear.clearAllFields(bi.fldGrpSectionC01);
-            }
-        }));
+        bi.pc01.setOnCheckedChangeListener((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpCVpc02);
+            Clear.clearAllFields(bi.fldGrpCVpc03);
+        });
 
     }
 

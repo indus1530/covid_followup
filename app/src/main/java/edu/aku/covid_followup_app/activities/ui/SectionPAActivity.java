@@ -115,6 +115,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
                 bi.fldGrpCVpa02b.setVisibility(View.VISIBLE);
         }));
 
+        bi.pa9a99.setOnCheckedChangeListener((compoundButton, b) -> Clear.clearAllFields(bi.llpa9a, !b));
+
     }
 
     public void BtnContinue() {
@@ -266,7 +268,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         json.put("pa06", bi.pa06.getText().toString());
 
-        json.put("pa06a", bi.pa06a.getText().toString());
+        /*json.put("pa06a", bi.pa06a.getText().toString());
         json.put("pa06b", bi.pa06b.getText().toString());
         json.put("pa06c", bi.pa06c.getText().toString());
         json.put("pa06d", bi.pa06d.getText().toString());
@@ -282,7 +284,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("pa06e98", bi.pa06e98.isChecked() ? "5" : "-1");
         json.put("pa06f98", bi.pa06f98.isChecked() ? "6" : "-1");
         json.put("pa06g98", bi.pa06g98.isChecked() ? "7" : "-1");
-        json.put("pa06h98", bi.pa06h98.isChecked() ? "8" : "-1");
+        json.put("pa06h98", bi.pa06h98.isChecked() ? "8" : "-1");*/
 
         json.put("pa07", bi.pa07a.isChecked() ? "1"
                 : bi.pa07b.isChecked() ? "2"
@@ -313,6 +315,11 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         json.put("pa0808n", bi.pa0808n.getText().toString());
         json.put("pa0808ad", bi.pa0808ad.getText().toString());
+
+        json.put("pa9ad", bi.pa9ad.getText().toString());
+        json.put("pa9am", bi.pa9am.getText().toString());
+        json.put("pa9ay", bi.pa9ay.getText().toString());
+        json.put("pa9a99", bi.pa9a99.isChecked() ? "99" : "-1");
 
         pc.setsA(String.valueOf(json));
 
