@@ -79,34 +79,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="@drawable/bottom"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
+                    <TextView
+                        style="@style/quesNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/Q_pa01" />
 
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_pa01" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/pa01" />
-
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/pa01" />
 
                     <EditText
                         android:id="@+id/pa01"
-                        style="@style/EditTextAlphaa"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/EditTextNum"
+                        android:layout_gravity="center_vertical"
                         android:enabled="false"
-                        android:gravity="center"
                         android:hint="######" />
 
                 </LinearLayout>
@@ -118,11 +109,6 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVpa02"
                 style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -137,19 +123,18 @@
                             android:text="@string/Q_pa02" />
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/pc02" />
+                            android:text="@string/pa02" />
+
+                        <EditText
+                            android:id="@+id/pa02"
+                            style="@style/EditTextAlpha"
+                            android:layout_gravity="center_vertical"
+                            android:enabled="false"
+                            android:hint="@string/name" />
 
                     </LinearLayout>
-
-                    <EditText
-                        android:id="@+id/pa02"
-                        style="@style/EditTextNum"
-                        android:enabled="false"
-                        android:hint="######" />
-
-                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
