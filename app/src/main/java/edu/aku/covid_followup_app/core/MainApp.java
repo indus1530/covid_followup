@@ -20,6 +20,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import edu.aku.covid_followup_app.contracts.FormsContract;
+import edu.aku.covid_followup_app.contracts.MembersContract;
 import edu.aku.covid_followup_app.contracts.PersonalContract;
 import edu.aku.covid_followup_app.other.TypefaceUtil;
 
@@ -44,6 +45,7 @@ public class MainApp extends Application {
     public static String DIST_ID;
     public static FormsContract fc;
     public static PersonalContract pc;
+    public static MembersContract member;
 
     public static SharedPreferences sharedPref;
     public static String userEmail = "0000";

@@ -3,9 +3,6 @@ package edu.aku.covid_followup_app.activities.ui;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
@@ -33,15 +30,15 @@ import edu.aku.covid_followup_app.core.MainApp;
 import edu.aku.covid_followup_app.databinding.ActivitySectionPABinding;
 import edu.aku.covid_followup_app.utils.WarningActivityInterface;
 
-import static edu.aku.covid_followup_app.CONSTANTS.NASAL_TAKEN;
 import static edu.aku.covid_followup_app.CONSTANTS.PERSONAL_END;
+import static edu.aku.covid_followup_app.core.MainApp.member;
 import static edu.aku.covid_followup_app.core.MainApp.pc;
 import static edu.aku.covid_followup_app.utils.OtherUtilsKt.openWarningActivity;
 
 public class SectionPAActivity extends AppCompatActivity implements WarningActivityInterface {
 
     ActivitySectionPABinding bi;
-    private MembersContract member;
+    //private MembersContract member;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +54,15 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         bi.pa03.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrppa03));
 
-        bi.pa05.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrppa05));
+        bi.pa05.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVpa06));
 
-        bi.pa07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.pa07b.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVpa08);
-                Clear.clearAllFields(bi.fldGrpCVpa0801);
-            }
-        }));
+        bi.pa07.setOnCheckedChangeListener((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpCVpa08);
+            //Clear.clearAllFields(bi.fldGrpCVpa0801);
+            Clear.clearAllFields(bi.fldGrpCVpa9a);
+        });
 
-        bi.pa08n.addTextChangedListener(new TextWatcher() {
+        /*bi.pa08n.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -102,7 +98,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
             }
 
-        });
+        });*/
 
         bi.pa01.setText(member.getMemberid());
         bi.pa02.setText(member.getMembername());
@@ -125,9 +121,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
             SaveDraft();
             if (UpdateDB()) {
                 finish();
-                if (bi.pa031.isChecked())
-                    startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
-                //startActivity(new Intent(this, SectionPDActivity.class));
+                if (bi.pa031.isChecked()) startActivity(new Intent(this, SectionPDActivity.class));
             } else {
                 Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
             }
@@ -292,7 +286,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
 
         json.put("pa08n", bi.pa08n.getText().toString());
 
-        json.put("pa0801n", bi.pa0801n.getText().toString());
+        /*json.put("pa0801n", bi.pa0801n.getText().toString());
         json.put("pa0801ad", bi.pa0801ad.getText().toString());
 
         json.put("pa0802n", bi.pa0802n.getText().toString());
@@ -314,7 +308,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         json.put("pa0807ad", bi.pa0807ad.getText().toString());
 
         json.put("pa0808n", bi.pa0808n.getText().toString());
-        json.put("pa0808ad", bi.pa0808ad.getText().toString());
+        json.put("pa0808ad", bi.pa0808ad.getText().toString());*/
 
         json.put("pa9ad", bi.pa9ad.getText().toString());
         json.put("pa9am", bi.pa9am.getText().toString());

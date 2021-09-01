@@ -1,5 +1,6 @@
 package edu.aku.covid_followup_app.activities.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -19,7 +20,9 @@ import edu.aku.covid_followup_app.core.MainApp;
 import edu.aku.covid_followup_app.databinding.ActivitySectionPDBinding;
 import edu.aku.covid_followup_app.utils.JSONUtils;
 
+import static edu.aku.covid_followup_app.CONSTANTS.NASAL_TAKEN;
 import static edu.aku.covid_followup_app.CONSTANTS.PERSONAL_END;
+import static edu.aku.covid_followup_app.core.MainApp.member;
 import static edu.aku.covid_followup_app.core.MainApp.pc;
 import static edu.aku.covid_followup_app.utils.OtherUtilsKt.openWarningActivity;
 
@@ -55,8 +58,7 @@ public class SectionPDActivity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            //new JSONObject(pc.getsA()).get("ba01h5").equals("")
-            //startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
+            startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
         } else {
             Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
