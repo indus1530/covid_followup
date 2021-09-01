@@ -299,7 +299,7 @@ public class PersonalContract {
     }
 
     public static abstract class PersonalTable implements BaseColumns {
-        public static final String TABLE_NAME = "personals_r3";
+        public static final String TABLE_NAME = "personals_r4";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
