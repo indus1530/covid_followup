@@ -334,7 +334,7 @@ public class FormsContract implements Serializable {
 
     public static abstract class FormsTable implements BaseColumns {
 
-        public static final String TABLE_NAME = "forms_r3";
+        public static final String TABLE_NAME = "forms_r4";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
