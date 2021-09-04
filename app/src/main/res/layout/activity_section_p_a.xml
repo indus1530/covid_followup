@@ -64,6 +64,8 @@
                         android:hint="DD/MM/YYYY"
                         app:dateFormat="dd-MM-yyyy"
                         app:maxDate="CR_DATE"
+                        android:textColor="@color/colorPrimaryAlpha"
+                        android:textStyle="bold"
                         app:minDate="01/01/2020" />
 
                 </LinearLayout>
@@ -131,6 +133,7 @@
                             android:id="@+id/pa02"
                             style="@style/EditTextAlpha"
                             android:layout_gravity="center_vertical"
+                            android:gravity="center"
                             android:enabled="false"
                             android:hint="@string/name" />
 
