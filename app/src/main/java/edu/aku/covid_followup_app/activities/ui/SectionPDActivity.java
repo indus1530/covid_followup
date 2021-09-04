@@ -64,12 +64,29 @@ public class SectionPDActivity extends AppCompatActivity {
 
 
     public void setMinMonth(CharSequence s, int i, int i1, int i2) {
-        if (TextUtils.isEmpty(bi.pd08d2y.getText()) || TextUtils.isEmpty(bi.pd08d1m.getText()))
+        if (TextUtils.isEmpty(bi.pd08d1y.getText())
+                || TextUtils.isEmpty(bi.pd08d2y.getText())
+                || TextUtils.isEmpty(bi.pd08d1m.getText()))
             return;
         bi.pd08d2m.setText("");
         bi.pd08d2d.setText("");
         if (Integer.parseInt(bi.pd08d2y.getText().toString()) == Integer.parseInt(bi.pd08d1y.getText().toString())) {
             bi.pd08d2m.setMinvalue(Float.parseFloat(bi.pd08d1m.getText().toString()));
+        }
+    }
+
+
+    public void setMinDay(CharSequence s, int i, int i1, int i2) {
+        if (TextUtils.isEmpty(bi.pd08d1y.getText())
+                || TextUtils.isEmpty(bi.pd08d1m.getText())
+                || TextUtils.isEmpty(bi.pd08d1d.getText())
+                || TextUtils.isEmpty(bi.pd08d2y.getText())
+                || TextUtils.isEmpty(bi.pd08d2m.getText()))
+            return;
+        bi.pd08d2d.setText("");
+        if ((Integer.parseInt(bi.pd08d1y.getText().toString()) == Integer.parseInt(bi.pd08d2y.getText().toString()))
+                && (Integer.parseInt(bi.pd08d1m.getText().toString()) == Integer.parseInt(bi.pd08d2m.getText().toString()))) {
+            bi.pd08d2d.setMinvalue(Float.parseFloat(bi.pd08d1d.getText().toString()));
         }
     }
 
