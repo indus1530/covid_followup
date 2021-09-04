@@ -2,6 +2,7 @@ package edu.aku.covid_followup_app.activities.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,6 +50,27 @@ public class SectionPDActivity extends AppCompatActivity {
         bi.pd0897.setOnCheckedChangeListener((compoundButton, b) -> Clear.clearAllFields(bi.llpd08d2, !b));
 
 
+    }
+
+
+    public void setMinYear(CharSequence s, int i, int i1, int i2) {
+        if (TextUtils.isEmpty(bi.pd08d1y.getText())) return;
+        Clear.clearAllFields(bi.fldGrpCVpd08d2);
+        bi.pd08d2y.setMinvalue(Float.parseFloat(bi.pd08d1y.getText().toString()));
+                /*if (Integer.parseInt(bi.pd08d2y.getText().toString()) == Integer.parseInt(bi.pd08d1y.getText().toString())) {
+                    bi.pd08d2m.setMaxvalue(Float.parseFloat(bi.pd08d1m.getText().toString()));
+                }*/
+    }
+
+
+    public void setMinMonth(CharSequence s, int i, int i1, int i2) {
+        if (TextUtils.isEmpty(bi.pd08d2y.getText()) || TextUtils.isEmpty(bi.pd08d1m.getText()))
+            return;
+        bi.pd08d2m.setText("");
+        bi.pd08d2d.setText("");
+        if (Integer.parseInt(bi.pd08d2y.getText().toString()) == Integer.parseInt(bi.pd08d1y.getText().toString())) {
+            bi.pd08d2m.setMinvalue(Float.parseFloat(bi.pd08d1m.getText().toString()));
+        }
     }
 
 
