@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -49,6 +50,8 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     }
 
     private void setupContentUI() {
+
+        bi.pa9ay.setMaxvalue(Calendar.getInstance().get(Calendar.YEAR));
 
         member = (MembersContract) getIntent().getSerializableExtra(CONSTANTS.MEMBER_INFO);
 
