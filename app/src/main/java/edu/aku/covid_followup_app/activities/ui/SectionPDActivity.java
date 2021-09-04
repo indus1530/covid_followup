@@ -40,12 +40,15 @@ public class SectionPDActivity extends AppCompatActivity {
 
 
     private void setupSkips() {
-        bi.pd0897.setOnCheckedChangeListener((compoundButton, b) -> Clear.clearAllFields(bi.llpd08d2, !b));
         bi.pd01.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.llpd01));
         bi.pd06.setOnCheckedChangeListener((radioGroup, i) -> {
             Clear.clearAllFields(bi.llpd06);
             Clear.clearAllFields(bi.fldGrpCVpd12);
         });
+
+        bi.pd0897.setOnCheckedChangeListener((compoundButton, b) -> Clear.clearAllFields(bi.llpd08d2, !b));
+
+
     }
 
 
