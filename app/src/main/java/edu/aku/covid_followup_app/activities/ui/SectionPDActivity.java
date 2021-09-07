@@ -87,6 +87,8 @@ public class SectionPDActivity extends AppCompatActivity {
         if ((Integer.parseInt(bi.pd08d1y.getText().toString()) == Integer.parseInt(bi.pd08d2y.getText().toString()))
                 && (Integer.parseInt(bi.pd08d1m.getText().toString()) == Integer.parseInt(bi.pd08d2m.getText().toString()))) {
             bi.pd08d2d.setMinvalue(Float.parseFloat(bi.pd08d1d.getText().toString()));
+        } else {
+            bi.pd08d2d.setMinvalue(1);
         }
     }
 
