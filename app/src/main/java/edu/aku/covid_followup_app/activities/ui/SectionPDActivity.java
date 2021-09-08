@@ -104,7 +104,7 @@ public class SectionPDActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, SectionPCActivity.class).putExtra(NASAL_TAKEN, member.getNasal()));
         } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "SORRY!! DB Not Updated", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1160,7 +1160,7 @@
                                 android:hint="####"
                                 android:maxLength="4"
                                 app:maxValue="2021"
-                                app:minValue="2020"
+                                app:minValue="2021"
                                 app:type="range" />
 
                         </LinearLayout>
@@ -1267,7 +1267,7 @@
                                 android:hint="####"
                                 android:maxLength="4"
                                 app:maxValue="2021"
-                                app:minValue="2020"
+                                app:minValue="2021"
                                 app:type="range" />
 
                         </LinearLayout>
