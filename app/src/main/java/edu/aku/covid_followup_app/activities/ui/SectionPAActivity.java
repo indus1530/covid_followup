@@ -122,14 +122,14 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
         if (!formValidation()) return;
         try {
             SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                if (bi.pa031.isChecked()) startActivity(new Intent(this, SectionPDActivity.class));
-            } else {
-                Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
-            }
-        } catch (Exception e) {
+        } catch (JSONException e) {
             e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            if (bi.pa031.isChecked()) startActivity(new Intent(this, SectionPDActivity.class));
+        } else {
+            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -325,8 +325,7 @@ public class SectionPAActivity extends AppCompatActivity implements WarningActiv
     }
 
     private boolean formValidation() {
-        if (!Validator.emptyCheckingContainer(this, bi.fldGrpSectionPA))
-            return false;
+        if (!Validator.emptyCheckingContainer(this, bi.fldGrpSectionPA)) return false;
 
         if (bi.pa0201.isChecked() && bi.pa033.isChecked()) {
             Snackbar.make(findViewById(android.R.id.content), "Invalid Response :Select Member is Respondent in PA02A", Snackbar.LENGTH_LONG).setTextColor(Color.WHITE)
