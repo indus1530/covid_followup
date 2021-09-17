@@ -169,63 +169,55 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
         customQuery.setText("Custom Query");
         customQuery.setBackgroundColor(Color.parseColor("#BAE7F6"));
         mainLayout.addView(customQuery);
-        customQuery.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //set drop down to custom Query
-                indexInfo.isCustomQuery = true;
-                secondrow.setVisibility(View.GONE);
-                spinnertable.setVisibility(View.GONE);
-                help.setVisibility(View.GONE);
-                customquerytext.setVisibility(View.VISIBLE);
-                submitQuery.setVisibility(View.VISIBLE);
-                select_table.setSelection(0);
-                customQuery.setVisibility(View.GONE);
-            }
+        customQuery.setOnClickListener(v -> {
+            //set drop down to custom Query
+            indexInfo.isCustomQuery = true;
+            secondrow.setVisibility(View.GONE);
+            spinnertable.setVisibility(View.GONE);
+            help.setVisibility(View.GONE);
+            customquerytext.setVisibility(View.VISIBLE);
+            submitQuery.setVisibility(View.VISIBLE);
+            select_table.setSelection(0);
+            customQuery.setVisibility(View.GONE);
         });
 
 
         //when user enter a custom query in text view and clicks on submit query button
         //display results in tablelayout
-        submitQuery.setOnClickListener(new OnClickListener() {
+        submitQuery.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
+            tableLayout.removeAllViews();
+            customQuery.setVisibility(View.GONE);
 
-                tableLayout.removeAllViews();
-                customQuery.setVisibility(View.GONE);
+            ArrayList<Cursor> alc2;
+            String Query10 = customquerytext.getText().toString();
+            Log.d("query", Query10);
+            //pass the query to getdata method and get results
+            alc2 = dbm.getData(Query10);
+            final Cursor c4 = alc2.get(0);
+            Cursor Message2 = alc2.get(1);
+            Message2.moveToLast();
 
-                ArrayList<Cursor> alc2;
-                String Query10 = customquerytext.getText().toString();
-                Log.d("query", Query10);
-                //pass the query to getdata method and get results
-                alc2 = dbm.getData(Query10);
-                final Cursor c4 = alc2.get(0);
-                Cursor Message2 = alc2.get(1);
-                Message2.moveToLast();
+            //if the query returns results display the results in table layout
+            if (Message2.getString(0).equalsIgnoreCase("Success")) {
 
-                //if the query returns results display the results in table layout
-                if (Message2.getString(0).equalsIgnoreCase("Success")) {
-
-                    tvmessage.setBackgroundColor(Color.parseColor("#2ecc71"));
-                    if (c4 != null) {
-                        tvmessage.setText("Queru Executed successfully.Number of rows returned :" + c4.getCount());
-                        if (c4.getCount() > 0) {
-                            indexInfo.maincursor = c4;
-                            refreshTable(1);
-                        }
-                    } else {
-                        tvmessage.setText("Queru Executed successfully");
+                tvmessage.setBackgroundColor(Color.parseColor("#2ecc71"));
+                if (c4 != null) {
+                    tvmessage.setText("Queru Executed successfully.Number of rows returned :" + c4.getCount());
+                    if (c4.getCount() > 0) {
+                        indexInfo.maincursor = c4;
                         refreshTable(1);
                     }
-
                 } else {
-                    //if there is any error we displayed the error message at the bottom of the screen
-                    tvmessage.setBackgroundColor(Color.parseColor("#e74c3c"));
-                    tvmessage.setText("Error:" + Message2.getString(0));
-
+                    tvmessage.setText("Queru Executed successfully");
+                    refreshTable(1);
                 }
+
+            } else {
+                //if there is any error we displayed the error message at the bottom of the screen
+                tvmessage.setBackgroundColor(Color.parseColor("#e74c3c"));
+                tvmessage.setText("Error:" + Message2.getString(0));
+
             }
         });
         //layout parameters for each row in the table
